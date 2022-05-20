@@ -2,9 +2,8 @@ import NextLink from 'next/link'
 import Image from 'next/image'
 import { Box, Text, LinkBox, LinkOverlay } from '@chakra-ui/react'
 import { Global } from '@emotion/react'
-// [0].fields.thumbnail.fields.file.details.image.width
+
 export const GridItem = ({ children, href, title, thumbnail }) => {
-  console.log(thumbnail)
   return (
     <Box w="100%" algin="center">
       <LinkBox cursor="pointer">
@@ -18,7 +17,9 @@ export const GridItem = ({ children, href, title, thumbnail }) => {
           loading="lazy"
         />
         <LinkOverlay href={href} target="_blank">
-          <Text mt={2}>{title}</Text>
+          <Text mt={2} fontSize={30}>
+            {title}
+          </Text>
         </LinkOverlay>
         <Text fontSize={14}>{children}</Text>
       </LinkBox>
@@ -26,7 +27,7 @@ export const GridItem = ({ children, href, title, thumbnail }) => {
   )
 }
 
-export const WorkGridItem = ({ children, slug, title, thumbnail }) => (
+export const ProjectGridItem = ({ children, slug, title, thumbnail }) => (
   <Box w="100%" align="center">
     <NextLink href={'/projects/' + slug}>
       <LinkBox cursor="pointer">
@@ -38,11 +39,11 @@ export const WorkGridItem = ({ children, slug, title, thumbnail }) => (
           className="grid-item-thumbnail"
         />
         <LinkOverlay href={'/projects/' + slug}>
-          <Text mt={2} fontSize={20}>
+          <Text my={2} size="h3">
             {title}
           </Text>
         </LinkOverlay>
-        <Text fontSize={14}>{children}</Text>
+        <Text>{children}</Text>
       </LinkBox>
     </NextLink>
   </Box>

@@ -16,7 +16,7 @@ const Posts = ({ posts }) => {
   return (
     <Layout title="Posts">
       <Container pt={3}>
-        <SubHeading pageTitle="Posts" subTitle="AAAAAAAAAA" />
+        <SubHeading pageTitle="Posts" />
         <SimpleGrid columns={1} gap={6}>
           {posts.map(post => (
             <Section key={post.sys.id}>

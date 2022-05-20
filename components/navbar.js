@@ -1,4 +1,3 @@
-import Logo from './logo'
 import NextLink from 'next/link'
 import {
   Container,
@@ -11,24 +10,15 @@ import {
   MenuItem,
   MenuList,
   MenuButton,
-  IconButton,
-  useColorModeValue
+  IconButton
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
-import ThemeToggleButton from './theme-toggle-button'
+import { AiFillHome } from 'react-icons/ai'
 
-const LinkItem = ({ href, path, children }) => {
-  const active = path === href
-  const inactiveColor = useColorModeValue('gray.200', 'whiteAlpha.900')
+const LinkItem = ({ href, children }) => {
   return (
     <NextLink href={href}>
-      <Link
-        p={2}
-        bg={active ? 'orange' : undefined}
-        color={active ? '#202023' : inactiveColor}
-      >
-        {children}
-      </Link>
+      <Link p={2}>{children}</Link>
     </NextLink>
   )
 }
@@ -40,23 +30,21 @@ const Navbar = props => {
       position="fixed"
       as="nav"
       w="100%"
-      bg={useColorModeValue('#20202380', '#20202380')}
       style={{ backdropFilter: 'blur(10px)' }}
       zIndex={1}
       {...props}
     >
-      <Container
+      <Box
         display="flex"
         p={2}
-        maxW="container.md"
         wrap="wrap"
         align="center"
         justify="space-between"
       >
-        <Flex alignItems="center" mr={5}>
-          <Heading as="h1" size="lg" letterSpacing={'tighter'}>
-            <Logo />
-          </Heading>
+        <Flex align="center" mx={5}>
+          <Link href="/">
+            <IconButton icon={<AiFillHome />} variant="unstyled" size="lg" />
+          </Link>
         </Flex>
         <Stack
           direction={{ base: 'column', md: 'row' }}
@@ -67,7 +55,7 @@ const Navbar = props => {
           mt={{ base: 4, md: 0 }}
         >
           <LinkItem href="/about-me" path={path}>
-            About Me
+            About
           </LinkItem>
           <LinkItem href="/resume" path={path}>
             Resume
@@ -83,14 +71,14 @@ const Navbar = props => {
           </LinkItem>
         </Stack>
         <Box flex={1} align="right">
-          <ThemeToggleButton />
           <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
             <Menu isLazy id="navbar-menu">
               <MenuButton
                 as={IconButton}
                 icon={<HamburgerIcon />}
-                variant="outline"
                 aria-label="Options"
+                variant="unstyled"
+                size="lg"
               />
               <MenuList>
                 <NextLink href="/" passHref>
@@ -115,7 +103,7 @@ const Navbar = props => {
             </Menu>
           </Box>
         </Box>
-      </Container>
+      </Box>
     </Box>
   )
 }

@@ -1,21 +1,12 @@
 import { extendTheme } from '@chakra-ui/react'
-import { mode } from '@chakra-ui/theme-tools'
-
-const styles = {
-  global: props => ({
-    body: {
-      bg: mode('#f0e7db', '#202023')(props)
-    }
-  })
-}
+import chakraTheme from '@chakra-ui/theme'
 
 const components = {
   Heading: {
     variants: {
       'section-title': {
-        textDecoration: 'underline',
-        fontSize: 20,
-        textUnderlineOffset: 6,
+        fontSize: '4xl',
+        fontWeight: 'bold',
         textDecorationColor: '#525252',
         marginTop: 3,
         marginBottom: 4
@@ -28,7 +19,22 @@ const components = {
     }
   },
   Text: {
-    variants: {
+    baseStyle: {
+      fontSize: 'lg'
+    },
+    sizes: {
+      h1: {
+        fontSize: '5xl',
+        fontWeight: 'bold'
+      },
+      h2: {
+        fontSize: '4xl',
+        fontWeight: 'bold'
+      },
+      h3: {
+        fontSize: '3xl',
+        fontWeight: 'bold'
+      },
       'sub-title': {
         fontSize: 20,
         marginBottom: 2
@@ -36,10 +42,9 @@ const components = {
     }
   },
   Link: {
-    baseStyle: props => ({
-      color: mode('#3d7aed', '#ff63c3')(props),
-      textUnderlineOffset: 3
-    })
+    baseStyle: {
+      textDecoration: 'none'
+    }
   },
   Button: {
     baseStyle: {
@@ -54,24 +59,22 @@ const components = {
 }
 
 const fonts = {
-  heading: 'M PLUS Rounded 1c'
+  ...chakraTheme.fonts,
+  body: "'PT Sans', sans-serif",
+  heading: "'PT Sans', sans-serif"
 }
 
 const colors = {
   glassTeal: '#88ccca'
 }
 
-const config = {
-  initialColorMode: 'dark',
-  useSystemColorMode: 'true'
+const overrides = {
+  ...chakraTheme,
+  components,
+  fonts,
+  colors
 }
 
-const theme = extendTheme({
-  config,
-  styles,
-  components,
-  colors,
-  fonts
-})
+const theme = extendTheme(overrides)
 
 export default theme
