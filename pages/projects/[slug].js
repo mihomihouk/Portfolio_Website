@@ -1,11 +1,11 @@
-import { Container, Badge, Link, List, ListItem } from '@chakra-ui/react'
+import { Box, Badge, Link, List, ListItem, Text } from '@chakra-ui/react'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { Title, WorkImage, Meta } from '../../components/work'
 import Paragraph from '../../components/paragraph'
 import Layout from '../../components/layouts/article'
-import * as contentful from 'contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { client } from '../../libs/client'
+import Section from '../../components/section'
 
 export const getStaticPaths = async () => {
   const projects = await client.getEntries({
@@ -32,39 +32,57 @@ export const getStaticProps = async context => {
 }
 
 const Work = props => {
-  console.log(props)
   return (
     <Layout title="code-lesson">
-      <Container pt={6}>
-        <Title>
-          {props.title}
-          <Badge>{props.date}</Badge>
-        </Title>
-        <WorkImage
-          src={`http:${props.thumbnail.fields.file.url}`}
-          alt="project.image"
-        />
-        <Paragraph>{props.abstract}</Paragraph>
-        <List ml={4} my={4}>
-          <ListItem>
-            <Meta>Website</Meta>
-            <Link href={props.url}>
-              <ExternalLinkIcon mx="2px" />
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Meta>Stack</Meta>
-            <span>{props.stack}</span>
-          </ListItem>
-          <ListItem>
-            <Meta>GitHub</Meta>
-            <Link href={props.github}>
-              <ExternalLinkIcon mx="2px" />
-            </Link>
-          </ListItem>
-        </List>
-        <Paragraph>{documentToReactComponents(props.description)}</Paragraph>
-      </Container>
+      <Title>
+        {props.title}
+        <Badge ml={2}>{props.date}</Badge>
+      </Title>
+      <Box bg="gray.200" borderRadius="24px" mt={2}>
+        <Box py={6} px={6}>
+          <WorkImage
+            src={`http:${props.thumbnail.fields.file.url}`}
+            alt="project.image"
+          />
+          <Section>
+            <Paragraph>
+              <Text size="h2">{props.title}</Text>
+              <Text>{props.abstract}</Text>
+            </Paragraph>
+            <Box ml={4} my={4} display="flex" align="center">
+              <Meta>Stack</Meta>
+              <Text display="inline-block" size="h6">
+                {props.stack}
+              </Text>
+            </Box>
+          </Section>
+          <Section delay={0.2}>
+            <Paragraph>
+              <Text size="h3">What I worked on</Text>
+              <Text>{documentToReactComponents(props.description)}</Text>
+            </Paragraph>
+          </Section>
+          <Section delay={0.4}>
+            <Paragraph>
+              <Text size="h3">Links</Text>
+              <List>
+                <ListItem>
+                  <Meta>Website</Meta>
+                  <Link href={props.url}>
+                    <ExternalLinkIcon mx="2px" />
+                  </Link>
+                </ListItem>
+                <ListItem>
+                  <Meta>GitHub</Meta>
+                  <Link href={props.github}>
+                    <ExternalLinkIcon mx="2px" />
+                  </Link>
+                </ListItem>
+              </List>
+            </Paragraph>
+          </Section>
+        </Box>
+      </Box>
     </Layout>
   )
 }
