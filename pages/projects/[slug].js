@@ -5,7 +5,7 @@ import Paragraph from '../../components/Paragraph'
 import Layout from '../../components/layouts/Layout'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { client } from '../../libs/client'
-import Section from '../../components/Section'
+import { Section } from '../../components/Section'
 import { Skelton } from '../../components/Skelton'
 
 export const getStaticPaths = async () => {
