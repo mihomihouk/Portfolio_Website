@@ -1,5 +1,5 @@
 import { Box, SimpleGrid } from '@chakra-ui/react'
-import Section from '../../components/Section'
+import { Section } from '../../components/Section'
 import { ProjectGridItem } from '../../components/GridItem'
 import Layout from '../../components/layouts/Layout'
 import PageTitle from '../../components/PageTitle'

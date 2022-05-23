@@ -7,7 +7,7 @@ import { IoSchoolSharp } from 'react-icons/io5'
 import { MdHistory } from 'react-icons/md'
 import { FaLaptopCode } from 'react-icons/fa'
 import { GiMeal } from 'react-icons/gi'
-import Section from '../components/Section'
+import { Section } from '../components/Section'
 import SectionHeading from '../components/SectionHeading'
 import { Heading } from '@chakra-ui/react'
 
