@@ -15,7 +15,11 @@ import {
 } from '@chakra-ui/react'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import Layout from '../components/layouts/Layout'
+<<<<<<< HEAD
 import { Section } from '../components/Section'
+=======
+import {Section from '../components/Section'
+>>>>>>> 60034529c4a0f80f37a20d9153ae97ae38fd7f55
 import Paragraph from '../components/Paragraph'
 import { client } from '../libs/client'
 import { ProjectGridItem } from '../components/GridItem'
