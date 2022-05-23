@@ -6,6 +6,7 @@ import Layout from '../../components/layouts/Layout'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { client } from '../../libs/client'
 import Section from '../../components/Section'
+import { Skelton } from '../../components/Skelton'
 
 export const getStaticPaths = async () => {
   const projects = await client.getEntries({
@@ -17,7 +18,7 @@ export const getStaticPaths = async () => {
     }
   }))
   return {
-    fallback: false,
+    fallback: true,
     paths
   }
 }
@@ -35,6 +36,7 @@ export const getStaticProps = async context => {
 }
 
 const Project = props => {
+  if (!props) return <Skelton />
   return (
     <Layout title="code-lesson">
       <Title>
