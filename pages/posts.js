@@ -1,6 +1,6 @@
 import { Box, SimpleGrid } from '@chakra-ui/react'
 import Layout from '../components/layouts/Layout'
-import Section from '../components/Section'
+import { Section } from '../components/Section'
 import { GridItem } from '../components/GridItem'
 import PageTitle from '../components/PageTitle'
 import { client } from '../libs/client'

@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react'
 import PageTitle from '../components/PageTitle'
 import Layout from '../components/layouts/Layout'
-import Section from '../components/Section'
+import { Section } from '../components/Section'
 import { useForm } from '../components/hooks/useForm'
 import axios from 'axios'
 // import ReCAPTCHA from 'react-google-recaptcha-v3'
