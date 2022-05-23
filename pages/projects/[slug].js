@@ -28,7 +28,10 @@ export const getStaticProps = async context => {
     limit: 1,
     'fields.slug': context.params.slug
   })
-  return { props: { ...project?.items?.[0]?.fields } }
+  return {
+    props: { ...project?.items?.[0]?.fields },
+    revalidate: 1
+  }
 }
 
 const Project = props => {
