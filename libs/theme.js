@@ -35,6 +35,9 @@ const components = {
         fontSize: '3xl',
         fontWeight: 'bold'
       },
+      h6: {
+        fontSize: 'md'
+      },
       'sub-title': {
         fontSize: 20,
         marginBottom: 2

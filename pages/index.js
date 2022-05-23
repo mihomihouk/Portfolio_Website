@@ -14,11 +14,11 @@ import {
   SimpleGrid
 } from '@chakra-ui/react'
 import { ChevronRightIcon } from '@chakra-ui/icons'
-import Layout from '../components/layouts/article'
-import Section from '../components/section'
-import Paragraph from '../components/paragraph'
+import Layout from '../components/layouts/Layout'
+import Section from '../components/Section'
+import Paragraph from '../components/Paragraph'
 import { client } from '../libs/client'
-import { ProjectGridItem } from '../components/grid-item'
+import { ProjectGridItem } from '../components/Grid-item'
 
 import { IoLogoTwitter, IoLogoGithub } from 'react-icons/io5'
 import { FaDev } from 'react-icons/fa'
@@ -96,6 +96,7 @@ const Page = ({ projects }) => {
           </ListItem>
         </List>
       </Box>
+
       <Box bg="gray.200" borderRadius="24px">
         <Box pt={6} px={6}>
           <Section>
