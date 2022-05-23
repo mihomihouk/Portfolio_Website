@@ -1,11 +1,11 @@
 import { Box, Badge, Link, List, ListItem, Text } from '@chakra-ui/react'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
-import { Title, WorkImage, Meta } from '../../components/work'
-import Paragraph from '../../components/paragraph'
-import Layout from '../../components/layouts/article'
+import { Title, ProjectImage, Meta } from '../../components/Project'
+import Paragraph from '../../components/Paragraph'
+import Layout from '../../components/layouts/Layout'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { client } from '../../libs/client'
-import Section from '../../components/section'
+import Section from '../../components/Section'
 
 export const getStaticPaths = async () => {
   const projects = await client.getEntries({
@@ -31,7 +31,7 @@ export const getStaticProps = async context => {
   return { props: { ...project?.items?.[0]?.fields } }
 }
 
-const Work = props => {
+const Project = props => {
   return (
     <Layout title="code-lesson">
       <Title>
@@ -40,7 +40,7 @@ const Work = props => {
       </Title>
       <Box bg="gray.200" borderRadius="24px" mt={2}>
         <Box py={6} px={6}>
-          <WorkImage
+          <ProjectImage
             src={`http:${props.thumbnail.fields.file.url}`}
             alt="project.image"
           />
@@ -59,9 +59,10 @@ const Work = props => {
           <Section delay={0.2}>
             <Paragraph>
               <Text size="h3">What I worked on</Text>
-              <Text>{documentToReactComponents(props.description)}</Text>
+              <Text pl={6}>{documentToReactComponents(props.description)}</Text>
             </Paragraph>
           </Section>
+
           <Section delay={0.4}>
             <Paragraph>
               <Text size="h3">Links</Text>
@@ -78,6 +79,14 @@ const Work = props => {
                     <ExternalLinkIcon mx="2px" />
                   </Link>
                 </ListItem>
+                {props.articleUrl && (
+                  <ListItem>
+                    <Meta>Article</Meta>
+                    <Link href={props.articleUrl}>
+                      <ExternalLinkIcon mx="2px" />
+                    </Link>
+                  </ListItem>
+                )}
               </List>
             </Paragraph>
           </Section>
@@ -87,4 +96,4 @@ const Work = props => {
   )
 }
 
-export default Work
+export default Project

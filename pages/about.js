@@ -8,11 +8,11 @@ import {
   Link,
   Heading
 } from '@chakra-ui/react'
-import Layout from '../components/layouts/article'
+import Layout from '../components/layouts/Layout'
 import PageTitle from '../components/PageTitle'
 
-import Section from '../components/section'
-import Paragraph from '../components/paragraph'
+import Section from '../components/Section'
+import Paragraph from '../components/Paragraph'
 
 const About = () => {
   return (

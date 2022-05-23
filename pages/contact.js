@@ -12,9 +12,9 @@ import {
   FormHelperText,
   Text
 } from '@chakra-ui/react'
-import SubHeading from '../components/subHeading'
-import Layout from '../components/layouts/article'
-import Section from '../components/section'
+import PageTitle from '../components/PageTitle'
+import Layout from '../components/layouts/Layout'
+import Section from '../components/Section'
 import { useForm } from '../components/hooks/useForm'
 import axios from 'axios'
 // import ReCAPTCHA from 'react-google-recaptcha-v3'
@@ -72,7 +72,7 @@ const Profile = () => {
   return (
     <Layout>
       <Container pt={3}>
-        <SubHeading pageTitle="Contact" />
+        <PageTitle pageTitle="Contact" />
         {completeMessage ? (
           <Box
             textAlign="center"

@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import { Box, Icon, Text, Wrap, WrapItem, Stack } from '@chakra-ui/react'
 import { Link as Scroll } from 'react-scroll'
-import Layout from '../components/layouts/article'
+import Layout from '../components/layouts/Layout'
 import PageTitle from '../components/PageTitle'
 import { IoSchoolSharp } from 'react-icons/io5'
 import { MdHistory } from 'react-icons/md'
 import { FaLaptopCode } from 'react-icons/fa'
 import { GiMeal } from 'react-icons/gi'
-import Section from '../components/section'
-import SectionHeading from '../components/sectionHeading'
+import Section from '../components/Section'
+import SectionHeading from '../components/SectionHeading'
 import { Heading } from '@chakra-ui/react'
 
 //ResumeFormat
@@ -78,37 +78,37 @@ const programmingSkillsDetails = [
     id: 1,
     skill:
       'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg',
-    length: '6months'
+    length: '7months'
   },
   {
     id: 2,
     skill:
       'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg',
-    length: '6months'
+    length: '7months'
   },
   {
     id: 3,
     skill:
       'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg',
-    length: '5months'
+    length: '7months'
   },
   {
     id: 4,
     skill:
       'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg',
-    length: '5months'
+    length: '6months'
   },
   {
     id: 5,
     skill:
       'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original-wordmark.svg',
-    length: '4months'
+    length: '5months'
   },
   {
     id: 6,
     skill:
       'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain-wordmark.svg',
-    length: '1months'
+    length: '3months'
   },
   {
     id: 7,
@@ -116,9 +116,20 @@ const programmingSkillsDetails = [
       'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg',
     length: '2weeks'
   },
-  { id: 8, skill: './images/skills/strapi.png', length: '2weeks' },
-  { id: 9, skill: './images/skills/contentful.png', length: '2weeks' },
-  { id: 10, skill: './images/skills/agile.png', length: '2months' }
+  {
+    id: 8,
+    skill:
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-plain.svg',
+    length: '5month'
+  },
+  {
+    id: 9,
+    skill: './images/skills/chakra-ui.png',
+    length: '5month'
+  },
+  { id: 9, skill: './images/skills/strapi.png', length: '2weeks' },
+  { id: 10, skill: './images/skills/contentful.png', length: '2weeks' },
+  { id: 11, skill: './images/skills/agile.png', length: '2months' }
 ]
 
 const Resume = props => {
