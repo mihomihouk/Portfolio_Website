@@ -45,7 +45,7 @@ const Page = ({ projects }) => {
               </Text>
             </Box>
             <Image
-              src="/images/backgrounds/homepage.jpg"
+              src="/images/backgrounds/homepage.JPG"
               alt="Profile Image"
               width="70%"
               display="block"

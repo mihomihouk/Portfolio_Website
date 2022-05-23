@@ -28,7 +28,7 @@ const About = () => {
           borderRadius="24px"
         >
           <Box display={'flex'}>
-            <Image src="/images/abouts/anthropology.jpg" rounded="24px" />
+            <Image src="./images/abouts/anthropology.JPG" rounded="24px" />
           </Box>
           <Stack justifyContent="space-between" w="100%" p={{ base: 4, md: 2 }}>
             <Box pt={18} pl={3} my="auto">
