@@ -1,6 +1,6 @@
 import { Box, Divider, Heading } from '@chakra-ui/react'
 
-const SubHeading = ({ pageTitle }) => (
+const PageTitle = ({ pageTitle }) => (
   <Box align="center" mb={6} mt={4}>
     <Heading as="h2" size="3xl" alignItems="center" w="100%">
       {pageTitle}
@@ -9,4 +9,4 @@ const SubHeading = ({ pageTitle }) => (
   </Box>
 )
 
-export default SubHeading
+export default PageTitle

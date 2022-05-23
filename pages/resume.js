@@ -1,214 +1,252 @@
 import { useState } from 'react'
-import {
-  Box,
-  Container,
-  List,
-  ListIcon,
-  ListItem,
-  SimpleGrid,
-  Icon,
-  Text,
-  Divider,
-  Stack
-} from '@chakra-ui/react'
+import { Box, Icon, Text, Wrap, WrapItem, Stack } from '@chakra-ui/react'
 import { Link as Scroll } from 'react-scroll'
 import Layout from '../components/layouts/article'
-import SubHeading from '../components/subHeading'
+import PageTitle from '../components/PageTitle'
 import { IoSchoolSharp } from 'react-icons/io5'
 import { MdHistory } from 'react-icons/md'
 import { FaLaptopCode } from 'react-icons/fa'
 import { GiMeal } from 'react-icons/gi'
 import Section from '../components/section'
 import SectionHeading from '../components/sectionHeading'
+import { Heading } from '@chakra-ui/react'
 
-const Resume = props => {
-  const [selectedBullet, setSelectedBullet] = useState('')
-
-  const ResumeHeading = props => {
-    return (
-      <Box display="flex" flexDirection="column" pb={1}>
-        <Box
-          display="flex"
-          justifyContent="space-between"
-          align="center"
-          py={2}
-        >
+//ResumeFormat
+const ResumeFormat = props => {
+  return (
+    <Box display="flex" flexDirection="column" pb={1}>
+      <Box display="flex" justifyContent="space-between" align="center" py={2}>
+        {props.heading && (
           <Box display="flex">
-            <Box pt="7px" pr="10px">
-              <Box h="15px" w="15px" borderRadius="50%" bg="#ff5823"></Box>
-            </Box>
-            <Text py="2px" fontSize="16px">
-              {props.heading ? props.heading : ''}
+            <Text py="2px" size="h3">
+              {props.heading}
             </Text>
           </Box>
+        )}
 
-          {props.fromDate && props.toDate ? (
-            <Box
-              bg="#ff5823"
-              py="4px"
-              px="12px"
-              fontsize="14px"
-              borderRadius="14px"
-              color="white"
-            >
-              {props.fromDate + '-' + props.toDate}
-            </Box>
-          ) : (
-            <Box></Box>
-          )}
-        </Box>
-        <Box fontSize="14px" pl="25px">
-          <Text>{props.subHeading ? props.subHeading : ''}</Text>
-        </Box>
-        <Box fontSize="14px" textAlign="justify">
-          <Text>{props.description ? props.description : ''}</Text>
-        </Box>
+        {props.fromDate && props.toDate && (
+          <Box bg="#ff5823" px="12px" borderRadius="14px" color="white">
+            <Text pt={2.5}>{props.fromDate + '-' + props.toDate}</Text>
+          </Box>
+        )}
       </Box>
-    )
-  }
+      {props.subHeading && (
+        <Box pl="25px">
+          <Text>{props.subHeading}</Text>
+        </Box>
+      )}
+      {props.description && (
+        <Box textAlign="justify">
+          <Text>{props.description}</Text>
+        </Box>
+      )}
+      {props.image && (
+        <WrapItem key={props.id}>
+          <Stack align="center">
+            <Box>
+              <img src={props.image} width="100px" height="100px" />
+            </Box>
+            <Box>
+              <Text width="100%">{props.studyPeriod}</Text>
+            </Box>
+          </Stack>
+        </WrapItem>
+      )}
+    </Box>
+  )
+}
 
-  const resumeMenuList = [
-    {
-      label: 'Education',
-      logoSrc: <Icon as={IoSchoolSharp} />,
-      to: 'education'
-    },
-    { label: 'Work History', logoSrc: <Icon as={MdHistory} />, to: 'work' },
-    {
-      label: 'Programming Skills',
-      logoSrc: <Icon as={FaLaptopCode} />,
-      to: 'programming-skills'
-    },
-    { label: 'Interests', logoSrc: <Icon as={GiMeal} />, to: 'interests' }
-  ]
+// the left scroll menu list
+const resumeMenuList = [
+  {
+    label: 'Education',
+    logoSrc: <Icon as={IoSchoolSharp} />,
+    to: 'education'
+  },
+  { label: 'Work History', logoSrc: <Icon as={MdHistory} />, to: 'work' },
+  {
+    label: 'Programming Skills',
+    logoSrc: <Icon as={FaLaptopCode} />,
+    to: 'programming-skills'
+  },
+  { label: 'Interests', logoSrc: <Icon as={GiMeal} />, to: 'interests' }
+]
 
-  const programmingSkillsDetails = [
-    { skill: 'HTML', length: '6months' },
-    { skill: 'CSS', length: '6months' },
-    { skill: 'JavaScript', length: '5months' },
-    { skill: 'React', length: '5months' },
-    { skill: 'Next.js', length: '4months' },
-    { skill: 'Firebase', length: '1months' },
-    { skill: 'Typescript', length: '2weeks' }
-  ]
+//skill list
+const programmingSkillsDetails = [
+  {
+    id: 1,
+    skill:
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg',
+    length: '6months'
+  },
+  {
+    id: 2,
+    skill:
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg',
+    length: '6months'
+  },
+  {
+    id: 3,
+    skill:
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg',
+    length: '5months'
+  },
+  {
+    id: 4,
+    skill:
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg',
+    length: '5months'
+  },
+  {
+    id: 5,
+    skill:
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original-wordmark.svg',
+    length: '4months'
+  },
+  {
+    id: 6,
+    skill:
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain-wordmark.svg',
+    length: '1months'
+  },
+  {
+    id: 7,
+    skill:
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg',
+    length: '2weeks'
+  },
+  { id: 8, skill: './images/skills/strapi.png', length: '2weeks' },
+  { id: 9, skill: './images/skills/contentful.png', length: '2weeks' },
+  { id: 10, skill: './images/skills/agile.png', length: '2months' }
+]
 
+const Resume = props => {
   const resumeDetails = [
     <>
-      <Stack spacing={4}>
-        {/* eduction */}
-        <Section id="education">
-          <Stack spacing={6}>
-            <SectionHeading title="Education" />
-            <ResumeHeading
-              heading={'University......, Tokyo'}
-              subHeading={'BACHELOR OF INTERCULTURAL COMMUNICATION'}
-              fromDate={'2011'}
-              toDate={'2015'}
+      {/* eduction */}
+      <Section id="education">
+        <Stack spacing={6}>
+          <SectionHeading title="Education" />
+          <ResumeFormat
+            heading={'University......, Tokyo'}
+            subHeading={'BACHELOR OF INTERCULTURAL COMMUNICATION'}
+            fromDate={'2011'}
+            toDate={'2015'}
+          />
+          <ResumeFormat
+            heading={'University......, Tokyo'}
+            subHeading={'BACHELOR OF INTERCULTURAL COMMUNICATION'}
+            fromDate={'2011'}
+            toDate={'2015'}
+          />
+          <ResumeFormat
+            heading={'High School'}
+            subHeading={'BACHELOR OF INTERCULTURAL COMMUNICATION'}
+            fromDate={'2011'}
+            toDate={'2015'}
+          />
+        </Stack>
+      </Section>
+      ,{/* work experience */}
+      <Section delay={0.2} id="work">
+        <SectionHeading title="Work History" />
+        <Box mt="30px">
+          <Stack>
+            <ResumeFormat
+              heading={'Unemployed'}
+              subHeading={'CurrentlyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'}
+              fromDate={'March 2022'}
+              toDate={'present'}
             />
-            <ResumeHeading
-              heading={'University......, Tokyo'}
-              subHeading={'BACHELOR OF INTERCULTURAL COMMUNICATION'}
-              fromDate={'2011'}
-              toDate={'2015'}
+            <ResumeFormat
+              heading={'Unemployed'}
+              subHeading={'CurrentlyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'}
+              fromDate={'March 2022'}
+              toDate={'present'}
             />
-            <ResumeHeading
-              heading={'High School'}
-              subHeading={'BACHELOR OF INTERCULTURAL COMMUNICATION'}
-              fromDate={'2011'}
-              toDate={'2015'}
+            <ResumeFormat
+              heading={'Unemployed'}
+              subHeading={'CurrentlyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'}
+              fromDate={'March 2022'}
+              toDate={'present'}
             />
           </Stack>
-        </Section>
-        {/* work experience */}
-        <Section delay={0.2} id="work">
-          <SectionHeading title="Work History" />
-          <Box mt="30px">
-            <Box>
-              <ResumeHeading
-                heading={'Unemployed'}
-                subHeading={''}
-                fromDate={'March 2022'}
-                toDate={'present'}
-              />
-
-              <Box mt="10px" textAlign="justify" maxWidth="100%">
-                <Text>CurrentlyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</Text>
-              </Box>
-
-              <Box fontSize="12px">
-                <Text>- CurrentlyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</Text>
-                <Text>- CurrentlyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</Text>
-                <Text>- CurrentlyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</Text>
-              </Box>
-            </Box>
-          </Box>
-        </Section>
-
-        {/* programming skill */}
-        <Section delay={0.4} id="programming-skills">
-          <SectionHeading title="Programming Skill" />
-          <List>
-            {programmingSkillsDetails.map((skill, index) => (
-              <ResumeHeading
-                key={index}
-                heading={skill.skill}
-                subHeading={skill.length}
-              />
-            ))}
-          </List>
-        </Section>
-
-        {/* interest */}
-        <Section delay={0.6} id="interests">
-          <SectionHeading title="Interests" />
-          <Box>
-            <ResumeHeading
-              heading="Teaching"
-              description="Over the past one year, I have developed my teaching skill by undertaking one-to-one online Japanese language sessions."
+        </Box>
+      </Section>
+      ,{/* programming skill */}
+      <Section delay={0.4} id="programming-skills">
+        <SectionHeading title="Programming Skill" />
+        <Wrap display="flex" spacing="30px" align="center" py={2}>
+          {programmingSkillsDetails.map(skill => (
+            <ResumeFormat
+              id={skill.id}
+              image={skill.skill}
+              studyPeriod={skill.length}
             />
-            <ResumeHeading
-              heading="Cooking"
-              description="Over the past one year, I have developed my teaching skill by undertaking one-to-one online Japanese language sessions."
-            />
-            <ResumeHeading
-              heading="Comedy"
-              description="Over the past one year, I have developed my teaching skill by undertaking one-to-one online Japanese language sessions."
-            />
-          </Box>
-        </Section>
-      </Stack>
+          ))}
+        </Wrap>
+      </Section>
+      ,{/* interest */}
+      <Section delay={0.8} id="interests">
+        <SectionHeading title="Interests" />
+        <Box>
+          <ResumeFormat
+            heading="Teaching"
+            description="Over the past one year, I have developed my teaching skill by undertaking one-to-one online Japanese language sessions."
+          />
+          <ResumeFormat
+            heading="Cooking"
+            description="Over the past one year, I have developed my teaching skill by undertaking one-to-one online Japanese language sessions."
+          />
+          <ResumeFormat
+            heading="Comedy"
+            description="Over the past one year, I have developed my teaching skill by undertaking one-to-one online Japanese language sessions."
+          />
+        </Box>
+      </Section>
     </>
   ]
 
   return (
     <Layout>
-      <Container pt={3}>
-        <SubHeading pageTitle="Resume" subTitle="My formal Bio Details" />
-        <Box display="flex" position="relative">
-          <Box w="40%" px={2} pt={4}>
-            <Box>
-              {resumeMenuList.map((item, index) => (
-                <Scroll
-                  key={index}
-                  to={item.to}
-                  smooth={true}
-                  duration={600}
-                  offset={-100}
-                >
-                  <Box display="flex" pb={4} alignItems="center">
-                    <Text pr={2}>{item.logoSrc}</Text>
-                    <Text>{item.label}</Text>
-                  </Box>
-                </Scroll>
-              ))}
+      {/* the left scrollbar */}
+      <Stack
+        zIndex="4"
+        position="fixed"
+        pl={6}
+        bg="transparent"
+        display="flex"
+        direction="column"
+        width="15%"
+        height="100%"
+        justifyContent="center"
+      >
+        {resumeMenuList.map((item, index) => (
+          <Scroll
+            key={index}
+            to={item.to}
+            smooth={true}
+            duration={600}
+            offset={-100}
+          >
+            <Box display="flex" pb={4} alignItems="center">
+              <Text pr={2} size="h3">
+                {item.logoSrc}
+              </Text>
+              <Text>{item.label}</Text>
             </Box>
-          </Box>
-          <Divider orientation="vertical" px={2} />
-          <Box>
-            <Box>{resumeDetails.map(ResumeDetail => ResumeDetail)}</Box>
-          </Box>
+          </Scroll>
+        ))}
+      </Stack>
+      {/* Page Title */}
+      <PageTitle pageTitle="Resume" />
+      {/* main contents */}
+      <Box bg="gray.200" borderRadius="24px">
+        <Box py={6} width="70%" ml="auto" pr={2}>
+          {resumeDetails.map(ResumeDetail => ResumeDetail)}
         </Box>
-      </Container>
+      </Box>
     </Layout>
   )
 }
