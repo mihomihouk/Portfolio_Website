@@ -1,8 +1,8 @@
-import { Container, SimpleGrid } from '@chakra-ui/react'
-import Section from '../../components/section'
-import { ProjectGridItem } from '../../components/grid-item'
-import Layout from '../../components/layouts/article'
-import SubHeading from '../../components/subHeading'
+import { Box, SimpleGrid } from '@chakra-ui/react'
+import Section from '../../components/Section'
+import { ProjectGridItem } from '../../components/Grid-item'
+import Layout from '../../components/layouts/Layout'
+import PageTitle from '../../components/PageTitle'
 import { client } from '../../libs/client'
 
 export const getStaticProps = async () => {
@@ -15,23 +15,24 @@ export const getStaticProps = async () => {
 const Projects = ({ projects }) => {
   return (
     <Layout>
-      <Container pt={3}>
-        s
-        <SubHeading pageTitle="Projects" />
-        <SimpleGrid columns={1} gap={6}>
-          {projects.map(project => (
-            <Section key={project.sys.id}>
-              <ProjectGridItem
-                slug={project.fields.slug}
-                title={project.fields.title}
-                thumbnail={project.fields.thumbnail.fields.file}
-              >
-                {project.fields.abstract}
-              </ProjectGridItem>
-            </Section>
-          ))}
-        </SimpleGrid>
-      </Container>
+      <PageTitle pageTitle="Projects" />
+      <Box bg="gray.200" borderRadius="24px" mt={2}>
+        <Box py={6} px={6}>
+          <SimpleGrid columns={1} gap={6}>
+            {projects.map(project => (
+              <Section key={project.sys.id}>
+                <ProjectGridItem
+                  slug={project.fields.slug}
+                  title={project.fields.title}
+                  thumbnail={project.fields.thumbnail.fields.file}
+                >
+                  {project.fields.abstract}
+                </ProjectGridItem>
+              </Section>
+            ))}
+          </SimpleGrid>
+        </Box>
+      </Box>
     </Layout>
   )
 }

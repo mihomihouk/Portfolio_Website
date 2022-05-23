@@ -1,8 +1,8 @@
-import { Container, Heading, SimpleGrid } from '@chakra-ui/react'
-import Layout from '../components/layouts/article'
-import Section from '../components/section'
-import { GridItem } from '../components/grid-item'
-import SubHeading from '../components/subHeading'
+import { Box, SimpleGrid } from '@chakra-ui/react'
+import Layout from '../components/layouts/Layout'
+import Section from '../components/Section'
+import { GridItem } from '../components/Grid-item'
+import PageTitle from '../components/PageTitle'
 import { client } from '../libs/client'
 
 export const getStaticProps = async () => {
@@ -15,20 +15,22 @@ export const getStaticProps = async () => {
 const Posts = ({ posts }) => {
   return (
     <Layout title="Posts">
-      <Container pt={3}>
-        <SubHeading pageTitle="Posts" />
-        <SimpleGrid columns={1} gap={6}>
-          {posts.map(post => (
-            <Section key={post.sys.id}>
-              <GridItem
-                title={post.fields.title}
-                thumbnail={post.fields.thumbnail.fields.file}
-                href={post.fields.url}
-              />
-            </Section>
-          ))}
-        </SimpleGrid>
-      </Container>
+      <Box bg="gray.200" borderRadius="24px" mt={2}>
+        <Box py={6} px={6}>
+          <PageTitle pageTitle="Posts" />
+          <SimpleGrid columns={1} gap={6}>
+            {posts.map(post => (
+              <Section key={post.sys.id}>
+                <GridItem
+                  title={post.fields.title}
+                  thumbnail={post.fields.thumbnail.fields.file}
+                  href={post.fields.url}
+                />
+              </Section>
+            ))}
+          </SimpleGrid>
+        </Box>
+      </Box>
     </Layout>
   )
 }
