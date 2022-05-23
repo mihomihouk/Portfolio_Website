@@ -18,7 +18,7 @@ import Layout from '../components/layouts/Layout'
 import Section from '../components/Section'
 import Paragraph from '../components/Paragraph'
 import { client } from '../libs/client'
-import { ProjectGridItem } from '../components/Grid-item'
+import { ProjectGridItem } from '../components/GridItem'
 
 import { IoLogoTwitter, IoLogoGithub } from 'react-icons/io5'
 import { FaDev } from 'react-icons/fa'
