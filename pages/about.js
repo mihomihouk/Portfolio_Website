@@ -9,16 +9,16 @@ import {
   Heading
 } from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
-import SubHeading from '../components/subHeading'
+import PageTitle from '../components/PageTitle'
 
 import Section from '../components/section'
 import Paragraph from '../components/paragraph'
 
-const Profile = () => {
+const About = () => {
   return (
     <Layout>
       <Box width="100%" pt={3}>
-        <SubHeading pageTitle="About Me" />
+        <PageTitle pageTitle="About" />
         <SimpleGrid
           borderColor="white"
           borderWidth="1px"
@@ -80,4 +80,4 @@ const Profile = () => {
   )
 }
 
-export default Profile
+export default About
