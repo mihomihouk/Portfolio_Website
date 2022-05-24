@@ -1,44 +1,42 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import {
   Container,
   Box,
   Button,
   FormControl,
   FormLabel,
-  FormErrorMessage,
   Stack,
   Input,
   Textarea,
-  FormHelperText,
-  Text
+  FormHelperText
 } from '@chakra-ui/react'
 import PageTitle from '../components/PageTitle'
 import Layout from '../components/layouts/Layout'
 import { Section } from '../components/Section'
 import { useForm } from '../components/hooks/useForm'
 import axios from 'axios'
-// import ReCAPTCHA from 'react-google-recaptcha-v3'
-
-// const formId = process.env.FORM_SPARK_FORM_ID
+import ReCAPTCHA from 'react-google-recaptcha'
 
 const Profile = () => {
+  console.log('formspark', process.env.NEXT_PUBLIC_FORM_SPARK_FORM_ID)
+  console.log('sitekey', process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY)
   const email = useForm('')
   const name = useForm('')
   const message = useForm('')
   const [completeMessage, setCompleteMessage] = useState('')
-  // const [submitting, setSubmitting] = useState(false)
-  // const [recaptchaToken, setRecaptchaToken] = useState('')
-  // const recaptchaRef = useRef()
+  const [submitting, setSubmitting] = useState(false)
+  const [recaptchaToken, setRecaptchaToken] = useState('')
+  const reRef = useRef()
 
-  const formSparkUrl = `https://submit-form.com/oSQQnyBW`
+  const formSparkUrl = `https://submit-form.com/${process.env.NEXT_PUBLIC_FORM_SPARK_FORM_IDD}`
   const nameError = !name.value
   const emailError = !email.value
   const messageError = !message.value
 
-  console.log(process.env.FORMSPARK_FORM_ID)
   const handleSubmit = async e => {
     e.preventDefault()
     setSubmitting(true)
+
     await postSubmission()
     setSubmitting(false)
   }
@@ -47,7 +45,8 @@ const Profile = () => {
     const payload = {
       email: email.value,
       name: name.value,
-      message: message.value
+      message: message.value,
+      'g-recaptcha-response': recaptchaToken
     }
     try {
       const result = await axios.post(formSparkUrl, payload)
@@ -56,6 +55,7 @@ const Profile = () => {
         bg: 'green',
         text: 'Thanks, I will be in touch shortly.'
       })
+      reRef.current.reset()
     } catch (error) {
       console.log(error)
       setCompleteMessage({
@@ -65,9 +65,9 @@ const Profile = () => {
     }
   }
 
-  // const updateRecaptchaToken = token => {
-  //   setRecaptchaToken(token)
-  // }
+  const updateRecaptchaToken = token => {
+    setRecaptchaToken(token)
+  }
 
   return (
     <Layout>
@@ -108,11 +108,11 @@ const Profile = () => {
                   <FormHelperText>Message is required.</FormHelperText>
                 )}
               </FormControl>
-              {/* <ReCAPTCHA
-                ref={recaptchaRef}
-                sitekey={recaptchaKey}
+              <ReCAPTCHA
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                ref={reRef}
                 onChange={updateRecaptchaToken}
-              /> */}
+              />
 
               <Button
                 mt={4}
@@ -120,8 +120,9 @@ const Profile = () => {
                 variant="action"
                 colorScheme="orange"
                 onClick={handleSubmit}
+                disabled={submitting}
               >
-                Submit
+                {submitting ? 'Submitting...' : 'Submit'}
               </Button>
             </Stack>
           </Section>
