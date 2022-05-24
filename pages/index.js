@@ -27,7 +27,7 @@ export const getStaticProps = async () => {
   const res = await client.getEntries({
     content_type: 'projects'
   })
-  return { props: { projects: res.items } }
+  return { props: { projects: res.items }, revalidate: 1 }
 }
 
 const Page = ({ projects }) => {
