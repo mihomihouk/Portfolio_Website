@@ -6,6 +6,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { client } from '../../libs/client'
 import { Section } from '../../components/Section'
 import { Skelton } from '../../components/Skelton'
+import { useRouter } from 'next/router'
 
 export const getStaticPaths = async () => {
   const projects = await client.getEntries({
@@ -13,7 +14,7 @@ export const getStaticPaths = async () => {
   })
   const paths = projects.items.map(product => ({
     params: {
-      slug: product.fields.slug
+      slug: product?.fields?.slug
     }
   }))
   return {
@@ -35,69 +36,68 @@ export const getStaticProps = async context => {
 }
 
 const Project = props => {
-  if (!props) return <Skelton />
+  const router = useRouter()
+  if (router.isFallback) {
+    return <Skelton />
+  }
   return (
     <>
-      {props ? (
-        <Layout title="code-lesson">
-          <Title>
-            {props.title}
-            <Badge ml={2}>{props.date}</Badge>
-          </Title>
-          <Box bg="gray.200" borderRadius="24px" mt={2}>
-            <Box py={6} px={6}>
-              <ProjectImage
-                src={`http:${props.thumbnail.fields.file.url}`}
-                alt="project.image"
-              />
-              <Section>
-                <Text size="h2">{props.title}</Text>
+      <Layout title="code-lesson">
+        <Title>
+          {props.title}
+          <Badge ml={2}>{props.date}</Badge>
+        </Title>
+        <Box bg="gray.200" borderRadius="24px" mt={2}>
+          <Box py={6} px={6}>
+            <ProjectImage
+              src={`http:${props?.thumbnail?.fields?.file?.url}`}
+              alt="project.image"
+            />
+            <Section>
+              <Text size="h2">{props.title}</Text>
 
-                <Text>{props.abstract}</Text>
+              <Text>{props.abstract}</Text>
 
-                <Box ml={4} my={4} display="flex" align="center">
-                  <Meta>Stack</Meta>
-                  <Text display="inline-block" size="h6">
-                    {props.stack}
-                  </Text>
-                </Box>
-              </Section>
-              <Section delay={0.2}>
-                <Text size="h3">What I worked on</Text>
-                {documentToReactComponents(props.description)}
-              </Section>
+              <Box ml={4} my={4} display="flex" align="center">
+                <Meta>Stack</Meta>
+                <Text display="inline-block" size="h6">
+                  {props.stack}
+                </Text>
+              </Box>
+            </Section>
+            <Section delay={0.2}>
+              <Text size="h3">What I worked on</Text>
+              {documentToReactComponents(props.description)}
+            </Section>
 
-              <Section delay={0.4}>
-                <Text size="h3">Links</Text>
-                <List>
+            <Section delay={0.4}>
+              <Text size="h3">Links</Text>
+              <List>
+                <ListItem>
+                  <Meta>Website</Meta>
+                  <Link href={props.url}>
+                    <ExternalLinkIcon mx="2px" />
+                  </Link>
+                </ListItem>
+                <ListItem>
+                  <Meta>GitHub</Meta>
+                  <Link href={props.github}>
+                    <ExternalLinkIcon mx="2px" />
+                  </Link>
+                </ListItem>
+                {props.articleUrl && (
                   <ListItem>
-                    <Meta>Website</Meta>
-                    <Link href={props.url}>
+                    <Meta>Article</Meta>
+                    <Link href={props.articleUrl}>
                       <ExternalLinkIcon mx="2px" />
                     </Link>
                   </ListItem>
-                  <ListItem>
-                    <Meta>GitHub</Meta>
-                    <Link href={props.github}>
-                      <ExternalLinkIcon mx="2px" />
-                    </Link>
-                  </ListItem>
-                  {props.articleUrl && (
-                    <ListItem>
-                      <Meta>Article</Meta>
-                      <Link href={props.articleUrl}>
-                        <ExternalLinkIcon mx="2px" />
-                      </Link>
-                    </ListItem>
-                  )}
-                </List>
-              </Section>
-            </Box>
+                )}
+              </List>
+            </Section>
           </Box>
-        </Layout>
-      ) : (
-        <Skelton />
-      )}
+        </Box>
+      </Layout>
     </>
   )
 }
