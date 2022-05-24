@@ -12,7 +12,6 @@ import Layout from '../components/layouts/Layout'
 import PageTitle from '../components/PageTitle'
 
 import { Section } from '../components/Section'
-import Paragraph from '../components/Paragraph'
 
 const About = () => {
   return (
@@ -53,25 +52,19 @@ const About = () => {
               <Heading as="h3" variant="section-title">
                 Software Development
               </Heading>
-              <Paragraph>
-                <Text>Food, Music, Politics, Whisky, British Comedy</Text>
-              </Paragraph>
+              <Text>Food, Music, Politics, Whisky, British Comedy</Text>
             </Section>
             <Section delay={0.2}>
               <Heading as="h3" variant="section-title">
                 Up for Challenges
               </Heading>
-              <Paragraph>
-                <Text>Food, Music, Politics, Whisky, British Comedy</Text>
-              </Paragraph>
+              <Text>Food, Music, Politics, Whisky, British Comedy</Text>
             </Section>
             <Section delay={0.4}>
               <Heading as="h3" variant="section-title">
                 Towards Humanity
               </Heading>
-              <Paragraph>
-                <Text>Food, Music, Politics, Whisky, British Comedy</Text>
-              </Paragraph>
+              <Text>Food, Music, Politics, Whisky, British Comedy</Text>
             </Section>
           </Box>
         </Box>

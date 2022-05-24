@@ -1,7 +1,6 @@
 import { Box, Badge, Link, List, ListItem, Text } from '@chakra-ui/react'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { Title, ProjectImage, Meta } from '../../components/Project'
-import Paragraph from '../../components/Paragraph'
 import Layout from '../../components/layouts/Layout'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { client } from '../../libs/client'
@@ -38,66 +37,68 @@ export const getStaticProps = async context => {
 const Project = props => {
   if (!props) return <Skelton />
   return (
-    <Layout title="code-lesson">
-      <Title>
-        {props.title}
-        <Badge ml={2}>{props.date}</Badge>
-      </Title>
-      <Box bg="gray.200" borderRadius="24px" mt={2}>
-        <Box py={6} px={6}>
-          <ProjectImage
-            src={`http:${props.thumbnail.fields.file.url}`}
-            alt="project.image"
-          />
-          <Section>
-            <Paragraph>
-              <Text size="h2">{props.title}</Text>
-              <Text>{props.abstract}</Text>
-            </Paragraph>
-            <Box ml={4} my={4} display="flex" align="center">
-              <Meta>Stack</Meta>
-              <Text display="inline-block" size="h6">
-                {props.stack}
-              </Text>
-            </Box>
-          </Section>
-          <Section delay={0.2}>
-            <Paragraph>
-              <Text size="h3">What I worked on</Text>
-              <Text pl={6}>{documentToReactComponents(props.description)}</Text>
-            </Paragraph>
-          </Section>
+    <>
+      {props ? (
+        <Layout title="code-lesson">
+          <Title>
+            {props.title}
+            <Badge ml={2}>{props.date}</Badge>
+          </Title>
+          <Box bg="gray.200" borderRadius="24px" mt={2}>
+            <Box py={6} px={6}>
+              <ProjectImage
+                src={`http:${props.thumbnail.fields.file.url}`}
+                alt="project.image"
+              />
+              <Section>
+                <Text size="h2">{props.title}</Text>
 
-          <Section delay={0.4}>
-            <Paragraph>
-              <Text size="h3">Links</Text>
-              <List>
-                <ListItem>
-                  <Meta>Website</Meta>
-                  <Link href={props.url}>
-                    <ExternalLinkIcon mx="2px" />
-                  </Link>
-                </ListItem>
-                <ListItem>
-                  <Meta>GitHub</Meta>
-                  <Link href={props.github}>
-                    <ExternalLinkIcon mx="2px" />
-                  </Link>
-                </ListItem>
-                {props.articleUrl && (
+                <Text>{props.abstract}</Text>
+
+                <Box ml={4} my={4} display="flex" align="center">
+                  <Meta>Stack</Meta>
+                  <Text display="inline-block" size="h6">
+                    {props.stack}
+                  </Text>
+                </Box>
+              </Section>
+              <Section delay={0.2}>
+                <Text size="h3">What I worked on</Text>
+                {documentToReactComponents(props.description)}
+              </Section>
+
+              <Section delay={0.4}>
+                <Text size="h3">Links</Text>
+                <List>
                   <ListItem>
-                    <Meta>Article</Meta>
-                    <Link href={props.articleUrl}>
+                    <Meta>Website</Meta>
+                    <Link href={props.url}>
                       <ExternalLinkIcon mx="2px" />
                     </Link>
                   </ListItem>
-                )}
-              </List>
-            </Paragraph>
-          </Section>
-        </Box>
-      </Box>
-    </Layout>
+                  <ListItem>
+                    <Meta>GitHub</Meta>
+                    <Link href={props.github}>
+                      <ExternalLinkIcon mx="2px" />
+                    </Link>
+                  </ListItem>
+                  {props.articleUrl && (
+                    <ListItem>
+                      <Meta>Article</Meta>
+                      <Link href={props.articleUrl}>
+                        <ExternalLinkIcon mx="2px" />
+                      </Link>
+                    </ListItem>
+                  )}
+                </List>
+              </Section>
+            </Box>
+          </Box>
+        </Layout>
+      ) : (
+        <Skelton />
+      )}
+    </>
   )
 }
 

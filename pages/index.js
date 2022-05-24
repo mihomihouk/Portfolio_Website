@@ -16,7 +16,6 @@ import {
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import Layout from '../components/layouts/Layout'
 import { Section } from '../components/Section'
-import Paragraph from '../components/Paragraph'
 import { client } from '../libs/client'
 import { ProjectGridItem } from '../components/GridItem'
 
@@ -103,21 +102,19 @@ const Page = ({ projects }) => {
             <Heading as="h3" variant="section-title">
               Project
             </Heading>
-            <Paragraph>
-              <SimpleGrid columns={1} gap={6} pt={6}>
-                {projects.map(project => (
-                  <Section key={project.sys.id}>
-                    <ProjectGridItem
-                      slug={project.fields.slug}
-                      title={project.fields.title}
-                      thumbnail={project.fields.thumbnail.fields.file}
-                    >
-                      {project.fields.abstract}
-                    </ProjectGridItem>
-                  </Section>
-                ))}
-              </SimpleGrid>
-            </Paragraph>
+            <SimpleGrid columns={1} gap={6} pt={6}>
+              {projects.map(project => (
+                <Section key={project.sys.id}>
+                  <ProjectGridItem
+                    slug={project.fields.slug}
+                    title={project.fields.title}
+                    thumbnail={project.fields.thumbnail.fields.file}
+                  >
+                    {project.fields.abstract}
+                  </ProjectGridItem>
+                </Section>
+              ))}
+            </SimpleGrid>
             <Box alignItems="center" pb={5}>
               <NextLink href="/projects">
                 <Button
