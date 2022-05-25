@@ -27,6 +27,7 @@ const Profile = () => {
   const reRef = useRef()
 
   const formSparkUrl = `https://submit-form.com/${process.env.NEXT_PUBLIC_FORM_SPARK_FORM_ID}`
+  console.log(formSparkUrl)
   const nameError = !name.value
   const emailError = !email.value
   const messageError = !message.value
@@ -54,7 +55,7 @@ const Profile = () => {
       })
       reRef.current.reset()
     } catch (error) {
-      console.log(error)
+      console.log(error.response.data)
       setCompleteMessage({
         bg: 'red',
         text: 'Sorry, there was a problem. Please try again.'
