@@ -18,8 +18,6 @@ import axios from 'axios'
 import ReCAPTCHA from 'react-google-recaptcha'
 
 const Profile = () => {
-  console.log('formspark', process.env.NEXT_PUBLIC_FORM_SPARK_FORM_ID)
-  console.log('sitekey', process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY)
   const email = useForm('')
   const name = useForm('')
   const message = useForm('')
@@ -28,7 +26,7 @@ const Profile = () => {
   const [recaptchaToken, setRecaptchaToken] = useState('')
   const reRef = useRef()
 
-  const formSparkUrl = `https://submit-form.com/${process.env.NEXT_PUBLIC_FORM_SPARK_FORM_IDD}`
+  const formSparkUrl = `https://submit-form.com/${process.env.NEXT_PUBLIC_FORM_SPARK_FORM_ID}`
   const nameError = !name.value
   const emailError = !email.value
   const messageError = !message.value
@@ -50,7 +48,6 @@ const Profile = () => {
     }
     try {
       const result = await axios.post(formSparkUrl, payload)
-      console.log(result)
       setCompleteMessage({
         bg: 'green',
         text: 'Thanks, I will be in touch shortly.'
