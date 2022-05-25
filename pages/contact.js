@@ -14,30 +14,33 @@ import PageTitle from '../components/PageTitle'
 import Layout from '../components/layouts/Layout'
 import { Section } from '../components/Section'
 import { useForm } from '../components/hooks/useForm'
-import axios from 'axios'
+import { useFormspark } from '@formspark/use-formspark'
+// import axios from 'axios'
 import ReCAPTCHA from 'react-google-recaptcha'
 
 const Profile = () => {
   const email = useForm('')
   const name = useForm('')
   const message = useForm('')
+  const [submit, submitting] = useFormspark({
+    formId: process.env.NEXT_PUBLIC_FORM_SPARK_FORM_ID
+  })
   const [completeMessage, setCompleteMessage] = useState('')
-  const [submitting, setSubmitting] = useState(false)
+  // const [isSubmitting, setIsSubmitting] = useState(false)
   const [recaptchaToken, setRecaptchaToken] = useState('')
   const reRef = useRef()
 
-  const formSparkUrl = `https://submit-form.com/${process.env.NEXT_PUBLIC_FORM_SPARK_FORM_ID}`
-  console.log(formSparkUrl)
+  // const formSparkUrl = `https://submit-form.com/${process.env.NEXT_PUBLIC_FORM_SPARK_FORM_ID}`
   const nameError = !name.value
   const emailError = !email.value
   const messageError = !message.value
 
   const handleSubmit = async e => {
     e.preventDefault()
-    setSubmitting(true)
+    // setIsSubmitting(true)
 
     await postSubmission()
-    setSubmitting(false)
+    // setIsSubmitting(false)
   }
 
   const postSubmission = async () => {
@@ -48,7 +51,8 @@ const Profile = () => {
       'g-recaptcha-response': recaptchaToken
     }
     try {
-      const result = await axios.post(formSparkUrl, payload)
+      // const result = await axios.post(formSparkUrl, payload)
+      await submit(payload)
       setCompleteMessage({
         bg: 'green',
         text: 'Thanks, I will be in touch shortly.'
