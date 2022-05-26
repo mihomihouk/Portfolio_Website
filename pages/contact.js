@@ -14,61 +14,58 @@ import PageTitle from '../components/PageTitle'
 import Layout from '../components/layouts/Layout'
 import { Section } from '../components/Section'
 import { useForm } from '../components/hooks/useForm'
-import { useFormspark } from '@formspark/use-formspark'
-// import axios from 'axios'
 import ReCAPTCHA from 'react-google-recaptcha'
 
 const Profile = () => {
   const email = useForm('')
   const name = useForm('')
   const message = useForm('')
-  const [submit, submitting] = useFormspark({
-    formId: process.env.NEXT_PUBLIC_FORM_SPARK_FORM_ID
-  })
-  const [completeMessage, setCompleteMessage] = useState('')
-  // const [isSubmitting, setIsSubmitting] = useState(false)
-  const [recaptchaToken, setRecaptchaToken] = useState('')
-  const reRef = useRef()
 
-  // const formSparkUrl = `https://submit-form.com/${process.env.NEXT_PUBLIC_FORM_SPARK_FORM_ID}`
+  const [completeMessage, setCompleteMessage] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const reRef = useRef(<ReCAPTCHA />)
+
   const nameError = !name.value
   const emailError = !email.value
   const messageError = !message.value
 
   const handleSubmit = async e => {
     e.preventDefault()
-    // setIsSubmitting(true)
+    setIsSubmitting(true)
 
     await postSubmission()
-    // setIsSubmitting(false)
+    setIsSubmitting(false)
   }
 
   const postSubmission = async () => {
-    const payload = {
+    const token = await reRef.current.executeAsync()
+
+    const formData = {
       email: email.value,
       name: name.value,
       message: message.value,
-      'g-recaptcha-response': recaptchaToken
+      token
     }
     try {
-      // const result = await axios.post(formSparkUrl, payload)
-      await submit(payload)
+      await fetch('/api/form', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json,text/plain, */*',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
       setCompleteMessage({
         bg: 'green',
         text: 'Thanks, I will be in touch shortly.'
       })
-      reRef.current.reset()
     } catch (error) {
-      console.log(error.response.data)
+      console.log(error)
       setCompleteMessage({
         bg: 'red',
         text: 'Sorry, there was a problem. Please try again.'
       })
     }
-  }
-
-  const updateRecaptchaToken = token => {
-    setRecaptchaToken(token)
   }
 
   return (
@@ -113,7 +110,7 @@ const Profile = () => {
               <ReCAPTCHA
                 sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
                 ref={reRef}
-                onChange={updateRecaptchaToken}
+                size="invisible"
               />
 
               <Button
@@ -122,9 +119,9 @@ const Profile = () => {
                 variant="action"
                 colorScheme="orange"
                 onClick={handleSubmit}
-                disabled={submitting}
+                disabled={isSubmitting}
               >
-                {submitting ? 'Submitting...' : 'Submit'}
+                {isSubmitting ? 'Submitting...' : 'Submit'}
               </Button>
             </Stack>
           </Section>
