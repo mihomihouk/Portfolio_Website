@@ -17,6 +17,7 @@ import { useForm } from '../components/hooks/useForm'
 import ReCAPTCHA from 'react-google-recaptcha'
 
 const Profile = () => {
+  console.log(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY)
   const email = useForm('')
   const name = useForm('')
   const message = useForm('')
