@@ -10,7 +10,7 @@ export default async (req, res) => {
     },
     secure: true
   })
-  transporter.sendMail(
+  await transporter.sendMail(
     {
       from: process.env.APP_MAIL_ADDRESS,
       to: process.env.MAIL_TO,
@@ -21,11 +21,11 @@ export default async (req, res) => {
       <p>Message:${req.body.message}</p>
       <p>Email:${req.body.email}</p>
       `
-    },
-    function (err, info) {
-      if (err) console.log(err)
-      else console.log(info)
     }
+    // function (err, info) {
+    //   if (err) console.log(err)
+    //   else console.log(info)
+    // }
   )
 
   res.send('success')
