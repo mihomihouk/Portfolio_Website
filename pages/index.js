@@ -80,7 +80,7 @@ const Page = ({ projects }) => {
             </Link>
           </ListItem>
           <ListItem>
-            <NextLink href="https://twitter.com/mihoukmiho">
+            <NextLink href="https://twitter.com/mihoukmiho" passHref>
               <IconButton
                 variant="ghost"
                 colorScheme="orange.500"
@@ -122,7 +122,7 @@ const Page = ({ projects }) => {
               ))}
             </SimpleGrid>
             <Box alignItems="center" pb={5}>
-              <NextLink href="/projects">
+              <NextLink href="/projects" passHref>
                 <Button
                   rightIcon={<ChevronRightIcon />}
                   variant="action"

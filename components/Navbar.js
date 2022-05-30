@@ -15,7 +15,7 @@ import { AiFillHome } from 'react-icons/ai'
 
 const LinkItem = ({ href, children }) => {
   return (
-    <NextLink href={href}>
+    <NextLink href={href} passHref>
       <Link style={{ textDecoration: 'none' }} p={2}>
         {children}
       </Link>

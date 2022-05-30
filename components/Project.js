@@ -4,7 +4,7 @@ import { ChevronRightIcon } from '@chakra-ui/icons'
 
 export const Title = ({ children }) => (
   <Box mt={2}>
-    <NextLink href="/projects">
+    <NextLink href="/projects" passHref>
       <Link style={{ textDecoration: 'none' }}>Projects</Link>
     </NextLink>
     <span>
