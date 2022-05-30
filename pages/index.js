@@ -37,10 +37,12 @@ const Page = ({ projects }) => {
           <Box width="100%" mt={3} flexShrink={0} position="relative">
             <Box position="absolute" top="10%" left="3%" width="50%">
               <Text size="h1">Hi, I'm Miho.</Text>
-              <Text size="h1">A Frontend developer based in the UK.</Text>
+              <Text size="h1">
+                A self-taught frontend developer based in the UK.
+              </Text>
               <Text size="h3">
-                My focus is producing systems and applications for better
-                society as well as people-oriented project management.
+                My focus is to produce systems and applications that can
+                mitigate individual and social struggles.
               </Text>
             </Box>
             <Image
@@ -58,7 +60,11 @@ const Page = ({ projects }) => {
 
       <Box display={'flex'} alignItems="center" mt={4} mb={6} px={2}>
         <Box mr={6}>
-          <Link href="/images/cv/mihocv.pdf" download="miho.pdf">
+          <Link
+            style={{ textDecoration: 'none' }}
+            href="/images/cv/mihocv.pdf"
+            download="miho.pdf"
+          >
             <Button variant="action">Get Resume</Button>
           </Link>
         </Box>

@@ -44,14 +44,11 @@ const components = {
       }
     }
   },
-  Link: {
-    baseStyle: {
-      textDecoration: 'none'
-    }
-  },
+
   Button: {
     baseStyle: {
-      bg: 'orange.500'
+      bg: 'orange.500',
+      _focus: { boxShadow: 'none' }
     },
     variants: {
       action: {

@@ -16,7 +16,9 @@ import { AiFillHome } from 'react-icons/ai'
 const LinkItem = ({ href, children }) => {
   return (
     <NextLink href={href}>
-      <Link p={2}>{children}</Link>
+      <Link style={{ textDecoration: 'none' }} p={2}>
+        {children}
+      </Link>
     </NextLink>
   )
 }
@@ -80,22 +82,34 @@ const Navbar = props => {
               />
               <MenuList>
                 <NextLink href="/" passHref>
-                  <MenuItem as={Link}>Home</MenuItem>
+                  <MenuItem style={{ textDecoration: 'none' }} as={Link}>
+                    Home
+                  </MenuItem>
                 </NextLink>
                 <NextLink href="/about" passHref>
-                  <MenuItem as={Link}>About</MenuItem>
+                  <MenuItem style={{ textDecoration: 'none' }} as={Link}>
+                    About
+                  </MenuItem>
                 </NextLink>
                 <NextLink href="/resume" passHref>
-                  <MenuItem as={Link}>Resume</MenuItem>
+                  <MenuItem style={{ textDecoration: 'none' }} as={Link}>
+                    Resume
+                  </MenuItem>
                 </NextLink>
                 <NextLink href="/projects" passHref>
-                  <MenuItem as={Link}>Projects</MenuItem>
+                  <MenuItem style={{ textDecoration: 'none' }} as={Link}>
+                    Projects
+                  </MenuItem>
                 </NextLink>
                 <NextLink href="/posts" passHref>
-                  <MenuItem as={Link}>Posts</MenuItem>
+                  <MenuItem style={{ textDecoration: 'none' }} as={Link}>
+                    Posts
+                  </MenuItem>
                 </NextLink>
                 <NextLink href="/contact" passHref>
-                  <MenuItem as={Link}>Contact</MenuItem>
+                  <MenuItem style={{ textDecoration: 'none' }} as={Link}>
+                    Contact
+                  </MenuItem>
                 </NextLink>
               </MenuList>
             </Menu>
