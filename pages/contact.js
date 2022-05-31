@@ -86,7 +86,7 @@ const Profile = () => {
           </Box>
         ) : (
           <Section>
-            <Stack spacing={5}>
+            <Stack spacing={{ base: 3, lg: 5 }}>
               <FormControl isInvalid={nameError}>
                 <FormLabel htmlFor="name">Name</FormLabel>
                 <Input id="name" type="name" {...name} />

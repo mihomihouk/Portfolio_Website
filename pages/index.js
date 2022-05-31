@@ -44,27 +44,34 @@ const Page = ({ projects, imageURL, resumeURL }) => {
     <Layout>
       <Flex>
         <Box>
-          <Box width="100%" mt={3} flexShrink={0} position="relative">
-            <Box position="absolute" top="10%" left="3%" width="50%">
-              <Text size="h1">Hi, I'm Miho.</Text>
-              <Text size="h1">
-                A self-taught frontend developer based in the UK.
-              </Text>
-              <Text size="h3">
-                My focus is to produce systems and applications that can
-                mitigate individual and social struggles.
-              </Text>
-            </Box>
+          <Box width="100%" mt={3} flexShrink={0} position={{ lg: 'relative' }}>
             <Image
               src={imageURL}
               alt="Profile Image"
-              width="70%"
+              width={{ lg: '70%' }}
               display="block"
               ml="auto"
               borderRadius="20px"
             />
+            <Box
+              position={{ lg: 'absolute' }}
+              top="7%"
+              left="3%"
+              width={{ lg: '50%' }}
+              mt={{ base: '4', lg: 0 }}
+            >
+              <Text fontSize={['xl', '3xl', '5xl']} fontWeight="bold">
+                Hi, I'm Miho.
+              </Text>
+              <Text fontSize={['xl', '3xl', '5xl']} fontWeight="bold">
+                A self-taught frontend developer based in the UK.
+              </Text>
+              <Text fontSize={['md', 'xl', '3xl']} fontWeight="bold">
+                My focus is to produce systems and applications that can
+                mitigate individual and social struggles.
+              </Text>
+            </Box>
           </Box>
-          <Box mt={5} mx="auto"></Box>
         </Box>
       </Flex>
 

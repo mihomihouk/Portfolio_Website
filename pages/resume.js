@@ -30,29 +30,47 @@ export const getStaticProps = async () => {
 const ResumeFormat = props => {
   return (
     <Box display="flex" flexDirection="column" pb={1}>
-      <Box display="flex" justifyContent="space-between" align="center" py={2}>
+      <Box
+        display={{ lg: 'flex' }}
+        justifyContent="space-between"
+        align="center"
+        py={2}
+      >
         {props.heading && (
           <Box display="flex">
-            <Text py="2px" size="h3">
+            <Text
+              py="2px"
+              fontSize={['xl', 'xl', '3xl']}
+              fontWeight="bold"
+              textAlign="left"
+            >
               {props.heading}
             </Text>
           </Box>
         )}
 
         {props.fromDate && props.toDate && (
-          <Box bg="#ff5823" px="12px" borderRadius="14px" color="white">
-            <Text pt={2.5}>{props.fromDate + '-' + props.toDate}</Text>
+          <Box
+            bg="#ff5823"
+            px="12px"
+            py={{ base: '0', lg: '10px' }}
+            borderRadius="14px"
+            color="white"
+            align="center"
+            fontSize={{ base: 'sm', lg: 'lg' }}
+          >
+            {props.fromDate + '-' + props.toDate}
           </Box>
         )}
       </Box>
       {props.subHeading && (
-        <Box pl="25px">
-          <Text>{props.subHeading}</Text>
+        <Box pl={{ base: '0', lg: '25px' }}>
+          <Text fontSize={{ base: 'sm', lg: 'lg' }}>{props.subHeading}</Text>
         </Box>
       )}
       {props.description && (
-        <Box textAlign="justify">
-          <Text>{props.description}</Text>
+        <Box>
+          <Text textAlign="left">{props.description}</Text>
         </Box>
       )}
       {props.image && (
@@ -180,7 +198,7 @@ const Resume = ({
           />
         </Stack>
       </Section>
-      ,{/* work experience */}
+      {/* work history */}
       <Section delay={0.2} id="work">
         <SectionHeading title="Work History" />
         <Box mt="30px">
@@ -188,7 +206,7 @@ const Resume = ({
             <ResumeFormat
               heading={'React Curriculum Creator'}
               subHeading={`I have designed and created over 30 lessons about learning React in "Code Lesson", a learning-by-coding application for coding.`}
-              fromDate={'February 2022'}
+              fromDate={'Feb 2022'}
               toDate={'present'}
             />
             <ResumeFormat
@@ -197,44 +215,44 @@ const Resume = ({
                 'I taught Japanese grammars and conversational techniques to 7 foreign students online. I also designed the lessons, proofread CVs and writing pieces as well as conducted demo interviews. '
               }
               fromDate={'Feb 2021'}
-              toDate={'March 2022'}
+              toDate={'Mar 2022'}
             />
             <ResumeFormat
               heading={'Kitchen Hand'}
               subHeading={
                 'I cooked seasonal food with local agricultural products. I also designed an efficient working space and improved customer service.'
               }
-              fromDate={'December 2018'}
-              toDate={'August 2018'}
+              fromDate={'Dec 2018'}
+              toDate={'Aug 2018'}
             />
             <ResumeFormat
               heading={'Wine Factory Operator'}
               subHeading={
-                'I cooked seasonal food with local agricultural products. I also designed an efficient working space and improved customer service.'
+                'Working in the bottling section, I transported wine from storage tanks to final tanks. I also added additives, controlled the quality, and sampled wine for the production.'
               }
-              fromDate={'March 2022'}
-              toDate={'present'}
+              fromDate={'Jan 2018'}
+              toDate={'Apr 2018'}
             />
             <ResumeFormat
-              heading={'Personal Assistant'}
+              heading={'Permaculturalist Personal Assistant'}
               subHeading={
-                ' developed the marketing strategy, improved  the website contents, and shoot photographs and videos of  her work as a permaculturalist. I also organised and managed everyday tasks and small projects for her.'
+                'I developed the marketing strategy, improved the website contents, and shoot photographs and videos of  her work as a permaculturalist. I also organised and managed everyday tasks and small projects for her.'
               }
-              fromDate={'January 2018'}
-              toDate={'April 2018'}
+              fromDate={'Jun 2017'}
+              toDate={'Oct 2017'}
             />
             <ResumeFormat
-              heading={'Project Coordinator in Cambodia'}
+              heading={'NGO Project Coordinator'}
               subHeading={
                 'Working in the Cambodian project, I consulted, recruited and trained staff; made quarterly, monthly and daily project goals; designed and led study-tours; wrote articles, expanded network through events, and reported to patrons and sponsors.'
               }
-              fromDate={'January 2016'}
-              toDate={'October 2016'}
+              fromDate={'Jan 2016'}
+              toDate={'Oct 2016'}
             />
           </Stack>
         </Box>
       </Section>
-      ,{/* programming skill */}
+      {/* programming skill */}
       <Section delay={0.4} id="programming-skills">
         <SectionHeading title="Programming Skill" />
         <Wrap display="flex" spacing="30px" align="center" py={2}>
@@ -247,7 +265,7 @@ const Resume = ({
           ))}
         </Wrap>
       </Section>
-      ,{/* interest */}
+      {/* interest */}
       <Section delay={0.8} id="interests">
         <SectionHeading title="Interests" />
         <Box>
@@ -298,7 +316,7 @@ const Resume = ({
               <Text pr={2} size="h3">
                 {item.logoSrc}
               </Text>
-              <Text>{item.label}</Text>
+              <Text display={{ base: 'none', lg: 'flex' }}>{item.label}</Text>
             </Box>
           </Scroll>
         ))}

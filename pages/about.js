@@ -26,7 +26,6 @@ export const getStaticProps = async () => {
 }
 
 const About = ({ imageURL, resumeURL }) => {
-  console.log(imageURL)
   return (
     <Layout>
       <Box width="100%" pt={3}>
@@ -51,7 +50,7 @@ const About = ({ imageURL, resumeURL }) => {
           </Box>
           <Stack justifyContent="space-between" w="100%" p={{ base: 4, md: 2 }}>
             <Box pt={18} pl={3} my="auto">
-              <Text size="h3">
+              <Text fontSize={['sm', 'xl', '3xl']} fontWeight="bold">
                 Enthusiastic junior web developer with strong motivation to
                 tackle challenges, and keen to nurture inspiring and encouraging
                 development team.

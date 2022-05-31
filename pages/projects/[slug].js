@@ -58,7 +58,7 @@ const Project = props => {
 
               <Text>{props.abstract}</Text>
 
-              <Box ml={4} my={4} display="flex" align="center">
+              <Box mt={4}>
                 <Meta>Stack</Meta>
                 <Text display="inline-block" size="h6">
                   {props.stack}
@@ -67,7 +67,7 @@ const Project = props => {
             </Section>
             <Section delay={0.2}>
               <Text size="h3">What I worked on</Text>
-              {documentToReactComponents(props.description)}
+              <Box pl={5}>{documentToReactComponents(props.description)}</Box>
             </Section>
 
             <Section delay={0.4}>

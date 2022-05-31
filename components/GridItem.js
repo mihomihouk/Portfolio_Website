@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Box, Text, LinkBox, LinkOverlay } from '@chakra-ui/react'
 import { Global } from '@emotion/react'
 
-export const GridItem = ({ children, href, title, thumbnail }) => {
+export const PostGridItem = ({ children, href, title, thumbnail }) => {
   return (
     <Box w="100%" algin="center">
       <LinkBox cursor="pointer">
@@ -17,11 +17,11 @@ export const GridItem = ({ children, href, title, thumbnail }) => {
           loading="lazy"
         />
         <LinkOverlay href={href} target="_blank">
-          <Text mt={2} fontSize={30}>
+          <Text mt={2} fontSize={['md', 'xl', '3xl']} fontWeight="bold">
             {title}
           </Text>
         </LinkOverlay>
-        <Text fontSize={14}>{children}</Text>
+        <Text>{children}</Text>
       </LinkBox>
     </Box>
   )

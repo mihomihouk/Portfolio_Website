@@ -1,7 +1,7 @@
 import { Box, SimpleGrid } from '@chakra-ui/react'
 import Layout from '../components/layouts/Layout'
 import { Section } from '../components/Section'
-import { GridItem } from '../components/GridItem'
+import { PostGridItem } from '../components/GridItem'
 import PageTitle from '../components/PageTitle'
 import { client } from '../libs/client'
 
@@ -24,7 +24,7 @@ const Posts = ({ posts }) => {
           <SimpleGrid columns={1} gap={6}>
             {posts.map(post => (
               <Section key={post.sys.id}>
-                <GridItem
+                <PostGridItem
                   title={post.fields.title}
                   thumbnail={post.fields.thumbnail.fields.file}
                   href={post.fields.url}

@@ -35,6 +35,14 @@ const components = {
         fontSize: '3xl',
         fontWeight: 'bold'
       },
+      h4: {
+        fontSize: '2xl',
+        fontWeight: 'bold'
+      },
+      h5: {
+        fontSize: 'xl',
+        fontWeight: 'bold'
+      },
       h6: {
         fontSize: 'md'
       },
