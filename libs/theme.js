@@ -55,6 +55,11 @@ const components = {
         color: 'black'
       }
     }
+  },
+  Link: {
+    baseStyle: {
+      _focus: { boxShadow: 'none' }
+    }
   }
 }
 
