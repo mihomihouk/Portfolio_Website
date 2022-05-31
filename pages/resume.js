@@ -166,128 +166,9 @@ const Resume = ({
       skill: chakraUILogoURL,
       length: '5month'
     },
-    { id: 9, skill: contentfulLogoURL, length: '2weeks' },
-    { id: 10, skill: strapiLogoURL, length: '2weeks' },
-    { id: 11, skill: agileLogoURL, length: '2months' }
-  ]
-  const resumeDetails = [
-    <>
-      {/* eduction */}
-      <Section id="education">
-        <Stack spacing={6}>
-          <SectionHeading title="Education" />
-          <ResumeFormat
-            heading={'University of Kyoto, Kyoto'}
-            subHeading={
-              'Left after the 1st year: MASTER OF CULTURAL ANTHROPOLOGY'
-            }
-            fromDate={'2019'}
-            toDate={'2021'}
-          />
-          <ResumeFormat
-            heading={'SOAS University of London'}
-            subHeading={'MA ANTHROPOLOGY OF FOOD'}
-            fromDate={'2019'}
-            toDate={'2020'}
-          />
-          <ResumeFormat
-            heading={'Rikkyo University, Tokyo'}
-            subHeading={'BACHELOR OF INTERCULTURAL COMMUNICATION'}
-            fromDate={'2011'}
-            toDate={'2015'}
-          />
-        </Stack>
-      </Section>
-      {/* work history */}
-      <Section delay={0.2} id="work">
-        <SectionHeading title="Work History" />
-        <Box mt="30px">
-          <Stack>
-            <ResumeFormat
-              heading={'React Curriculum Creator'}
-              subHeading={`I have designed and created over 30 lessons about learning React in "Code Lesson", a learning-by-coding application for coding.`}
-              fromDate={'Feb 2022'}
-              toDate={'present'}
-            />
-            <ResumeFormat
-              heading={'Japanese Language Teacher '}
-              subHeading={
-                'I taught Japanese grammars and conversational techniques to 7 foreign students online. I also designed the lessons, proofread CVs and writing pieces as well as conducted demo interviews. '
-              }
-              fromDate={'Feb 2021'}
-              toDate={'Mar 2022'}
-            />
-            <ResumeFormat
-              heading={'Kitchen Hand'}
-              subHeading={
-                'I cooked seasonal food with local agricultural products. I also designed an efficient working space and improved customer service.'
-              }
-              fromDate={'Dec 2018'}
-              toDate={'Aug 2018'}
-            />
-            <ResumeFormat
-              heading={'Wine Factory Operator'}
-              subHeading={
-                'Working in the bottling section, I transported wine from storage tanks to final tanks. I also added additives, controlled the quality, and sampled wine for the production.'
-              }
-              fromDate={'Jan 2018'}
-              toDate={'Apr 2018'}
-            />
-            <ResumeFormat
-              heading={'Permaculturalist Personal Assistant'}
-              subHeading={
-                'I developed the marketing strategy, improved the website contents, and shoot photographs and videos of  her work as a permaculturalist. I also organised and managed everyday tasks and small projects for her.'
-              }
-              fromDate={'Jun 2017'}
-              toDate={'Oct 2017'}
-            />
-            <ResumeFormat
-              heading={'NGO Project Coordinator'}
-              subHeading={
-                'Working in the Cambodian project, I consulted, recruited and trained staff; made quarterly, monthly and daily project goals; designed and led study-tours; wrote articles, expanded network through events, and reported to patrons and sponsors.'
-              }
-              fromDate={'Jan 2016'}
-              toDate={'Oct 2016'}
-            />
-          </Stack>
-        </Box>
-      </Section>
-      {/* programming skill */}
-      <Section delay={0.4} id="programming-skills">
-        <SectionHeading title="Programming Skill" />
-        <Wrap display="flex" spacing="30px" align="center" py={2}>
-          {programmingSkillsDetails.map(skill => (
-            <ResumeFormat
-              id={skill.id}
-              image={skill.skill}
-              studyPeriod={skill.length}
-            />
-          ))}
-        </Wrap>
-      </Section>
-      {/* interest */}
-      <Section delay={0.8} id="interests">
-        <SectionHeading title="Interests" />
-        <Box>
-          <ResumeFormat
-            heading="Languages"
-            description="Through teaching and learning languages, I found language learning, just like code learning, opens doors to whole new worlds. Currently, I am learning Khmer, Cambodian national language."
-          />
-          <ResumeFormat
-            heading="Cooking"
-            description="Pursuing my passion towards food, I have traveled Australia to learn sustainable agriculture and studied Anthropology of Food in a master course. These experiences now weave into my kitchen creation. I particularly enjoy making experiments and creating delicious dishes out of whatever available in my fridge."
-          />
-          <ResumeFormat
-            heading="Podcast"
-            description="While walking and working out for daily exercise, and shipping a morning coffee, I always listen to my favourite channels. Doing so for several years, I significantly improved my multitasking skills and concentration."
-          />
-          <ResumeFormat
-            heading="Gardening"
-            description="Garden is where I learn the power of nature, patience and responsibility. I am currently making a plan to transform an abandoned open space in front of my room into a small vegetable garden."
-          />
-        </Box>
-      </Section>
-    </>
+    { id: 10, skill: contentfulLogoURL, length: '2weeks' },
+    { id: 11, skill: strapiLogoURL, length: '2weeks' },
+    { id: 12, skill: agileLogoURL, length: '2months' }
   ]
 
   return (
@@ -326,7 +207,124 @@ const Resume = ({
       {/* main contents */}
       <Box bg="gray.200" borderRadius="24px">
         <Box py={6} width="70%" ml="auto" pr={2}>
-          {resumeDetails.map(ResumeDetail => ResumeDetail)}
+          <>
+            {/* eduction */}
+            <Section id="education">
+              <Stack spacing={6}>
+                <SectionHeading title="Education" />
+                <ResumeFormat
+                  heading={'University of Kyoto, Kyoto'}
+                  subHeading={
+                    'Left after the 1st year: MASTER OF CULTURAL ANTHROPOLOGY'
+                  }
+                  fromDate={'2019'}
+                  toDate={'2021'}
+                />
+                <ResumeFormat
+                  heading={'SOAS University of London'}
+                  subHeading={'MA ANTHROPOLOGY OF FOOD'}
+                  fromDate={'2019'}
+                  toDate={'2020'}
+                />
+                <ResumeFormat
+                  heading={'Rikkyo University, Tokyo'}
+                  subHeading={'BACHELOR OF INTERCULTURAL COMMUNICATION'}
+                  fromDate={'2011'}
+                  toDate={'2015'}
+                />
+              </Stack>
+            </Section>
+            {/* work history */}
+            <Section delay={0.2} id="work">
+              <SectionHeading title="Work History" />
+              <Box mt="30px">
+                <Stack>
+                  <ResumeFormat
+                    heading={'React Curriculum Creator'}
+                    subHeading={`I have designed and created over 30 lessons about learning React in "Code Lesson", a learning-by-coding application for coding.`}
+                    fromDate={'Feb 2022'}
+                    toDate={'present'}
+                  />
+                  <ResumeFormat
+                    heading={'Japanese Language Teacher '}
+                    subHeading={
+                      'I taught Japanese grammars and conversational techniques to 7 foreign students online. I also designed the lessons, proofread CVs and writing pieces as well as conducted demo interviews. '
+                    }
+                    fromDate={'Feb 2021'}
+                    toDate={'Mar 2022'}
+                  />
+                  <ResumeFormat
+                    heading={'Kitchen Hand'}
+                    subHeading={
+                      'I cooked seasonal food with local agricultural products. I also designed an efficient working space and improved customer service.'
+                    }
+                    fromDate={'Dec 2018'}
+                    toDate={'Aug 2018'}
+                  />
+                  <ResumeFormat
+                    heading={'Wine Factory Operator'}
+                    subHeading={
+                      'Working in the bottling section, I transported wine from storage tanks to final tanks. I also added additives, controlled the quality, and sampled wine for the production.'
+                    }
+                    fromDate={'Jan 2018'}
+                    toDate={'Apr 2018'}
+                  />
+                  <ResumeFormat
+                    heading={'Permaculturalist Personal Assistant'}
+                    subHeading={
+                      'I developed the marketing strategy, improved the website contents, and shoot photographs and videos of  her work as a permaculturalist. I also organised and managed everyday tasks and small projects for her.'
+                    }
+                    fromDate={'Jun 2017'}
+                    toDate={'Oct 2017'}
+                  />
+                  <ResumeFormat
+                    heading={'NGO Project Coordinator'}
+                    subHeading={
+                      'Working in the Cambodian project, I consulted, recruited and trained staff; made quarterly, monthly and daily project goals; designed and led study-tours; wrote articles, expanded network through events, and reported to patrons and sponsors.'
+                    }
+                    fromDate={'Jan 2016'}
+                    toDate={'Oct 2016'}
+                  />
+                </Stack>
+              </Box>
+            </Section>
+            {/* programming skill */}
+            <Section delay={0.4} id="programming-skills">
+              <SectionHeading title="Programming Skill" />
+              <Wrap display="flex" spacing="30px" align="center" py={2}>
+                {programmingSkillsDetails.map(skill => (
+                  <ResumeFormat
+                    key={skill.id}
+                    id={skill.id}
+                    image={skill.skill}
+                    studyPeriod={skill.length}
+                  />
+                ))}
+              </Wrap>
+            </Section>
+            {/* interest */}
+            <Section delay={0.8} id="interests">
+              <SectionHeading title="Interests" />
+              <Box>
+                <ResumeFormat
+                  heading="Languages"
+                  description="Through teaching and learning languages, I found language learning, just like code learning, opens doors to whole new worlds. Currently, I am learning Khmer, Cambodian national language."
+                />
+                <ResumeFormat
+                  heading="Cooking"
+                  description="Pursuing my passion towards food, I have traveled Australia to learn sustainable agriculture and studied Anthropology of Food in a master course. These experiences now weave into my kitchen creation. I particularly enjoy making experiments and creating delicious dishes out of whatever available in my fridge."
+                />
+                <ResumeFormat
+                  heading="Podcast"
+                  description="While walking and working out for daily exercise, and shipping a morning coffee, I always listen to my favourite channels. Doing so for several years, I significantly improved my multitasking skills and concentration."
+                />
+                <ResumeFormat
+                  heading="Gardening"
+                  description="Garden is where I learn the power of nature, patience and responsibility. I am currently making a plan to transform an abandoned open space in front of my room into a small vegetable garden."
+                />
+              </Box>
+            </Section>
+          </>
         </Box>
       </Box>
     </Layout>

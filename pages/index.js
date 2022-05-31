@@ -52,6 +52,7 @@ const Page = ({ projects, imageURL, resumeURL }) => {
               display="block"
               ml="auto"
               borderRadius="20px"
+              priority="true"
             />
             <Box
               position={{ lg: 'absolute' }}

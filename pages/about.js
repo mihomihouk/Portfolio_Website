@@ -36,14 +36,14 @@ const About = ({ imageURL, resumeURL }) => {
           rounded="lg"
           columns={2}
           bg="orange.500"
-          borderRadius="24px"
+          style={{ borderRadius: '24px' }}
         >
           <Box display={'flex'}>
             <Image
               blur="true"
               priority
               src={imageURL}
-              borderRadius="24px"
+              style={{ borderRadius: '24px' }}
               width="516"
               height="687"
             />
@@ -69,7 +69,7 @@ const About = ({ imageURL, resumeURL }) => {
             </Box>
           </Stack>
         </SimpleGrid>
-        <Box bg="gray.200" borderRadius="24px" mt={2}>
+        <Box bg="gray.200" style={{ borderRadius: '24px' }} mt={2}>
           <Box py={6} px={6}>
             <Section>
               <Heading as="h3" variant="section-title">
