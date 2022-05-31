@@ -1,6 +1,5 @@
 import {
   Box,
-  Image,
   SimpleGrid,
   Stack,
   Button,
@@ -8,12 +7,26 @@ import {
   Link,
   Heading
 } from '@chakra-ui/react'
+import Image from 'next/image'
 import Layout from '../components/layouts/Layout'
 import PageTitle from '../components/PageTitle'
-
+import { client } from '../libs/client'
 import { Section } from '../components/Section'
 
-const About = () => {
+export const getStaticProps = async () => {
+  const contentful = require('contentful')
+  const firstView = await client.getAsset('4pOuhvWFjuBUkseHNzUFZO')
+  const resume = await client.getAsset('6M0PJpY5tR1HkSBAPhLKPd')
+  return {
+    props: {
+      imageURL: `https:${firstView.fields.file.url}?r=24&bg=rgb:DD6B20`,
+      resumeURL: `https:${resume.fields.file.url}`
+    }
+  }
+}
+
+const About = ({ imageURL, resumeURL }) => {
+  console.log(imageURL)
   return (
     <Layout>
       <Box width="100%" pt={3}>
@@ -27,7 +40,14 @@ const About = () => {
           borderRadius="24px"
         >
           <Box display={'flex'}>
-            <Image src="./images/abouts/anthropology.JPG" rounded="24px" />
+            <Image
+              blur="true"
+              priority
+              src={imageURL}
+              borderRadius="24px"
+              width="516"
+              height="687"
+            />
           </Box>
           <Stack justifyContent="space-between" w="100%" p={{ base: 4, md: 2 }}>
             <Box pt={18} pl={3} my="auto">
@@ -40,8 +60,8 @@ const About = () => {
             <Box mr={6} align="right" p={2}>
               <Link
                 style={{ textDecoration: 'none' }}
-                href="/images/cv/mihocv.pdf"
-                download="miho.pdf"
+                href={resumeURL}
+                target="_blank"
               >
                 <Button bg="white" color="orange">
                   Get Resume

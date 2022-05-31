@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Box, Icon, Text, Wrap, WrapItem, Stack } from '@chakra-ui/react'
 import { Link as Scroll } from 'react-scroll'
 import Layout from '../components/layouts/Layout'
@@ -9,7 +8,23 @@ import { FaLaptopCode } from 'react-icons/fa'
 import { GiMeal } from 'react-icons/gi'
 import { Section } from '../components/Section'
 import SectionHeading from '../components/SectionHeading'
-import { Heading } from '@chakra-ui/react'
+import { client } from '../libs/client'
+
+export const getStaticProps = async () => {
+  const contentful = require('contentful')
+  const agileLogo = await client.getAsset('1y0uxAPI1Wfdwabrhizd1A')
+  const chakraUILogo = await client.getAsset('4qahETPzPahg9OOWT3ZB4T')
+  const contentfulLogo = await client.getAsset('7kwOlrTJdl14EnnnYpexpE')
+  const strapiLogo = await client.getAsset('1RLMMWF1h00ykECZLsOryZ')
+  return {
+    props: {
+      agileLogoURL: `https:${agileLogo.fields.file.url}`,
+      chakraUILogoURL: `https:${chakraUILogo.fields.file.url}?h=100&w=100`,
+      contentfulLogoURL: `https:${contentfulLogo.fields.file.url}`,
+      strapiLogoURL: `https:${strapiLogo.fields.file.url}`
+    }
+  }
+}
 
 //ResumeFormat
 const ResumeFormat = props => {
@@ -72,67 +87,71 @@ const resumeMenuList = [
   { label: 'Interests', logoSrc: <Icon as={GiMeal} />, to: 'interests' }
 ]
 
-//skill list
-const programmingSkillsDetails = [
-  {
-    id: 1,
-    skill:
-      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg',
-    length: '7months'
-  },
-  {
-    id: 2,
-    skill:
-      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg',
-    length: '7months'
-  },
-  {
-    id: 3,
-    skill:
-      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg',
-    length: '7months'
-  },
-  {
-    id: 4,
-    skill:
-      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg',
-    length: '6months'
-  },
-  {
-    id: 5,
-    skill:
-      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original-wordmark.svg',
-    length: '5months'
-  },
-  {
-    id: 6,
-    skill:
-      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain-wordmark.svg',
-    length: '3months'
-  },
-  {
-    id: 7,
-    skill:
-      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg',
-    length: '2weeks'
-  },
-  {
-    id: 8,
-    skill:
-      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-plain.svg',
-    length: '5month'
-  },
-  {
-    id: 9,
-    skill: './images/skills/chakra-ui.png',
-    length: '5month'
-  },
-  { id: 9, skill: './images/skills/strapi.png', length: '2weeks' },
-  { id: 10, skill: './images/skills/contentful.png', length: '2weeks' },
-  { id: 11, skill: './images/skills/agile.png', length: '2months' }
-]
-
-const Resume = props => {
+const Resume = ({
+  agileLogoURL,
+  chakraUILogoURL,
+  contentfulLogoURL,
+  strapiLogoURL
+}) => {
+  //skill list
+  const programmingSkillsDetails = [
+    {
+      id: 1,
+      skill:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg',
+      length: '7months'
+    },
+    {
+      id: 2,
+      skill:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg',
+      length: '7months'
+    },
+    {
+      id: 3,
+      skill:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg',
+      length: '7months'
+    },
+    {
+      id: 4,
+      skill:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg',
+      length: '6months'
+    },
+    {
+      id: 5,
+      skill:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original-wordmark.svg',
+      length: '5months'
+    },
+    {
+      id: 6,
+      skill:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain-wordmark.svg',
+      length: '3months'
+    },
+    {
+      id: 7,
+      skill:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg',
+      length: '2weeks'
+    },
+    {
+      id: 8,
+      skill:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-plain.svg',
+      length: '5month'
+    },
+    {
+      id: 9,
+      skill: chakraUILogoURL,
+      length: '5month'
+    },
+    { id: 9, skill: contentfulLogoURL, length: '2weeks' },
+    { id: 10, skill: strapiLogoURL, length: '2weeks' },
+    { id: 11, skill: agileLogoURL, length: '2months' }
+  ]
   const resumeDetails = [
     <>
       {/* eduction */}
@@ -140,19 +159,21 @@ const Resume = props => {
         <Stack spacing={6}>
           <SectionHeading title="Education" />
           <ResumeFormat
-            heading={'University......, Tokyo'}
-            subHeading={'BACHELOR OF INTERCULTURAL COMMUNICATION'}
-            fromDate={'2011'}
-            toDate={'2015'}
+            heading={'University of Kyoto, Kyoto'}
+            subHeading={
+              'Left after the 1st year: MASTER OF CULTURAL ANTHROPOLOGY'
+            }
+            fromDate={'2019'}
+            toDate={'2021'}
           />
           <ResumeFormat
-            heading={'University......, Tokyo'}
-            subHeading={'BACHELOR OF INTERCULTURAL COMMUNICATION'}
-            fromDate={'2011'}
-            toDate={'2015'}
+            heading={'SOAS University of London'}
+            subHeading={'MA ANTHROPOLOGY OF FOOD'}
+            fromDate={'2019'}
+            toDate={'2020'}
           />
           <ResumeFormat
-            heading={'High School'}
+            heading={'Rikkyo University, Tokyo'}
             subHeading={'BACHELOR OF INTERCULTURAL COMMUNICATION'}
             fromDate={'2011'}
             toDate={'2015'}
@@ -165,22 +186,50 @@ const Resume = props => {
         <Box mt="30px">
           <Stack>
             <ResumeFormat
-              heading={'Unemployed'}
-              subHeading={'CurrentlyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'}
+              heading={'React Curriculum Creator'}
+              subHeading={`I have designed and created over 30 lessons about learning React in "Code Lesson", a learning-by-coding application for coding.`}
+              fromDate={'February 2022'}
+              toDate={'present'}
+            />
+            <ResumeFormat
+              heading={'Japanese Language Teacher '}
+              subHeading={
+                'I taught Japanese grammars and conversational techniques to 7 foreign students online. I also designed the lessons, proofread CVs and writing pieces as well as conducted demo interviews. '
+              }
+              fromDate={'Feb 2021'}
+              toDate={'March 2022'}
+            />
+            <ResumeFormat
+              heading={'Kitchen Hand'}
+              subHeading={
+                'I cooked seasonal food with local agricultural products. I also designed an efficient working space and improved customer service.'
+              }
+              fromDate={'December 2018'}
+              toDate={'August 2018'}
+            />
+            <ResumeFormat
+              heading={'Wine Factory Operator'}
+              subHeading={
+                'I cooked seasonal food with local agricultural products. I also designed an efficient working space and improved customer service.'
+              }
               fromDate={'March 2022'}
               toDate={'present'}
             />
             <ResumeFormat
-              heading={'Unemployed'}
-              subHeading={'CurrentlyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'}
-              fromDate={'March 2022'}
-              toDate={'present'}
+              heading={'Personal Assistant'}
+              subHeading={
+                ' developed the marketing strategy, improved  the website contents, and shoot photographs and videos of  her work as a permaculturalist. I also organised and managed everyday tasks and small projects for her.'
+              }
+              fromDate={'January 2018'}
+              toDate={'April 2018'}
             />
             <ResumeFormat
-              heading={'Unemployed'}
-              subHeading={'CurrentlyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'}
-              fromDate={'March 2022'}
-              toDate={'present'}
+              heading={'Project Coordinator in Cambodia'}
+              subHeading={
+                'Working in the Cambodian project, I consulted, recruited and trained staff; made quarterly, monthly and daily project goals; designed and led study-tours; wrote articles, expanded network through events, and reported to patrons and sponsors.'
+              }
+              fromDate={'January 2016'}
+              toDate={'October 2016'}
             />
           </Stack>
         </Box>
@@ -203,16 +252,20 @@ const Resume = props => {
         <SectionHeading title="Interests" />
         <Box>
           <ResumeFormat
-            heading="Teaching"
-            description="Over the past one year, I have developed my teaching skill by undertaking one-to-one online Japanese language sessions."
+            heading="Languages"
+            description="Through teaching and learning languages, I found language learning, just like code learning, opens doors to whole new worlds. Currently, I am learning Khmer, Cambodian national language."
           />
           <ResumeFormat
             heading="Cooking"
-            description="Over the past one year, I have developed my teaching skill by undertaking one-to-one online Japanese language sessions."
+            description="Pursuing my passion towards food, I have traveled Australia to learn sustainable agriculture and studied Anthropology of Food in a master course. These experiences now weave into my kitchen creation. I particularly enjoy making experiments and creating delicious dishes out of whatever available in my fridge."
           />
           <ResumeFormat
-            heading="Comedy"
-            description="Over the past one year, I have developed my teaching skill by undertaking one-to-one online Japanese language sessions."
+            heading="Podcast"
+            description="While walking and working out for daily exercise, and shipping a morning coffee, I always listen to my favourite channels. Doing so for several years, I significantly improved my multitasking skills and concentration."
+          />
+          <ResumeFormat
+            heading="Gardening"
+            description="Garden is where I learn the power of nature, patience and responsibility. I am currently making a plan to transform an abandoned open space in front of my room into a small vegetable garden."
           />
         </Box>
       </Section>

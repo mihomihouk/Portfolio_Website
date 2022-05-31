@@ -26,10 +26,20 @@ export const getStaticProps = async () => {
   const res = await client.getEntries({
     content_type: 'projects'
   })
-  return { props: { projects: res.items }, revalidate: 1 }
+  const contentful = require('contentful')
+  const firstView = await client.getAsset('4dcMYwy4p2BmoHGlGwcCHa')
+  const resume = await client.getAsset('6M0PJpY5tR1HkSBAPhLKPd')
+  return {
+    props: {
+      projects: res.items,
+      imageURL: `https:${firstView.fields.file.url}`,
+      resumeURL: `https:${resume.fields.file.url}`
+    },
+    revalidate: 1
+  }
 }
 
-const Page = ({ projects }) => {
+const Page = ({ projects, imageURL, resumeURL }) => {
   return (
     <Layout>
       <Flex>
@@ -46,7 +56,7 @@ const Page = ({ projects }) => {
               </Text>
             </Box>
             <Image
-              src="/images/backgrounds/homepage.JPG"
+              src={imageURL}
               alt="Profile Image"
               width="70%"
               display="block"
@@ -62,8 +72,8 @@ const Page = ({ projects }) => {
         <Box mr={6}>
           <Link
             style={{ textDecoration: 'none' }}
-            href="/images/cv/mihocv.pdf"
-            download="miho.pdf"
+            href={resumeURL}
+            target="_blank"
           >
             <Button variant="action">Get Resume</Button>
           </Link>
