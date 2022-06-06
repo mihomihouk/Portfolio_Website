@@ -3,7 +3,7 @@
 
 ## Overview
 
-This is my portfolio website developed using Next.js, React, Contentful, and Chakra UI. To showcase my previous projects and biography, I  added dynamic animations to the pages using Framer Motion and Reac-scroll to. You can also download my resume and send me messages through the contact form suppoted by ReCaptcha and delivered by nodemailer.
+This is my portfolio website developed using Next.js, React, Contentful, and Chakra UI. To showcase my previous projects and biography, I  added dynamic animations to the pages using Framer Motion and Reac-scroll to it. You can also download my resume and send me messages through the contact form suppoted by ReCaptcha and delivered by nodemailer.
 
 ## Pages
 
