@@ -19,7 +19,7 @@ import { Section } from '../components/Section'
 import { client } from '../libs/client'
 import { ProjectGridItem } from '../components/GridItem'
 
-import { IoLogoTwitter, IoLogoGithub } from 'react-icons/io5'
+import { IoLogoTwitter, IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5'
 import { FaDev } from 'react-icons/fa'
 
 export const getStaticProps = async () => {
@@ -65,7 +65,7 @@ const Page = ({ projects, imageURL, resumeURL }) => {
                 Hi, I'm Miho.
               </Text>
               <Text fontSize={['xl', '3xl', '5xl']} fontWeight="bold">
-                A self-taught frontend developer based in the UK.
+                A junior full-stack developer based in the UK.
               </Text>
               <Text fontSize={['md', 'xl', '3xl']} fontWeight="bold">
                 My focus is to produce systems and applications that can
@@ -93,6 +93,16 @@ const Page = ({ projects, imageURL, resumeURL }) => {
                 variant="ghost"
                 colorScheme="orange.500"
                 leftIcon={<Icon as={IoLogoGithub} />}
+                size="lg"
+              ></IconButton>
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link href="https://www.linkedin.com/in/miho-inagaki/">
+              <IconButton
+                variant="ghost"
+                colorScheme="orange.500"
+                leftIcon={<Icon as={IoLogoLinkedin} />}
                 size="lg"
               ></IconButton>
             </Link>

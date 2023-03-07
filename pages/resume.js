@@ -80,7 +80,7 @@ const ResumeFormat = props => {
               <img src={props.image} width="100px" height="100px" />
             </Box>
             <Box>
-              <Text width="100%">{props.studyPeriod}</Text>
+              <Text width="100%">{props.name}</Text>
             </Box>
           </Stack>
         </WrapItem>
@@ -91,84 +91,90 @@ const ResumeFormat = props => {
 
 // the left scroll menu list
 const resumeMenuList = [
-  {
-    label: 'Education',
-    logoSrc: <Icon as={IoSchoolSharp} />,
-    to: 'education'
-  },
   { label: 'Work History', logoSrc: <Icon as={MdHistory} />, to: 'work' },
   {
     label: 'Programming Skills',
     logoSrc: <Icon as={FaLaptopCode} />,
     to: 'programming-skills'
   },
-  { label: 'Interests', logoSrc: <Icon as={GiMeal} />, to: 'interests' }
+  { label: 'Interests', logoSrc: <Icon as={GiMeal} />, to: 'interests' },
+  {
+    label: 'Education',
+    logoSrc: <Icon as={IoSchoolSharp} />,
+    to: 'education'
+  }
 ]
 
-const Resume = ({
-  agileLogoURL,
-  chakraUILogoURL,
-  contentfulLogoURL,
-  strapiLogoURL
-}) => {
+const Resume = ({ agileLogoURL, chakraUILogoURL, contentfulLogoURL }) => {
   //skill list
   const programmingSkillsDetails = [
     {
       id: 1,
       skill:
         'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg',
-      length: '7months'
+      name: 'HTML'
     },
     {
       id: 2,
       skill:
         'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg',
-      length: '7months'
+      name: 'CSS'
     },
     {
       id: 3,
       skill:
         'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg',
-      length: '7months'
+      name: 'JavaScript'
     },
     {
       id: 4,
       skill:
         'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg',
-      length: '6months'
+      name: 'React.js'
     },
     {
       id: 5,
       skill:
-        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original-wordmark.svg',
-      length: '5months'
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg',
+      name: 'Typescript'
     },
-    {
-      id: 6,
-      skill:
-        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain-wordmark.svg',
-      length: '3months'
-    },
+    { id: 6, skill: agileLogoURL, name: 'Agile' },
     {
       id: 7,
       skill:
-        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg',
-      length: '2weeks'
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg',
+      name: 'TailWind'
     },
     {
       id: 8,
       skill:
-        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-plain.svg',
-      length: '5month'
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
+      name: 'PostgreSQL'
     },
     {
       id: 9,
-      skill: chakraUILogoURL,
-      length: '5month'
+      skill:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original-wordmark.svg',
+      name: 'Next.js'
     },
-    { id: 10, skill: contentfulLogoURL, length: '2weeks' },
-    { id: 11, skill: strapiLogoURL, length: '2weeks' },
-    { id: 12, skill: agileLogoURL, length: '2months' }
+    {
+      id: 10,
+      skill:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain-wordmark.svg',
+      name: 'Firebase'
+    },
+    {
+      id: 11,
+      skill:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-plain.svg',
+      name: 'Material-UI'
+    },
+    {
+      id: 12,
+      skill: chakraUILogoURL,
+      name: 'ChakraUI'
+    },
+    { id: 13, skill: contentfulLogoURL, name: 'Contentful' }
   ]
 
   return (
@@ -208,42 +214,23 @@ const Resume = ({
       <Box bg="gray.200" borderRadius="24px">
         <Box py={6} width="70%" ml="auto" pr={2}>
           <>
-            {/* eduction */}
-            <Section id="education">
-              <Stack spacing={6}>
-                <SectionHeading title="Education" />
-                <ResumeFormat
-                  heading={'University of Kyoto, Kyoto'}
-                  subHeading={
-                    'Left after the 1st year: MASTER OF CULTURAL ANTHROPOLOGY'
-                  }
-                  fromDate={'2019'}
-                  toDate={'2021'}
-                />
-                <ResumeFormat
-                  heading={'SOAS University of London'}
-                  subHeading={'MA ANTHROPOLOGY OF FOOD'}
-                  fromDate={'2019'}
-                  toDate={'2020'}
-                />
-                <ResumeFormat
-                  heading={'Rikkyo University, Tokyo'}
-                  subHeading={'BACHELOR OF INTERCULTURAL COMMUNICATION'}
-                  fromDate={'2011'}
-                  toDate={'2015'}
-                />
-              </Stack>
-            </Section>
             {/* work history */}
             <Section delay={0.2} id="work">
               <SectionHeading title="Work History" />
               <Box mt="30px">
                 <Stack>
                   <ResumeFormat
-                    heading={'React Curriculum Creator'}
-                    subHeading={`I have designed and created over 30 lessons about learning React in "Code Lesson", a learning-by-coding application for coding.`}
-                    fromDate={'Feb 2022'}
+                    heading={'Junior Full Stack Developer'}
+                    subHeading={`I've designed and developed new features for "Subly", an online subtitling app, by implementing both frontend and backend tasks with React, TypeScript and Node.js. I've also found and fixed bugs, and implemented solutions to customers' issues and requests. Internally, I've contributed to the team by actively engaging with code reviews and product
+                    testing as well by organizing office days in London to strengthen the team bond.`}
+                    fromDate={'Jul 2022'}
                     toDate={'present'}
+                  />
+                  <ResumeFormat
+                    heading={'React Curriculum Creator'}
+                    subHeading={`I designed and created over 30 React lessons for "Code Lesson", a code-learning web application for beginners.`}
+                    fromDate={'Feb 2022'}
+                    toDate={'jul 2022'}
                   />
                   <ResumeFormat
                     heading={'Japanese Language Teacher '}
@@ -297,30 +284,52 @@ const Resume = ({
                     key={skill.id}
                     id={skill.id}
                     image={skill.skill}
-                    studyPeriod={skill.length}
+                    name={skill.name}
                   />
                 ))}
               </Wrap>
+            </Section>
+            {/* eduction */}
+            <Section id="education">
+              <Stack spacing={6}>
+                <SectionHeading title="Education" />
+                <ResumeFormat
+                  heading={'University of Kyoto, Kyoto'}
+                  subHeading={
+                    'Discontinued after the 1st year: MASTER OF CULTURAL ANTHROPOLOGY'
+                  }
+                  fromDate={'2019'}
+                  toDate={'2021'}
+                />
+                <ResumeFormat
+                  heading={'SOAS University of London'}
+                  subHeading={'MA ANTHROPOLOGY OF FOOD'}
+                  fromDate={'2019'}
+                  toDate={'2020'}
+                />
+                <ResumeFormat
+                  heading={'Rikkyo University, Tokyo'}
+                  subHeading={'BACHELOR OF INTERCULTURAL COMMUNICATION'}
+                  fromDate={'2011'}
+                  toDate={'2015'}
+                />
+              </Stack>
             </Section>
             {/* interest */}
             <Section delay={0.8} id="interests">
               <SectionHeading title="Interests" />
               <Box>
                 <ResumeFormat
-                  heading="Languages"
-                  description="Through teaching and learning languages, I found language learning, just like code learning, opens doors to whole new worlds. Currently, I am learning Khmer, Cambodian national language."
+                  heading="Comedy"
+                  description="Whether stand-up, sitcoms or books, I've been always fascinated by the art of comedy. I'm currently exploring British comedy shows and keen to visit different comedy venues in London."
                 />
                 <ResumeFormat
                   heading="Cooking"
-                  description="Pursuing my passion towards food, I have traveled Australia to learn sustainable agriculture and studied Anthropology of Food in a master course. These experiences now weave into my kitchen creation. I particularly enjoy making experiments and creating delicious dishes out of whatever available in my fridge."
-                />
-                <ResumeFormat
-                  heading="Podcast"
-                  description="While walking and working out for daily exercise, and shipping a morning coffee, I always listen to my favourite channels. Doing so for several years, I significantly improved my multitasking skills and concentration."
+                  description="I've traveled in Australia to learn sustainable agriculture and studied Anthropology of Food in a master's course. These experiences now weave into my kitchen creation. I enjoy particularly fermentation and creating delicious dishes out of whatever available in my fridge."
                 />
                 <ResumeFormat
                   heading="Gardening"
-                  description="Garden is where I learn the power of nature, patience and responsibility. I am currently making a plan to transform an abandoned open space in front of my room into a small vegetable garden."
+                  description="Garden is where I've learned the power of nature, patience and responsibility. My recent achievement includes creating a raised bed and a compost bin by making use of used wood pallets."
                 />
               </Box>
             </Section>
