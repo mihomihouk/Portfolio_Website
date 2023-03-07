@@ -51,9 +51,9 @@ const About = ({ imageURL, resumeURL }) => {
           <Stack justifyContent="space-between" w="100%" p={{ base: 4, md: 2 }}>
             <Box pt={18} pl={3} my="auto">
               <Text fontSize={['sm', 'xl', '3xl']} fontWeight="bold">
-                Enthusiastic junior web developer with strong motivation to
-                tackle challenges, and keen to nurture inspiring and encouraging
-                development team.
+                Enthusiastic junior full-stack developer with strong motivation
+                to tackle challenges, and keen to nurture goal-oriented and
+                supportive development team.
               </Text>
             </Box>
             <Box mr={6} align="right" p={2}>
@@ -73,117 +73,64 @@ const About = ({ imageURL, resumeURL }) => {
           <Box py={6} px={6}>
             <Section>
               <Heading as="h3" variant="section-title">
-                Curious Adventurist
+                High motivation & consistency
               </Heading>
               <Text>
-                "Knowledge is my Food"ーnothing but this expression can describe
-                better about my devotion to learning. Even before starting my
-                master's in Anthropology, I traveled abroad from Africa to
-                Australia staying with local families to be able to understand
-                different ways of being and embracing food.
-              </Text>
-              <br />
-              <Text>
-                Then I finally found my best occupation, software engineer,
-                where continuously learning new skills is an essential part of
-                job. Currently, I am interested in studying Node.js and some
-                other backend skills to be a full-stuck engineer in the future.
-              </Text>
-              <br />
-              <Text>
-                Not only brings me constant and endless inspirations, my
-                enthusiasm has been a positive influence to other people. In
-                weekly meetings of Code Lesson, a development project that I am
-                currently engaged, I always proactively participate in the
-                discussions by asking questions and suggesting possible
-                solutions. From other members' feedback, I learned this attitude
-                indeed is contributing to improve the quality of the project as
-                well as helps team members to be reflective and quickly find
-                solutions.
+                "Knowledge is my Food" ー nothing but this expression can
+                describe better about my devotion to learning. Though I joined
+                Subly as a frontend engineer, I'm now regularly working for the
+                backend as well. This is the result of my continuous endeavour
+                to push my boundaries both at and outside of work in order to
+                learn new skills as quickly as possible. Over the last eight
+                months, I've contributed to a number of bug-fix and feature
+                development, which involves designing and creating UI, reusable
+                components, and endpoints, writing tests and preparing
+                migration. Constantly updating a list of skills to learn as well
+                as learning code in every morning before work has become my
+                habit, which has helped me to offer better solutions to a wide
+                range of challenges we come across in a fast-paced work
+                environment. This eagerness to learn and consistency has been
+                infectious to my entire company - I was officially selected as
+                "the most passionate employee in 2022" at Subly.
               </Text>
             </Section>
             <Section delay={0.2}>
               <Heading as="h3" variant="section-title">
-                Up for Challenges
+                Collaboration & communication
               </Heading>
               <Text>
-                Over the past decade, I have come across many obstacles:
-                studying abroad in the UK twice that required intensive English
-                learning and acquiring a competitive scholarship; managing a NGO
-                office with 12 local staff in Cambodia at young age; having only
-                one month to prepare for an entrance exam to get into master
-                course in Kyoto University. All of these events helped me grow
-                as a human and equipped me with mentality to willingly accept
-                and enjoy challenges rather than shy away from them.
-              </Text>
-              <br />
-              <Text>
-                This attitude towards hardships became very useful in coding.
-                Especially as I chose to be a self-taught developer, making my
-                study plan and handling errors were even harder. However,
-                through learning code on my own, I learned how to ask other
-                people for help as well as stay positive and be patient.
+                Working and living in different parts of the world has
+                cultivated my unparalleled attention to diverse perspectives and
+                my ability to balance conflicting opinions. My communication
+                skills have been sharpened further through working remotely for
+                a small team at Subly. Actively engaging with peer review and
+                jumping on bug-fix as well as taking the lead to set up office
+                days are the things I prioritize in order to build stronger team
+                bonds and to promote a supportive work environment. Beyond the
+                dev team, I also maintain close communication with the head of
+                marketing to keep up with the company's changing strategies.
+                I've found having openness, constructive discussions and
+                supportive relationships inside a team are the keys to higher
+                job satisfaction and higher productivity amongst the workers.
               </Text>
             </Section>
             <Section delay={0.4}>
               <Heading as="h3" variant="section-title">
-                Attentive Facilitator
+                Think big & think ahead
               </Heading>
               <Text>
-                Working and living in many different countries such as Cambodia,
-                Australia and the UK, I gained a skill to pay attention to
-                different needs and opinions of other people.
-              </Text>
-              <br />
-              <Text>
-                Also, working as an online Japanese language teacher, I gained
-                confidence in keeping other people stay engaged, and assisting
-                them in effectively achieving their goals.
-              </Text>
-              <br />
-              <Text>
-                After started coding, this facilitation skill has flourished. In
-                a team development project, that I joined with 7 other Japanese
-                code learners, I became the leader, facilitating its weekly
-                meeting, monitoring progress, and helping other members' error
-                handling.
-              </Text>
-              <br />
-              <Text>
-                Also, via a code-learners community, I have hosted an Agile
-                daily stand-up for those who are working on their portfolio
-                applications. This is for participants to share their progress
-                and problems as well as to help each other to find solutions.
-              </Text>
-            </Section>
-            <Section delay={0.6}>
-              <Heading as="h3" variant="section-title">
-                Connecting and empowering people
-              </Heading>
-              <Text>
-                Connecting and empowering people are the two filed where I can
-                put my talents to best use. In Japan, the UK, Cambodia and
-                Australia, I helped institutions and individuals to achieve
-                sustainable food production as well as to build inclusive
-                communities as a live-in volunteer and as an NGO worker.
-              </Text>
-              <br />
-              <Text>
-                In this regard, I believe in the power of software
-                engineeringーthe power that can create social spaces beyond
-                differences and distance, and that can equip us with means to
-                tackle individual and social issues.
-              </Text>
-              <br />
-              <Text>
-                During my a-year-long master's in Anthropology of Food at SOAS,
-                I conducted Anthropological research on OLIO, a neighbour to
-                neighbour food sharing app. Through interviewing with the
-                volunteers and users, attending talks from the founders, and
-                participating in the food sharing as a user, I learned how
-                effectively one mobile app can transform people's awareness
-                about food waste, empower them to take actions, and create new
-                communities to rely on each other.
+                As a former research student in Anthropology, I'm good at paying
+                attention to both big and small pictures. I often found that
+                having enough exposure to up-to-date knowledge about my
+                company's roadmap and marketing data is just as important as
+                day-to-day coding. The context has helped me quickly and
+                accurately understand "why" we need to develop the features that
+                we're working on, and "which" task should be prioritized. Also,
+                I always think ahead. Before starting to code, I try to identify
+                design flaws and possible technical challenges, and, if
+                necessary, I don't hesitate to give others feedback. I believe
+                this small process often saves huge amount of time that would be
+                otherwise spent on writing unnecessary codes.
               </Text>
             </Section>
           </Box>
