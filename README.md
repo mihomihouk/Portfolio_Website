@@ -1,5 +1,5 @@
 
-# Portofolio Website
+# Website
 
 ## Overview
 
@@ -46,4 +46,4 @@ Portfolio Website
 
 ## Release URL
 
-https://portfolio-app-ecru.vercel.app/
+https://mihoinagaki.com/
