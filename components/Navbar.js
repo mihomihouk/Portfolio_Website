@@ -31,7 +31,7 @@ const Navbar = props => {
       as="nav"
       w="100%"
       style={{ backdropFilter: 'blur(10px)' }}
-      zIndex={1}
+      zIndex={10}
       {...props}
     >
       <Box

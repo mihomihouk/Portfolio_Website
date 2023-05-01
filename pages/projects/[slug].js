@@ -40,6 +40,7 @@ const Project = props => {
   if (router.isFallback) {
     return <Skelton />
   }
+
   return (
     <>
       <Layout title="code-lesson">
@@ -73,18 +74,30 @@ const Project = props => {
             <Section delay={0.4}>
               <Text size="h3">Links</Text>
               <List>
-                <ListItem>
-                  <Meta>Website</Meta>
-                  <Link href={props.url}>
-                    <ExternalLinkIcon mx="2px" />
-                  </Link>
-                </ListItem>
-                <ListItem>
-                  <Meta>GitHub</Meta>
-                  <Link href={props.github}>
-                    <ExternalLinkIcon mx="2px" />
-                  </Link>
-                </ListItem>
+                {props.url && (
+                  <ListItem>
+                    <Meta>Website</Meta>
+                    {props.url === 'Coming soon' ? (
+                      <Text>Coming soon</Text>
+                    ) : (
+                      <Link href={props.url}>
+                        <ExternalLinkIcon mx="2px" />
+                      </Link>
+                    )}
+                  </ListItem>
+                )}
+                {props.github && (
+                  <ListItem>
+                    <Meta>GitHub</Meta>
+                    {props.github === 'Coming soon' ? (
+                      <Text>Coming soon</Text>
+                    ) : (
+                      <Link href={props.github}>
+                        <ExternalLinkIcon mx="2px" />
+                      </Link>
+                    )}
+                  </ListItem>
+                )}
                 {props.articleUrl && (
                   <ListItem>
                     <Meta>Article</Meta>
