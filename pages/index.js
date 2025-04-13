@@ -19,27 +19,24 @@ import { Section } from '../components/Section'
 import { client } from '../libs/client'
 import { ProjectGridItem } from '../components/GridItem'
 
-import { IoLogoTwitter, IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5'
+import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5'
 import { FaDev } from 'react-icons/fa'
 
 export const getStaticProps = async () => {
   const res = await client.getEntries({
     content_type: 'projects'
   })
-  const contentful = require('contentful')
   const firstView = await client.getAsset('4dcMYwy4p2BmoHGlGwcCHa')
-  const resume = await client.getAsset('6M0PJpY5tR1HkSBAPhLKPd')
   return {
     props: {
       projects: res.items,
-      imageURL: `https:${firstView.fields.file.url}`,
-      resumeURL: `https:${resume.fields.file.url}`
+      imageURL: `https:${firstView.fields.file.url}`
     },
     revalidate: 1
   }
 }
 
-const Page = ({ projects, imageURL, resumeURL }) => {
+const Page = ({ projects, imageURL }) => {
   return (
     <Layout>
       <Flex>
@@ -65,7 +62,7 @@ const Page = ({ projects, imageURL, resumeURL }) => {
                 Hi, I'm Miho.
               </Text>
               <Text fontSize={['xl', '3xl', '5xl']} fontWeight="bold">
-                A junior full-stack developer based in the UK.
+                A frontend developer based in the UK.
               </Text>
               <Text fontSize={['md', 'xl', '3xl']} fontWeight="bold">
                 My focus is to produce systems and applications that can
@@ -77,15 +74,6 @@ const Page = ({ projects, imageURL, resumeURL }) => {
       </Flex>
 
       <Box display={'flex'} alignItems="center" mt={4} mb={6} px={2}>
-        <Box mr={6}>
-          <Link
-            style={{ textDecoration: 'none' }}
-            href={resumeURL}
-            target="_blank"
-          >
-            <Button variant="action">Get Resume</Button>
-          </Link>
-        </Box>
         <List display={'flex'}>
           <ListItem>
             <Link href="https://github.com/mihomihouk">
@@ -106,16 +94,6 @@ const Page = ({ projects, imageURL, resumeURL }) => {
                 size="lg"
               ></IconButton>
             </Link>
-          </ListItem>
-          <ListItem>
-            <NextLink href="https://twitter.com/mihoukmiho" passHref>
-              <IconButton
-                variant="ghost"
-                colorScheme="orange.500"
-                leftIcon={<Icon as={IoLogoTwitter} />}
-                size="lg"
-              ></IconButton>
-            </NextLink>
           </ListItem>
           <ListItem>
             <Link href="https://dev.to/mihomihouk">

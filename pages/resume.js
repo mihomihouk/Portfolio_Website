@@ -2,7 +2,6 @@ import { Box, Icon, Text, Wrap, WrapItem, Stack } from '@chakra-ui/react'
 import { Link as Scroll } from 'react-scroll'
 import Layout from '../components/layouts/Layout'
 import PageTitle from '../components/PageTitle'
-import { IoSchoolSharp } from 'react-icons/io5'
 import { MdHistory } from 'react-icons/md'
 import { FaLaptopCode } from 'react-icons/fa'
 import { GiMeal } from 'react-icons/gi'
@@ -11,7 +10,6 @@ import SectionHeading from '../components/SectionHeading'
 import { client } from '../libs/client'
 
 export const getStaticProps = async () => {
-  const contentful = require('contentful')
   const agileLogo = await client.getAsset('1y0uxAPI1Wfdwabrhizd1A')
   const chakraUILogo = await client.getAsset('4qahETPzPahg9OOWT3ZB4T')
   const contentfulLogo = await client.getAsset('7kwOlrTJdl14EnnnYpexpE')
@@ -97,12 +95,7 @@ const resumeMenuList = [
     logoSrc: <Icon as={FaLaptopCode} />,
     to: 'programming-skills'
   },
-  { label: 'Interests', logoSrc: <Icon as={GiMeal} />, to: 'interests' },
-  {
-    label: 'Education',
-    logoSrc: <Icon as={IoSchoolSharp} />,
-    to: 'education'
-  }
+  { label: 'Interests', logoSrc: <Icon as={GiMeal} />, to: 'interests' }
 ]
 
 const Resume = ({ agileLogoURL, chakraUILogoURL, contentfulLogoURL }) => {
@@ -129,52 +122,76 @@ const Resume = ({ agileLogoURL, chakraUILogoURL, contentfulLogoURL }) => {
     {
       id: 4,
       skill:
-        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg',
-      name: 'React.js'
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jquery/jquery-original.svg',
+      name: 'Jquery'
     },
     {
       id: 5,
       skill:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg',
+      name: 'React.js'
+    },
+    {
+      id: 6,
+      skill:
         'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg',
       name: 'Typescript'
     },
-    { id: 6, skill: agileLogoURL, name: 'Agile' },
+    { id: 7, skill: agileLogoURL, name: 'Agile' },
     {
-      id: 7,
+      id: 8,
       skill:
-        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg',
       name: 'TailWind'
     },
     {
-      id: 8,
+      id: 9,
       skill:
         'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
       name: 'PostgreSQL'
     },
     {
-      id: 9,
+      id: 10,
       skill:
-        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original-wordmark.svg',
-      name: 'Next.js'
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg',
+      name: 'PHP'
     },
     {
-      id: 10,
+      id: 11,
       skill:
         'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain-wordmark.svg',
       name: 'Firebase'
     },
     {
-      id: 11,
+      id: 12,
       skill:
         'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-plain.svg',
       name: 'Material-UI'
     },
     {
-      id: 12,
+      id: 13,
       skill: chakraUILogoURL,
       name: 'ChakraUI'
     },
-    { id: 13, skill: contentfulLogoURL, name: 'Contentful' }
+    { id: 14, skill: contentfulLogoURL, name: 'Contentful' },
+    {
+      id: 15,
+      skill:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/playwright/playwright-original.svg',
+      name: 'Playwright '
+    },
+    {
+      id: 16,
+      skill:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitest/vitest-original.svg',
+      name: 'Vitest'
+    },
+    {
+      id: 17,
+      skill:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg',
+      name: 'Figma'
+    }
   ]
 
   return (
@@ -220,57 +237,23 @@ const Resume = ({ agileLogoURL, chakraUILogoURL, contentfulLogoURL }) => {
               <Box mt="30px">
                 <Stack>
                   <ResumeFormat
-                    heading={'Junior Full Stack Developer'}
-                    subHeading={`I've designed and developed new features for "Subly", an online subtitling app, by implementing both frontend and backend tasks with React, TypeScript and Node.js. I've also found and fixed bugs, and implemented solutions to customers' issues and requests. Internally, I've contributed to the team by actively engaging with code reviews and product
-                    testing as well by organizing office days in London to strengthen the team bond.`}
-                    fromDate={'Jul 2022'}
+                    heading={'Frontend Developer & UI/UX Designer'}
+                    subHeading={`In my current role at Trackpro, I’ve cultivated a unique blend of UI/UX design and front-end engineering skills by working in a small, agile team. I take ownership of the entire front-end process — from designing wireframes and mockups to building responsive, accessible interfaces using HTML, CSS (Tailwind or Material UI), React, and TypeScript. I've also taken initiative in establishing sustainable and maintainable front-end architecture, ensuring scalability and long-term code health. Additionally, I’ve made significant contributions to testing strategies, UI consistency, and external library integration and management.`}
+                    fromDate={'Aug 2023'}
                     toDate={'present'}
                   />
                   <ResumeFormat
+                    heading={'Junior Full Stack Developer'}
+                    subHeading={`I developed new features for Subly, an online subtitling app, by implementing both frontend and backend tasks with React, TypeScript and Node.js. I also found and fixed bugs, and implemented solutions to customers' issues and requests. Internally, I contributed to the team by actively engaging with code reviews and product
+                    testing as well by organizing office days in London to strengthen the team bond.`}
+                    fromDate={'Jul 2022'}
+                    toDate={'Mar 2023'}
+                  />
+                  <ResumeFormat
                     heading={'React Curriculum Creator'}
-                    subHeading={`I designed and created over 30 React lessons for "Code Lesson", a code-learning web application for beginners.`}
+                    subHeading={`I designed and created over 30 React lessons for Code Lesson, a code-learning web application for beginners.`}
                     fromDate={'Feb 2022'}
                     toDate={'jul 2022'}
-                  />
-                  <ResumeFormat
-                    heading={'Japanese Language Teacher '}
-                    subHeading={
-                      'I taught Japanese grammars and conversational techniques to 7 foreign students online. I also designed the lessons, proofread CVs and writing pieces as well as conducted demo interviews. '
-                    }
-                    fromDate={'Feb 2021'}
-                    toDate={'Mar 2022'}
-                  />
-                  <ResumeFormat
-                    heading={'Kitchen Hand'}
-                    subHeading={
-                      'I cooked seasonal food with local agricultural products. I also designed an efficient working space and improved customer service.'
-                    }
-                    fromDate={'Dec 2018'}
-                    toDate={'Aug 2018'}
-                  />
-                  <ResumeFormat
-                    heading={'Wine Factory Operator'}
-                    subHeading={
-                      'Working in the bottling section, I transported wine from storage tanks to final tanks. I also added additives, controlled the quality, and sampled wine for the production.'
-                    }
-                    fromDate={'Jan 2018'}
-                    toDate={'Apr 2018'}
-                  />
-                  <ResumeFormat
-                    heading={'Permaculturalist Personal Assistant'}
-                    subHeading={
-                      'I developed the marketing strategy, improved the website contents, and shoot photographs and videos of  her work as a permaculturalist. I also organised and managed everyday tasks and small projects for her.'
-                    }
-                    fromDate={'Jun 2017'}
-                    toDate={'Oct 2017'}
-                  />
-                  <ResumeFormat
-                    heading={'NGO Project Coordinator'}
-                    subHeading={
-                      'Working in the Cambodian project, I consulted, recruited and trained staff; made quarterly, monthly and daily project goals; designed and led study-tours; wrote articles, expanded network through events, and reported to patrons and sponsors.'
-                    }
-                    fromDate={'Jan 2016'}
-                    toDate={'Oct 2016'}
                   />
                 </Stack>
               </Box>
@@ -288,32 +271,6 @@ const Resume = ({ agileLogoURL, chakraUILogoURL, contentfulLogoURL }) => {
                   />
                 ))}
               </Wrap>
-            </Section>
-            {/* eduction */}
-            <Section id="education">
-              <Stack spacing={6}>
-                <SectionHeading title="Education" />
-                <ResumeFormat
-                  heading={'University of Kyoto, Kyoto'}
-                  subHeading={
-                    'Discontinued after the 1st year: MASTER OF CULTURAL ANTHROPOLOGY'
-                  }
-                  fromDate={'2019'}
-                  toDate={'2021'}
-                />
-                <ResumeFormat
-                  heading={'SOAS University of London'}
-                  subHeading={'MA ANTHROPOLOGY OF FOOD'}
-                  fromDate={'2019'}
-                  toDate={'2020'}
-                />
-                <ResumeFormat
-                  heading={'Rikkyo University, Tokyo'}
-                  subHeading={'BACHELOR OF INTERCULTURAL COMMUNICATION'}
-                  fromDate={'2011'}
-                  toDate={'2015'}
-                />
-              </Stack>
             </Section>
             {/* interest */}
             <Section delay={0.8} id="interests">

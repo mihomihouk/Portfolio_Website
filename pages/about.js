@@ -1,12 +1,4 @@
-import {
-  Box,
-  SimpleGrid,
-  Stack,
-  Button,
-  Text,
-  Link,
-  Heading
-} from '@chakra-ui/react'
+import { Box, SimpleGrid, Stack, Text, Heading } from '@chakra-ui/react'
 import Image from 'next/image'
 import Layout from '../components/layouts/Layout'
 import PageTitle from '../components/PageTitle'
@@ -14,18 +6,15 @@ import { client } from '../libs/client'
 import { Section } from '../components/Section'
 
 export const getStaticProps = async () => {
-  const contentful = require('contentful')
   const firstView = await client.getAsset('4pOuhvWFjuBUkseHNzUFZO')
-  const resume = await client.getAsset('6M0PJpY5tR1HkSBAPhLKPd')
   return {
     props: {
-      imageURL: `https:${firstView.fields.file.url}?r=24&bg=rgb:DD6B20`,
-      resumeURL: `https:${resume.fields.file.url}`
+      imageURL: `https:${firstView.fields.file.url}?r=24&bg=rgb:DD6B20`
     }
   }
 }
 
-const About = ({ imageURL, resumeURL }) => {
+const About = ({ imageURL }) => {
   return (
     <Layout>
       <Box width="100%" pt={3}>
@@ -51,21 +40,10 @@ const About = ({ imageURL, resumeURL }) => {
           <Stack justifyContent="space-between" w="100%" p={{ base: 4, md: 2 }}>
             <Box pt={18} pl={3} my="auto">
               <Text fontSize={['sm', 'xl', '3xl']} fontWeight="bold">
-                Enthusiastic junior full-stack developer with strong motivation
-                to tackle challenges, and keen to nurture goal-oriented and
-                supportive development team.
+                Enthusiastic frontend developer with strong motivation to tackle
+                challenges, and keen to nurture goal-oriented and supportive
+                development team.
               </Text>
-            </Box>
-            <Box mr={6} align="right" p={2}>
-              <Link
-                style={{ textDecoration: 'none' }}
-                href={resumeURL}
-                target="_blank"
-              >
-                <Button bg="white" color="orange">
-                  Get Resume
-                </Button>
-              </Link>
             </Box>
           </Stack>
         </SimpleGrid>
