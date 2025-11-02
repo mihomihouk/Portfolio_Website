@@ -1,4 +1,12 @@
-import { Box, SimpleGrid, Stack, Text, Heading } from '@chakra-ui/react'
+import {
+  Box,
+  SimpleGrid,
+  Stack,
+  Text,
+  Heading,
+  List,
+  ListItem
+} from '@chakra-ui/react'
 import Image from 'next/image'
 import Layout from '../components/layouts/Layout'
 import PageTitle from '../components/PageTitle'
@@ -12,6 +20,16 @@ export const getStaticProps = async () => {
       imageURL: `https:${firstView.fields.file.url}?r=24&bg=rgb:DD6B20`
     }
   }
+}
+
+const BulletList = ({ items }) => {
+  return (
+    <List spacing={3} styleType="disc" pl={5}>
+      {items.map((item, index) => (
+        <ListItem key={index}>{item}</ListItem>
+      ))}
+    </List>
+  )
 }
 
 const About = ({ imageURL }) => {
@@ -40,9 +58,7 @@ const About = ({ imageURL }) => {
           <Stack justifyContent="space-between" w="100%" p={{ base: 4, md: 2 }}>
             <Box pt={18} pl={3} my="auto">
               <Text fontSize={['sm', 'xl', '3xl']} fontWeight="bold">
-                Enthusiastic frontend developer with strong motivation to tackle
-                challenges, and keen to nurture goal-oriented and supportive
-                development team.
+                Design, develop, deliver — with purpose and impact.
               </Text>
             </Box>
           </Stack>
@@ -51,65 +67,41 @@ const About = ({ imageURL }) => {
           <Box py={6} px={6}>
             <Section>
               <Heading as="h3" variant="section-title">
-                High motivation & consistency
+                Multi-skilled
               </Heading>
-              <Text>
-                "Knowledge is my Food" ー nothing but this expression can
-                describe better about my devotion to learning. Though I joined
-                Subly as a frontend engineer, I'm now regularly working for the
-                backend as well. This is the result of my continuous endeavour
-                to push my boundaries both at and outside of work in order to
-                learn new skills as quickly as possible. Over the last eight
-                months, I've contributed to a number of bug-fix and feature
-                development, which involves designing and creating UI, reusable
-                components, and endpoints, writing tests and preparing
-                migration. Constantly updating a list of skills to learn as well
-                as learning code in every morning before work has become my
-                habit, which has helped me to offer better solutions to a wide
-                range of challenges we come across in a fast-paced work
-                environment. This eagerness to learn and consistency has been
-                infectious to my entire company - I was officially selected as
-                "the most passionate employee in 2022" at Subly.
-              </Text>
-            </Section>
-            <Section delay={0.2}>
-              <Heading as="h3" variant="section-title">
-                Collaboration & communication
-              </Heading>
-              <Text>
-                Working and living in different parts of the world has
-                cultivated my unparalleled attention to diverse perspectives and
-                my ability to balance conflicting opinions. My communication
-                skills have been sharpened further through working remotely for
-                a small team at Subly. Actively engaging with peer review and
-                jumping on bug-fix as well as taking the lead to set up office
-                days are the things I prioritize in order to build stronger team
-                bonds and to promote a supportive work environment. Beyond the
-                dev team, I also maintain close communication with the head of
-                marketing to keep up with the company's changing strategies.
-                I've found having openness, constructive discussions and
-                supportive relationships inside a team are the keys to higher
-                job satisfaction and higher productivity amongst the workers.
-              </Text>
+              <BulletList
+                items={[
+                  '3 years’ experience in small, cross-functional teams have shaped me into a versatile, multi-skilled developer who can contribute across the product lifecycle',
+                  'End-to-end expertise: defining features, researching and selecting technologies, performing code reviews, frontend development, E2E testing, and crafting intuitive UI/UX',
+                  'UI/UX skills: design wireframes and mockups in Figma, develop scalable design systems, and bridge gaps between design and frontend teams to ensure cohesive products',
+                  'Project management: translate abstract feature requests into actionable tasks, provide data-driven suggestions while balancing deadlines and resources, and gather user feedback to drive product improvements'
+                ]}
+              />
             </Section>
             <Section delay={0.4}>
               <Heading as="h3" variant="section-title">
-                Think big & think ahead
+                Committed to Outcomes
               </Heading>
-              <Text>
-                As a former research student in Anthropology, I'm good at paying
-                attention to both big and small pictures. I often found that
-                having enough exposure to up-to-date knowledge about my
-                company's roadmap and marketing data is just as important as
-                day-to-day coding. The context has helped me quickly and
-                accurately understand "why" we need to develop the features that
-                we're working on, and "which" task should be prioritized. Also,
-                I always think ahead. Before starting to code, I try to identify
-                design flaws and possible technical challenges, and, if
-                necessary, I don't hesitate to give others feedback. I believe
-                this small process often saves huge amount of time that would be
-                otherwise spent on writing unnecessary codes.
-              </Text>
+              <BulletList
+                items={[
+                  'More than a programmer — I ensure that every feature and solution aligns with both short- and long-term business goals',
+                  'Continuously communicate progress with team members and stakeholders, keeping everyone aligned',
+                  'Pivot plans when necessary, making optimal decisions that balance competing priorities and realistic resource constraints',
+                  'Stay focused on impact and results, aware of the fast-moving and competitive nature of the tech industry'
+                ]}
+              />
+            </Section>
+            <Section delay={0.2}>
+              <Heading as="h3" variant="section-title">
+                Team Player
+              </Heading>
+              <BulletList
+                items={[
+                  'Create productive and efficient teams by fostering inclusive environments where all voices are valued, encouraging team members to point out mistakes and make suggestions without hesitation',
+                  'Leverage unique experiences in charities and anthropological research to bridge gaps in knowledge and perspectives, guiding teams toward shared goals',
+                  'Proactively share technical insights and discoveries to uplift the team and accelerate collective learning'
+                ]}
+              />
             </Section>
           </Box>
         </Box>

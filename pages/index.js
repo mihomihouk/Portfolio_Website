@@ -65,8 +65,8 @@ const Page = ({ projects, imageURL }) => {
                 A frontend developer based in the UK.
               </Text>
               <Text fontSize={['md', 'xl', '3xl']} fontWeight="bold">
-                Combining 3 years of experience with a unique blend of frontend
-                engineering and UI/UX design expertise to craft intuitive,
+                With 3 years of experience with a unique blend of frontend
+                engineering and UI/UX design expertise, I craft intuitive,
                 high-impact digital products.
               </Text>
             </Box>

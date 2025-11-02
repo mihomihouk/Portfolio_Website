@@ -277,8 +277,8 @@ const Resume = ({ agileLogoURL, chakraUILogoURL, contentfulLogoURL }) => {
               <SectionHeading title="Interests" />
               <Box>
                 <ResumeFormat
-                  heading="Comedy"
-                  description="Whether stand-up, sitcoms or books, I've been always fascinated by the art of comedy. I'm currently exploring British comedy shows and keen to visit different comedy venues in London."
+                  heading="Kickboxing"
+                  description="I’ve been practicing kickboxing for a year, dedicating much of my free time to building strength and refining my sparring skills. It has taught me discipline, focus, and the importance of both supporting others and being supported, while sharpening my observation and strategic thinking."
                 />
                 <ResumeFormat
                   heading="Cooking"
@@ -286,7 +286,7 @@ const Resume = ({ agileLogoURL, chakraUILogoURL, contentfulLogoURL }) => {
                 />
                 <ResumeFormat
                   heading="Gardening"
-                  description="Garden is where I've learned the power of nature, patience and responsibility. My recent achievement includes creating a raised bed and a compost bin by making use of used wood pallets."
+                  description="Garden is where I've learned the power of nature, patience and responsibility. My backyard has been my playground for the past several years, and I've been growing a variety of vegetables and herbs."
                 />
               </Box>
             </Section>
