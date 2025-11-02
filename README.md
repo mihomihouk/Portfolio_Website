@@ -1,4 +1,3 @@
-
 # Website
 
 ## Release URL
@@ -7,7 +6,7 @@ https://mihoinagaki.com/
 
 ## Overview
 
-This is my portfolio website developed using Next.js, React, Contentful, and Chakra UI. To showcase my previous projects and biography, I  added dynamic animations to the pages using Framer Motion and React-scroll to it. You can download my resume and send me messages through the contact form suppoted by ReCaptcha and delivered by nodemailer.
+This is my portfolio website developed using Next.js, React, Contentful, and Chakra UI. To showcase my previous projects and biography, I added dynamic animations to the pages using Framer Motion and React-scroll to it. You can download my resume and send me messages through the contact form supported by ReCaptcha and delivered by nodemailer.
 
 ## Languages, Libraries, Frameworks, Tools
 
@@ -26,7 +25,7 @@ This is my portfolio website developed using Next.js, React, Contentful, and Cha
 
 - Animation with Framer Motion
 - Scroll
-- Static Site Generation 
+- Static Site Generation
 - Contact Form (ReCaptcha & message sending)
 - Content Management with Headless CMS
 
@@ -34,7 +33,7 @@ This is my portfolio website developed using Next.js, React, Contentful, and Cha
 
 ```
 Portfolio Website
-|- Home 
+|- Home
 |- About
 |- Resume
 |- Projects
@@ -46,7 +45,4 @@ Portfolio Website
 ## Development
 
 - Developer: Miho Inagaki
-- Project Period: April 2022 - May 2022 
-
-
-
+- Project Period: April 2022 - May 2022
