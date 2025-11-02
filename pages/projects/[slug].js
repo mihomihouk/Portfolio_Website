@@ -86,18 +86,6 @@ const Project = props => {
                     )}
                   </ListItem>
                 )}
-                {props.github && (
-                  <ListItem>
-                    <Meta>GitHub</Meta>
-                    {props.github === 'Coming soon' ? (
-                      <Text>Coming soon</Text>
-                    ) : (
-                      <Link href={props.github}>
-                        <ExternalLinkIcon mx="2px" />
-                      </Link>
-                    )}
-                  </ListItem>
-                )}
                 {props.articleUrl && (
                   <ListItem>
                     <Meta>Article</Meta>
