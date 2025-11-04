@@ -62,10 +62,10 @@ const Page = ({ projects, imageURL }) => {
                 Hi, I'm Miho.
               </Text>
               <Text fontSize={['xl', '3xl', '5xl']} fontWeight="bold">
-                A frontend developer based in the UK.
+                A full-stack engineer based in the UK.
               </Text>
               <Text fontSize={['md', 'xl', '3xl']} fontWeight="bold">
-                With 3 years of experience with a unique blend of frontend
+                With 3 years of experience with a unique blend of full-stack
                 engineering and UI/UX design expertise, I craft intuitive,
                 high-impact digital products.
               </Text>
