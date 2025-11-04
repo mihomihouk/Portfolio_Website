@@ -72,8 +72,8 @@ const About = ({ imageURL }) => {
               <BulletList
                 items={[
                   '3 years’ experience in small, cross-functional teams have shaped me into a versatile, multi-skilled developer who can contribute across the product lifecycle',
-                  'End-to-end expertise: defining features, researching and selecting technologies, performing code reviews, frontend development, E2E testing, and crafting intuitive UI/UX',
-                  'UI/UX skills: design wireframes and mockups in Figma, develop scalable design systems, and bridge gaps between design and frontend teams to ensure cohesive products',
+                  'End-to-end expertise: defining features, researching and selecting technologies, performing code reviews, frontend & backend development, E2E testing, and crafting intuitive UI/UX',
+                  'UI/UX skills: design wireframes and mockups in Figma, develop scalable design systems, and bridge gaps between design and engineering teams to ensure cohesive products',
                   'Project management: translate abstract feature requests into actionable tasks, provide data-driven suggestions while balancing deadlines and resources, and gather user feedback to drive product improvements'
                 ]}
               />
