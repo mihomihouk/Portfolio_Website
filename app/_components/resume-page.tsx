@@ -1,28 +1,13 @@
-import { Box, Icon, Text, Wrap, WrapItem, Stack } from '@chakra-ui/react'
-import { Link as Scroll } from 'react-scroll'
-import Layout from '../components/layouts/Layout'
-import PageTitle from '../components/PageTitle'
-import { MdHistory } from 'react-icons/md'
+'use client'
+import { Box, WrapItem, Stack, Icon, Wrap, Text } from '@chakra-ui/react'
 import { FaLaptopCode } from 'react-icons/fa'
+import PageTitle from '../../components/PageTitle'
+import { Section } from '../../components/Section'
+import { PageWrapper } from './page-wrapper'
+import { MdHistory } from 'react-icons/md'
 import { GiMeal } from 'react-icons/gi'
-import { Section } from '../components/Section'
-import SectionHeading from '../components/SectionHeading'
-import { client } from '../libs/client'
-
-export const getStaticProps = async () => {
-  const agileLogo = await client.getAsset('1y0uxAPI1Wfdwabrhizd1A')
-  const chakraUILogo = await client.getAsset('4qahETPzPahg9OOWT3ZB4T')
-  const contentfulLogo = await client.getAsset('7kwOlrTJdl14EnnnYpexpE')
-  const strapiLogo = await client.getAsset('1RLMMWF1h00ykECZLsOryZ')
-  return {
-    props: {
-      agileLogoURL: `https:${agileLogo.fields.file.url}`,
-      chakraUILogoURL: `https:${chakraUILogo.fields.file.url}?h=100&w=100`,
-      contentfulLogoURL: `https:${contentfulLogo.fields.file.url}`,
-      strapiLogoURL: `https:${strapiLogo.fields.file.url}`
-    }
-  }
-}
+import { Link as Scroll } from 'react-scroll'
+import SectionHeading from '../../components/SectionHeading'
 
 //ResumeFormat
 const ResumeFormat = props => {
@@ -31,7 +16,7 @@ const ResumeFormat = props => {
       <Box
         display={{ lg: 'flex' }}
         justifyContent="space-between"
-        align="center"
+        alignItems="center"
         py={2}
       >
         {props.heading && (
@@ -54,7 +39,7 @@ const ResumeFormat = props => {
             py={{ base: '0', lg: '10px' }}
             borderRadius="14px"
             color="white"
-            align="center"
+            alignItems="center"
             fontSize={{ base: 'sm', lg: 'lg' }}
           >
             {props.fromDate + '-' + props.toDate}
@@ -98,7 +83,11 @@ const resumeMenuList = [
   { label: 'Interests', logoSrc: <Icon as={GiMeal} />, to: 'interests' }
 ]
 
-const Resume = ({ agileLogoURL, chakraUILogoURL, contentfulLogoURL }) => {
+export function ResumePage({
+  agileLogoURL,
+  chakraUILogoURL,
+  contentfulLogoURL
+}) {
   //skill list
   const programmingSkillsDetails = [
     {
@@ -195,7 +184,7 @@ const Resume = ({ agileLogoURL, chakraUILogoURL, contentfulLogoURL }) => {
   ]
 
   return (
-    <Layout>
+    <PageWrapper>
       {/* the left scrollbar */}
       <Stack
         zIndex="4"
@@ -293,8 +282,6 @@ const Resume = ({ agileLogoURL, chakraUILogoURL, contentfulLogoURL }) => {
           </>
         </Box>
       </Box>
-    </Layout>
+    </PageWrapper>
   )
 }
-
-export default Resume

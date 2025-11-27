@@ -1,23 +1,13 @@
+'use client'
 import { Box, SimpleGrid } from '@chakra-ui/react'
-import Layout from '../components/layouts/Layout'
-import { Section } from '../components/Section'
-import { PostGridItem } from '../components/GridItem'
-import PageTitle from '../components/PageTitle'
-import { client } from '../libs/client'
+import { PostGridItem } from '../../components/GridItem'
+import PageTitle from '../../components/PageTitle'
+import { Section } from '../../components/Section'
+import { PageWrapper } from './page-wrapper'
 
-export const getStaticProps = async () => {
-  const res = await client.getEntries({
-    content_type: 'post'
-  })
-  return {
-    props: { posts: res.items },
-    revalidate: 1
-  }
-}
-
-const Posts = ({ posts }) => {
+export function PostsPage({ posts }) {
   return (
-    <Layout title="Posts">
+    <PageWrapper>
       <Box bg="gray.200" borderRadius="24px" mt={2}>
         <Box py={6} px={6}>
           <PageTitle pageTitle="Posts" />
@@ -28,14 +18,14 @@ const Posts = ({ posts }) => {
                   title={post.fields.title}
                   thumbnail={post.fields.thumbnail.fields.file}
                   href={post.fields.url}
-                />
+                >
+                  {post.fields.abstract}
+                </PostGridItem>
               </Section>
             ))}
           </SimpleGrid>
         </Box>
       </Box>
-    </Layout>
+    </PageWrapper>
   )
 }
-
-export default Posts

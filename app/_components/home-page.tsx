@@ -1,44 +1,33 @@
-import NextLink from 'next/link'
+'use client'
 import {
-  Button,
+  Flex,
   Box,
-  Heading,
-  Text,
-  Image,
-  Link,
   List,
   ListItem,
-  Flex,
-  Icon,
   IconButton,
-  SimpleGrid
+  Icon,
+  Heading,
+  SimpleGrid,
+  Image,
+  Text,
+  Button
 } from '@chakra-ui/react'
-import { ChevronRightIcon } from '@chakra-ui/icons'
-import Layout from '../components/layouts/Layout'
-import { Section } from '../components/Section'
-import { client } from '../libs/client'
-import { ProjectGridItem } from '../components/GridItem'
-
-import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5'
 import { FaDev } from 'react-icons/fa'
+import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5'
+import { ProjectGridItem } from '../../components/GridItem'
+import { Section } from '../../components/Section'
+import { PageWrapper } from './page-wrapper'
+import Link from 'next/link'
 
-export const getStaticProps = async () => {
-  const res = await client.getEntries({
-    content_type: 'projects'
-  })
-  const firstView = await client.getAsset('4dcMYwy4p2BmoHGlGwcCHa')
-  return {
-    props: {
-      projects: res.items,
-      imageURL: `https:${firstView.fields.file.url}`
-    },
-    revalidate: 1
-  }
-}
-
-const Page = ({ projects, imageURL }) => {
+export function HomePage({
+  projects,
+  imageURL
+}: {
+  projects: any
+  imageURL: string
+}) {
   return (
-    <Layout>
+    <PageWrapper>
       <Flex>
         <Box>
           <Box width="100%" mt={3} flexShrink={0} position={{ lg: 'relative' }}>
@@ -49,7 +38,6 @@ const Page = ({ projects, imageURL }) => {
               display="block"
               ml="auto"
               borderRadius="20px"
-              priority="true"
             />
             <Box
               position={{ lg: 'absolute' }}
@@ -81,8 +69,9 @@ const Page = ({ projects, imageURL }) => {
               <IconButton
                 variant="ghost"
                 colorScheme="orange.500"
-                leftIcon={<Icon as={IoLogoGithub} />}
+                icon={<Icon as={IoLogoGithub} />}
                 size="lg"
+                aria-label="GitHub"
               ></IconButton>
             </Link>
           </ListItem>
@@ -91,8 +80,9 @@ const Page = ({ projects, imageURL }) => {
               <IconButton
                 variant="ghost"
                 colorScheme="orange.500"
-                leftIcon={<Icon as={IoLogoLinkedin} />}
+                icon={<Icon as={IoLogoLinkedin} />}
                 size="lg"
+                aria-label="LinkedIn"
               ></IconButton>
             </Link>
           </ListItem>
@@ -101,8 +91,9 @@ const Page = ({ projects, imageURL }) => {
               <IconButton
                 variant="ghost"
                 colorScheme="orange.500"
-                leftIcon={<Icon as={FaDev} />}
+                icon={<Icon as={FaDev} />}
                 size="lg"
+                aria-label="Dev.to"
               ></IconButton>
             </Link>
           </ListItem>
@@ -128,22 +119,9 @@ const Page = ({ projects, imageURL }) => {
                 </Section>
               ))}
             </SimpleGrid>
-            <Box alignItems="center" pb={5}>
-              <NextLink href="/projects" passHref>
-                <Button
-                  rightIcon={<ChevronRightIcon />}
-                  variant="action"
-                  width="200px"
-                >
-                  My portfolio
-                </Button>
-              </NextLink>
-            </Box>
           </Section>
         </Box>
       </Box>
-    </Layout>
+    </PageWrapper>
   )
 }
-
-export default Page
