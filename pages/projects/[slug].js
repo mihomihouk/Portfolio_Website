@@ -43,7 +43,7 @@ const Project = props => {
 
   return (
     <>
-      <Layout title="code-lesson">
+      <Layout>
         <Title>
           {props.title}
           <Badge ml={2}>{props.date}</Badge>

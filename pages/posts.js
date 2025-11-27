@@ -17,7 +17,7 @@ export const getStaticProps = async () => {
 
 const Posts = ({ posts }) => {
   return (
-    <Layout title="Posts">
+    <Layout>
       <Box bg="gray.200" borderRadius="24px" mt={2}>
         <Box py={6} px={6}>
           <PageTitle pageTitle="Posts" />
