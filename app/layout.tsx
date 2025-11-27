@@ -1,5 +1,6 @@
 import React from 'react'
 import type { Metadata } from 'next'
+import { AppShell } from './_components/app-shell'
 
 export const metadata: Metadata = {
   title: 'Miho Inagaki',
@@ -15,7 +16,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <AppShell>{children}</AppShell>
+      </body>
     </html>
   )
 }

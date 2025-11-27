@@ -1,3 +1,4 @@
+'use client'
 import {
   Box,
   SimpleGrid,
@@ -7,11 +8,11 @@ import {
   List,
   ListItem
 } from '@chakra-ui/react'
+import { client } from '../../libs/client'
+import { Section } from '../../components/Section'
+import { PageWrapper } from '../_components/page-wrapper'
+import PageTitle from '../../components/PageTitle'
 import Image from 'next/image'
-import Layout from '../components/layouts/Layout'
-import PageTitle from '../components/PageTitle'
-import { client } from '../libs/client'
-import { Section } from '../components/Section'
 
 export const getStaticProps = async () => {
   const firstView = await client.getAsset('4pOuhvWFjuBUkseHNzUFZO')
@@ -32,9 +33,9 @@ const BulletList = ({ items }) => {
   )
 }
 
-const About = ({ imageURL }) => {
+export function AboutPage({ imageURL }) {
   return (
-    <Layout>
+    <PageWrapper>
       <Box width="100%" pt={3}>
         <PageTitle pageTitle="About" />
         <SimpleGrid
@@ -47,12 +48,12 @@ const About = ({ imageURL }) => {
         >
           <Box display={'flex'}>
             <Image
-              blur="true"
               priority
               src={imageURL}
               style={{ borderRadius: '24px' }}
               width="516"
               height="687"
+              alt="Profile Image"
             />
           </Box>
           <Stack justifyContent="space-between" w="100%" p={{ base: 4, md: 2 }}>
@@ -106,8 +107,6 @@ const About = ({ imageURL }) => {
           </Box>
         </Box>
       </Box>
-    </Layout>
+    </PageWrapper>
   )
 }
-
-export default About

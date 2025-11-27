@@ -1,11 +1,9 @@
-import NextLink from 'next/link'
+import Link from 'next/link'
 import {
   Box,
-  Link,
   Stack,
   Flex,
   Menu,
-  MenuItem,
   MenuList,
   MenuButton,
   IconButton
@@ -14,17 +12,18 @@ import { HamburgerIcon } from '@chakra-ui/icons'
 import { AiFillHome } from 'react-icons/ai'
 
 const LinkItem = ({ href, children }) => {
-  return (
-    <NextLink href={href} passHref>
-      <Link style={{ textDecoration: 'none' }} p={2}>
-        {children}
-      </Link>
-    </NextLink>
-  )
+  return <Link href={href}>{children}</Link>
 }
 
-const Navbar = props => {
-  const { path } = props
+function MenuItem({ href, children }) {
+  // TODO: Add hover effect
+  return (
+    <Link href={href} style={{ padding: '6px 12px', textAlign: 'left' }}>
+      {children}
+    </Link>
+  )
+}
+const Navbar = () => {
   return (
     <Box
       position="fixed"
@@ -32,7 +31,6 @@ const Navbar = props => {
       w="100%"
       style={{ backdropFilter: 'blur(10px)' }}
       zIndex={10}
-      {...props}
     >
       <Box
         display="flex"
@@ -49,23 +47,16 @@ const Navbar = props => {
         <Stack
           direction={{ base: 'column', md: 'row' }}
           display={{ base: 'none', md: 'flex' }}
+          gap={4}
           width={{ base: 'full', md: 'auto' }}
           alignItems="center"
           flexGrow={1}
           mt={{ base: 4, md: 0 }}
         >
-          <LinkItem href="/about" path={path}>
-            About
-          </LinkItem>
-          <LinkItem href="/resume" path={path}>
-            Resume
-          </LinkItem>
-          <LinkItem href="/projects" path={path}>
-            Projects
-          </LinkItem>
-          <LinkItem href="/posts" path={path}>
-            Posts
-          </LinkItem>
+          <LinkItem href="/about">About</LinkItem>
+          <LinkItem href="/resume">Resume</LinkItem>
+          <LinkItem href="/projects">Projects</LinkItem>
+          <LinkItem href="/posts">Posts</LinkItem>
         </Stack>
         <Box flex={1} align="right">
           <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
@@ -77,32 +68,12 @@ const Navbar = props => {
                 variant="unstyled"
                 size="lg"
               />
-              <MenuList>
-                <NextLink href="/" passHref>
-                  <MenuItem style={{ textDecoration: 'none' }} as={Link}>
-                    Home
-                  </MenuItem>
-                </NextLink>
-                <NextLink href="/about" passHref>
-                  <MenuItem style={{ textDecoration: 'none' }} as={Link}>
-                    About
-                  </MenuItem>
-                </NextLink>
-                <NextLink href="/resume" passHref>
-                  <MenuItem style={{ textDecoration: 'none' }} as={Link}>
-                    Resume
-                  </MenuItem>
-                </NextLink>
-                <NextLink href="/projects" passHref>
-                  <MenuItem style={{ textDecoration: 'none' }} as={Link}>
-                    Projects
-                  </MenuItem>
-                </NextLink>
-                <NextLink href="/posts" passHref>
-                  <MenuItem style={{ textDecoration: 'none' }} as={Link}>
-                    Posts
-                  </MenuItem>
-                </NextLink>
+              <MenuList display="flex" flexDirection="column" spacing={4}>
+                <MenuItem href="/">Home</MenuItem>
+                <MenuItem href="/about">About</MenuItem>
+                <MenuItem href="/resume">Resume</MenuItem>
+                <MenuItem href="/projects">Projects</MenuItem>
+                <MenuItem href="/posts">Posts</MenuItem>
               </MenuList>
             </Menu>
           </Box>

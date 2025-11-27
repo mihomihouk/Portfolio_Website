@@ -1,6 +1,6 @@
 import NextLink from 'next/link'
 import Image from 'next/image'
-import { Box, Text, LinkBox, LinkOverlay } from '@chakra-ui/react'
+import { Box, Text, LinkBox, LinkOverlay, Heading } from '@chakra-ui/react'
 import { Global } from '@emotion/react'
 
 export const PostGridItem = ({ children, href, title, thumbnail }) => {
@@ -39,9 +39,9 @@ export const ProjectGridItem = ({ children, slug, title, thumbnail }) => (
           className="grid-item-thumbnail"
         />
         <LinkOverlay href={'/projects/' + slug}>
-          <Text my={2} size="h3">
+          <Heading as="h3" my={2} fontWeight="bold">
             {title}
-          </Text>
+          </Heading>
         </LinkOverlay>
         <Text>{children}</Text>
       </LinkBox>

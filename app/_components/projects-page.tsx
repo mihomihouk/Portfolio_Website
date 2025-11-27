@@ -1,23 +1,14 @@
+'use client'
+
 import { Box, SimpleGrid } from '@chakra-ui/react'
-import { Section } from '../../components/Section'
 import { ProjectGridItem } from '../../components/GridItem'
-import Layout from '../../components/layouts/Layout'
 import PageTitle from '../../components/PageTitle'
-import { client } from '../../libs/client'
+import { Section } from '../../components/Section'
+import { PageWrapper } from './page-wrapper'
 
-export const getStaticProps = async () => {
-  const res = await client.getEntries({
-    content_type: 'projects'
-  })
-  return {
-    props: { projects: res.items },
-    revalidate: 1
-  }
-}
-
-const Projects = ({ projects }) => {
+export function ProjectsPage({ projects }) {
   return (
-    <Layout>
+    <PageWrapper>
       <PageTitle pageTitle="Projects" />
       <Box bg="gray.200" borderRadius="24px" mt={2}>
         <Box py={6} px={6}>
@@ -36,8 +27,6 @@ const Projects = ({ projects }) => {
           </SimpleGrid>
         </Box>
       </Box>
-    </Layout>
+    </PageWrapper>
   )
 }
-
-export default Projects
