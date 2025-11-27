@@ -3,14 +3,11 @@ import {
   Flex,
   Box,
   List,
-  ListItem,
   IconButton,
   Icon,
-  Heading,
   SimpleGrid,
   Image,
-  Text,
-  Button
+  Text
 } from '@chakra-ui/react'
 import { FaDev } from 'react-icons/fa'
 import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5'
@@ -18,6 +15,22 @@ import { ProjectGridItem } from '../../components/GridItem'
 import { Section } from '../../components/Section'
 import { PageWrapper } from './page-wrapper'
 import Link from 'next/link'
+import { SectionHeading } from '../../components/SectionHeading'
+
+function SocialLink({ href, icon }) {
+  return (
+    <Link href={href} target="_blank">
+      <IconButton
+        variant="ghost"
+        colorScheme="orange.500"
+        size="lg"
+        aria-label={icon}
+      >
+        <Icon as={icon} />
+      </IconButton>
+    </Link>
+  )
+}
 
 export function HomePage({
   projects,
@@ -63,49 +76,29 @@ export function HomePage({
       </Flex>
 
       <Box display={'flex'} alignItems="center" mt={4} mb={6} px={2}>
-        <List display={'flex'}>
-          <ListItem>
-            <Link href="https://github.com/mihomihouk">
-              <IconButton
-                variant="ghost"
-                colorScheme="orange.500"
-                icon={<Icon as={IoLogoGithub} />}
-                size="lg"
-                aria-label="GitHub"
-              ></IconButton>
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link href="https://www.linkedin.com/in/miho-inagaki/">
-              <IconButton
-                variant="ghost"
-                colorScheme="orange.500"
-                icon={<Icon as={IoLogoLinkedin} />}
-                size="lg"
-                aria-label="LinkedIn"
-              ></IconButton>
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link href="https://dev.to/mihomihouk">
-              <IconButton
-                variant="ghost"
-                colorScheme="orange.500"
-                icon={<Icon as={FaDev} />}
-                size="lg"
-                aria-label="Dev.to"
-              ></IconButton>
-            </Link>
-          </ListItem>
-        </List>
+        <List.Root unstyled={true} display={'flex'}>
+          <List.Item>
+            <SocialLink
+              href="https://github.com/mihomihouk"
+              icon={IoLogoGithub}
+            />
+          </List.Item>
+          <List.Item>
+            <SocialLink
+              href="https://www.linkedin.com/in/miho-inagaki/"
+              icon={IoLogoLinkedin}
+            />
+          </List.Item>
+          <List.Item>
+            <SocialLink href="https://dev.to/mihomihouk" icon={FaDev} />
+          </List.Item>
+        </List.Root>
       </Box>
 
       <Box bg="gray.200" borderRadius="24px">
         <Box pt={6} px={6}>
           <Section>
-            <Heading as="h3" variant="section-title">
-              Project
-            </Heading>
+            <SectionHeading title="Project" />
             <SimpleGrid columns={1} gap={6} pt={6}>
               {projects.map(project => (
                 <Section key={project.sys.id}>

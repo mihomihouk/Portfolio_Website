@@ -1,5 +1,5 @@
 'use client'
-import { Box, Badge, Link, List, ListItem, Text } from '@chakra-ui/react'
+import { Box, Badge, Link, List, Text } from '@chakra-ui/react'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { Title, ProjectImage, Meta } from '../../components/Project'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
@@ -22,7 +22,9 @@ export function ProjectPage({ project }) {
     <PageWrapper>
       <Title>
         {title}
-        <Badge ml={2}>{date}</Badge>
+        <Badge ml={2} fontWeight="bold">
+          {date.toUpperCase()}
+        </Badge>
       </Title>
       <Box bg="gray.200" borderRadius="24px" mt={2}>
         <Box py={6} px={6}>
@@ -31,28 +33,38 @@ export function ProjectPage({ project }) {
             alt="project.image"
           />
           <Section>
-            <Text size="h2">{title}</Text>
+            <Text textStyle="h2">{title}</Text>
 
             <Text>{abstract}</Text>
 
             <Box mt={4}>
-              <Meta>Stack</Meta>
-              <Text display="inline-block" size="h6">
+              <Meta text="Stack" />
+              <Text display="inline-block" textStyle="h6">
                 {stack}
               </Text>
             </Box>
           </Section>
           <Section delay={0.2}>
-            <Text size="h3">What I worked on</Text>
-            <Box pl={5}>{documentToReactComponents(description)}</Box>
+            <Text textStyle="h3">What I worked on</Text>
+            <List.Root
+              css={{
+                pl: 5,
+                '& li': {
+                  listStyleType: 'disc',
+                  display: 'list-item'
+                }
+              }}
+            >
+              {documentToReactComponents(description)}
+            </List.Root>
           </Section>
 
           <Section delay={0.4}>
-            <Text size="h3">Links</Text>
-            <List>
+            <Text textStyle="h3">Links</Text>
+            <List.Root unstyled={true}>
               {url && (
-                <ListItem>
-                  <Meta>Website</Meta>
+                <List.Item alignItems="center">
+                  <Meta text="Website" />
                   {url === 'Coming soon' ? (
                     <Text>Coming soon</Text>
                   ) : (
@@ -60,17 +72,17 @@ export function ProjectPage({ project }) {
                       <ExternalLinkIcon mx="2px" />
                     </Link>
                   )}
-                </ListItem>
+                </List.Item>
               )}
               {articleUrl && (
-                <ListItem>
-                  <Meta>Article</Meta>
+                <List.Item alignItems="center">
+                  <Meta text="Article" />
                   <Link href={articleUrl}>
                     <ExternalLinkIcon mx="2px" />
                   </Link>
-                </ListItem>
+                </List.Item>
               )}
-            </List>
+            </List.Root>
           </Section>
         </Box>
       </Box>
