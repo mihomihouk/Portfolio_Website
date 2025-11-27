@@ -1,7 +1,7 @@
 'use client'
 import { Box, SimpleGrid } from '@chakra-ui/react'
 import { PostGridItem } from '../../components/GridItem'
-import PageTitle from '../../components/PageTitle'
+import { PageTitle } from '../../components/PageTitle'
 import { Section } from '../../components/Section'
 import { PageWrapper } from './page-wrapper'
 

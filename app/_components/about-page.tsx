@@ -1,18 +1,11 @@
 'use client'
-import {
-  Box,
-  SimpleGrid,
-  Stack,
-  Text,
-  Heading,
-  List,
-  ListItem
-} from '@chakra-ui/react'
+import { Box, SimpleGrid, Stack, Text, List, ListItem } from '@chakra-ui/react'
 import { client } from '../../libs/client'
 import { Section } from '../../components/Section'
 import { PageWrapper } from '../_components/page-wrapper'
-import PageTitle from '../../components/PageTitle'
+import { PageTitle } from '../../components/PageTitle'
 import Image from 'next/image'
+import { SectionHeading } from '../../components/SectionHeading'
 
 export const getStaticProps = async () => {
   const firstView = await client.getAsset('4pOuhvWFjuBUkseHNzUFZO')
@@ -25,11 +18,20 @@ export const getStaticProps = async () => {
 
 const BulletList = ({ items }) => {
   return (
-    <List spacing={3} styleType="disc" pl={5}>
+    <List.Root
+      gap={3}
+      unstyled={false}
+      pl={5}
+      css={{
+        '& li::marker': {
+          color: 'black'
+        }
+      }}
+    >
       {items.map((item, index) => (
         <ListItem key={index}>{item}</ListItem>
       ))}
-    </List>
+    </List.Root>
   )
 }
 
@@ -67,9 +69,7 @@ export function AboutPage({ imageURL }) {
         <Box bg="gray.200" style={{ borderRadius: '24px' }} mt={2}>
           <Box py={6} px={6}>
             <Section>
-              <Heading as="h3" variant="section-title">
-                Multi-skilled
-              </Heading>
+              <SectionHeading title="Multi-skilled" />
               <BulletList
                 items={[
                   '3 years’ experience in small, cross-functional teams have shaped me into a versatile, multi-skilled developer who can contribute across the product lifecycle',
@@ -80,9 +80,7 @@ export function AboutPage({ imageURL }) {
               />
             </Section>
             <Section delay={0.4}>
-              <Heading as="h3" variant="section-title">
-                Committed to Outcomes
-              </Heading>
+              <SectionHeading title="Committed to Outcomes" />
               <BulletList
                 items={[
                   'More than a programmer — I ensure that every feature and solution aligns with both short- and long-term business goals',
@@ -93,9 +91,7 @@ export function AboutPage({ imageURL }) {
               />
             </Section>
             <Section delay={0.2}>
-              <Heading as="h3" variant="section-title">
-                Team Player
-              </Heading>
+              <SectionHeading title="Team Player" />
               <BulletList
                 items={[
                   'Create productive and efficient teams by fostering inclusive environments where all voices are valued, encouraging team members to point out mistakes and make suggestions without hesitation',

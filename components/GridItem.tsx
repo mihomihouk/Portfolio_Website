@@ -5,7 +5,7 @@ import { Global } from '@emotion/react'
 
 export const PostGridItem = ({ children, href, title, thumbnail }) => {
   return (
-    <Box w="100%" algin="center">
+    <Box w="100%" alignItems="center">
       <LinkBox cursor="pointer">
         <Image
           src={`http:${thumbnail.url}`}
@@ -28,7 +28,7 @@ export const PostGridItem = ({ children, href, title, thumbnail }) => {
 }
 
 export const ProjectGridItem = ({ children, slug, title, thumbnail }) => (
-  <Box w="100%" align="center">
+  <Box w="100%" alignItems="center">
     <NextLink href={'/projects/' + slug} passHref>
       <LinkBox cursor="pointer">
         <Image
@@ -38,11 +38,9 @@ export const ProjectGridItem = ({ children, slug, title, thumbnail }) => (
           height={thumbnail.details.image.height}
           className="grid-item-thumbnail"
         />
-        <LinkOverlay href={'/projects/' + slug}>
-          <Heading as="h3" my={2} fontWeight="bold">
-            {title}
-          </Heading>
-        </LinkOverlay>
+        <Heading textAlign="center" textStyle="h3" my={2} fontWeight="bold">
+          {title}
+        </Heading>
         <Text>{children}</Text>
       </LinkBox>
     </NextLink>

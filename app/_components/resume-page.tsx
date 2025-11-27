@@ -1,13 +1,13 @@
 'use client'
 import { Box, WrapItem, Stack, Icon, Wrap, Text } from '@chakra-ui/react'
 import { FaLaptopCode } from 'react-icons/fa'
-import PageTitle from '../../components/PageTitle'
+import { PageTitle } from '../../components/PageTitle'
 import { Section } from '../../components/Section'
 import { PageWrapper } from './page-wrapper'
 import { MdHistory } from 'react-icons/md'
 import { GiMeal } from 'react-icons/gi'
 import { Link as Scroll } from 'react-scroll'
-import SectionHeading from '../../components/SectionHeading'
+import { SectionHeading } from '../../components/SectionHeading'
 
 //ResumeFormat
 const ResumeFormat = props => {
@@ -206,7 +206,7 @@ export function ResumePage({
             offset={-100}
           >
             <Box display="flex" pb={4} alignItems="center">
-              <Text pr={2} size="h3">
+              <Text pr={2} textStyle="h3">
                 {item.logoSrc}
               </Text>
               <Text display={{ base: 'none', lg: 'flex' }}>{item.label}</Text>
@@ -250,7 +250,7 @@ export function ResumePage({
             {/* programming skill */}
             <Section delay={0.4} id="programming-skills">
               <SectionHeading title="Programming Skill" />
-              <Wrap display="flex" spacing="30px" align="center" py={2}>
+              <Wrap display="flex" gap="30px" align="center" py={2}>
                 {programmingSkillsDetails.map(skill => (
                   <ResumeFormat
                     key={skill.id}

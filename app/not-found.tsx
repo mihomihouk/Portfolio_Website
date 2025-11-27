@@ -4,7 +4,7 @@ import {
   Box,
   Heading,
   Container,
-  Divider,
+  Separator,
   Button,
   Text
 } from '@chakra-ui/react'
@@ -20,7 +20,7 @@ export default function NotFound() {
     >
       <Heading as="h1">Not Found</Heading>
       <Text>The page you&apos;re looking for was not found.</Text>
-      <Divider my={6} />
+      <Separator my={6} />
 
       <Box my={6} alignItems="center">
         <NextLink href="/" passHref>
