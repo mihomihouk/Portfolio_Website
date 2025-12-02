@@ -1,11 +1,23 @@
 'use client'
 import { ChakraProvider, Container } from '@chakra-ui/react'
 import { AnimatePresence } from 'framer-motion'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Navbar } from '../../components/Navbar'
 import { theme } from '../../libs/theme'
+import { usePathname } from 'next/navigation'
+import { AnalyticsService } from '../../services/analytics'
 
 export function AppShell({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname()
+  useEffect(() => {
+    const pageViewData = {
+      path: pathname,
+      userAgent: navigator.userAgent,
+      referrer: document.referrer || undefined
+    }
+    AnalyticsService.trackPageView(pageViewData)
+  }, [pathname])
+
   return (
     <ChakraProvider value={theme}>
       <Navbar />
