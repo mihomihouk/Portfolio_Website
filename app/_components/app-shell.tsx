@@ -15,7 +15,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       userAgent: navigator.userAgent,
       referrer: document.referrer || undefined
     }
-    AnalyticsService.trackPageView(pageViewData)
+    AnalyticsService.logPageView(pageViewData)
   }, [pathname])
 
   return (
