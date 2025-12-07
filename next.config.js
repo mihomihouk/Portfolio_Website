@@ -4,13 +4,13 @@ module.exports = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'images.ctfassets.net',
+        hostname: 'images.ctfassets.net'
       },
       {
         protocol: 'http',
-        hostname: 'images.ctfassets.net',
-      },
-    ],
+        hostname: 'images.ctfassets.net'
+      }
+    ]
   },
   env: {
     NEXT_PUBLIC_RECAPTCHA_SITE_KEY: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,

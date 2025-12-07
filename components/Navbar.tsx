@@ -21,7 +21,7 @@ function MenuItem({ href, title }) {
   )
 }
 export const Navbar = () => {
-  const menuItems = navRoutes.filter((route)=>route.name !== 'Home')
+  const menuItems = navRoutes.filter(route => route.name !== 'Home')
   return (
     <Box
       position="fixed"
@@ -53,8 +53,10 @@ export const Navbar = () => {
           flexGrow={1}
           mt={{ base: 4, md: 0 }}
         >
-          {menuItems.map((routeItem, index)=>(
-            <LinkItem key={index} href={routeItem.path}>{routeItem.name}</LinkItem>
+          {menuItems.map((routeItem, index) => (
+            <LinkItem key={index} href={routeItem.path}>
+              {routeItem.name}
+            </LinkItem>
           ))}
         </Stack>
         <Box flex={1} textAlign="right">
@@ -69,9 +71,13 @@ export const Navbar = () => {
               <Portal>
                 <Menu.Positioner>
                   <Menu.Content>
-                  {menuItems.map((routeItem, index)=>(
-                    <MenuItem key={index} href={routeItem.path} title={routeItem.name} />
-                  ))}
+                    {menuItems.map((routeItem, index) => (
+                      <MenuItem
+                        key={index}
+                        href={routeItem.path}
+                        title={routeItem.name}
+                      />
+                    ))}
                   </Menu.Content>
                 </Menu.Positioner>
               </Portal>

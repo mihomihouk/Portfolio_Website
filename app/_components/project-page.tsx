@@ -23,7 +23,12 @@ export function ProjectPage({ project }) {
     <PageWrapper>
       <Title>
         {title}
-        <Badge color='gray' ml={2} fontWeight="bold" text={date.toUpperCase()}/>
+        <Badge
+          color="gray"
+          ml={2}
+          fontWeight="bold"
+          text={date.toUpperCase()}
+        />
       </Title>
       <Box bg="gray.200" borderRadius="24px" mt={2}>
         <Box py={6} px={6}>
