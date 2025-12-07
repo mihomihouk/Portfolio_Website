@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Box, Stack, Flex, Menu, IconButton, Portal } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import { AiFillHome } from 'react-icons/ai'
+import { navRoutes } from '../utils/path'
 
 const LinkItem = ({ href, children }) => {
   return <Link href={href}>{children}</Link>
@@ -51,10 +52,9 @@ export const Navbar = () => {
           flexGrow={1}
           mt={{ base: 4, md: 0 }}
         >
-          <LinkItem href="/about">About</LinkItem>
-          <LinkItem href="/resume">Resume</LinkItem>
-          <LinkItem href="/projects">Projects</LinkItem>
-          <LinkItem href="/posts">Posts</LinkItem>
+          {navRoutes.filter((route)=>route.name !== 'Home').map((routeItem, index)=>(
+            <LinkItem key={index} href={routeItem.path}>{routeItem.name}</LinkItem>
+          ))}
         </Stack>
         <Box flex={1} textAlign="right">
           <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
