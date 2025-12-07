@@ -1,7 +1,16 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['images.ctfassets.net']
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.ctfassets.net',
+      },
+      {
+        protocol: 'http',
+        hostname: 'images.ctfassets.net',
+      },
+    ],
   },
   env: {
     NEXT_PUBLIC_RECAPTCHA_SITE_KEY: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
