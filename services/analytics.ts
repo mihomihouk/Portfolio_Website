@@ -1,4 +1,4 @@
-import { config } from "../config"
+import { config } from '../config'
 
 type PageViewTrackRequestData = {
   path: string
@@ -8,15 +8,14 @@ type PageViewTrackRequestData = {
 
 export type VisitorAnalyticsResponseData = {
   visitorCount: {
-      visits: number
-      date: string
+    visits: number
+    date: string
   }[]
-  pagePopularity:{
-      visits: number
-      page: string
+  pagePopularity: {
+    visits: number
+    page: string
   }[]
 }
-
 
 export class AnalyticsService {
   constructor() {}
@@ -33,12 +32,12 @@ export class AnalyticsService {
     }
   }
 
-  public static async getVisitorAnalytics(): Promise<VisitorAnalyticsResponseData>{
-    try{
-      const searchParam = new URLSearchParams({daysAgo: '30'})
+  public static async getVisitorAnalytics(): Promise<VisitorAnalyticsResponseData> {
+    try {
+      const searchParam = new URLSearchParams({ daysAgo: '30' })
       const requestUrl = `${config.getVisitorAnalytics}?${searchParam}`
-      return (await fetch(requestUrl)).json() 
-    }catch(err){
+      return (await fetch(requestUrl)).json()
+    } catch (err) {
       console.error(err)
       throw new Error('Failed to get visitor analytics')
     }

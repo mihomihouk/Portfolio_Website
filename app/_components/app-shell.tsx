@@ -27,7 +27,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           {children}
         </AnimatePresence>
       </Container>
-      <Footer/>
+      <Footer />
     </ChakraProvider>
   )
 }

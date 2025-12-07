@@ -24,5 +24,5 @@ export const ProjectImage = ({ src, alt }) => (
 )
 
 export const Meta = ({ text }) => (
-  <Badge color="orange" mr={2} fontWeight="bold" text={text.toUpperCase()}/>
+  <Badge color="orange" mr={2} fontWeight="bold" text={text.toUpperCase()} />
 )

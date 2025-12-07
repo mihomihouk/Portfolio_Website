@@ -9,14 +9,17 @@ export default function PrivacyPage() {
   return (
     <PageWrapper>
       <PageTitle pageTitle="Privacy Policy" />
-      
+
       <VStack align="start">
         <Section>
-            <Text color="gray.500" fontSize="sm" mb={14}>Last updated: December 2025</Text>
-            <Text>
-            This website collects a small amount of technical information to help me 
-            understand how the site is used and to improve its performance.
-            </Text>
+          <Text color="gray.500" fontSize="sm" mb={14}>
+            Last updated: December 2025
+          </Text>
+          <Text>
+            This website collects a small amount of technical information to
+            help me understand how the site is used and to improve its
+            performance.
+          </Text>
         </Section>
 
         <Section delay={0.1}>
@@ -42,24 +45,37 @@ export default function PrivacyPage() {
         <Section delay={0.3}>
           <SectionHeading title="Legal Basis (for visitors from the UK/EU/Japan)" />
           <Text>
-            For visitors from the UK and EU, I process this data under the lawful basis of legitimate interests, as it is necessary for operating, securing, and improving the website.
-            For visitors from Japan, data is processed in accordance with the Act on the Protection of Personal Information (APPI). The information collected is used solely for clearly specified purposes: operating the website, analysing traffic in aggregate, and maintaining its security and performance.         
-            </Text>
+            For visitors from the UK and EU, I process this data under the
+            lawful basis of legitimate interests, as it is necessary for
+            operating, securing, and improving the website. For visitors from
+            Japan, data is processed in accordance with the Act on the
+            Protection of Personal Information (APPI). The information collected
+            is used solely for clearly specified purposes: operating the
+            website, analysing traffic in aggregate, and maintaining its
+            security and performance.
+          </Text>
         </Section>
 
         <Section delay={0.3}>
           <SectionHeading title="Data Retention" />
           <Text>
-            Click logs are kept for no longer than 60 days and then automatically deleted.
+            Click logs are kept for no longer than 60 days and then
+            automatically deleted.
           </Text>
         </Section>
 
         <Section delay={0.4}>
           <SectionHeading title="Sharing of Data" />
           <Text>
-            I do not sell, share, or use this information for advertising or cross-site tracking. Technical data (such as IP address, user agent, referrer, and click logs) is stored securely and may be processed by my hosting provider solely to operate and maintain the website.
-            Only aggregated, non-identifiable statistics—for example, overall visitor counts or traffic trends—are displayed publicly on the site. These summaries do not contain any information that could be used to identify individual visitors.
-            </Text>
+            I do not sell, share, or use this information for advertising or
+            cross-site tracking. Technical data (such as IP address, user agent,
+            referrer, and click logs) is stored securely and may be processed by
+            my hosting provider solely to operate and maintain the website. Only
+            aggregated, non-identifiable statistics—for example, overall visitor
+            counts or traffic trends—are displayed publicly on the site. These
+            summaries do not contain any information that could be used to
+            identify individual visitors.
+          </Text>
         </Section>
 
         <Section delay={0.4}>
@@ -72,8 +88,13 @@ export default function PrivacyPage() {
         <Section delay={0.4}>
           <SectionHeading title="Contact for Data Requests" />
           <Text>
-          Because the data I collect (IP address, user agent, referrer, and timestamps) is stored only in a technical log format and is not linked to any name, account, or other identifying information, I am unable to identify individual visitors or match specific log entries to specific people.
-          As a result, it is not technically possible to fulfil requests to access, correct, or delete data on a per-person basis.
+            Because the data I collect (IP address, user agent, referrer, and
+            timestamps) is stored only in a technical log format and is not
+            linked to any name, account, or other identifying information, I am
+            unable to identify individual visitors or match specific log entries
+            to specific people. As a result, it is not technically possible to
+            fulfil requests to access, correct, or delete data on a per-person
+            basis.
           </Text>
         </Section>
       </VStack>
