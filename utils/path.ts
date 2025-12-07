@@ -10,7 +10,7 @@ export const routes: Route[] = [
     { path: '/projects', name: 'Projects', showInNav: true },
     { path: '/posts', name: 'Blog', showInNav: true },
     { path: '/resume', name: 'Resume', showInNav: true },
-    { path: '/analytics', name: 'Analytics', showInNav: false },
+    { path: '/analytics', name: 'Analytics', showInNav: true },
   ]
 
 export const navRoutes = routes.filter(r => r.showInNav)
