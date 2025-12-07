@@ -10,17 +10,8 @@ import { EChart } from '../../components/Echart'
 import { chartColors, chartTheme } from '../../config/chart'
 import { createGradient } from '../../utils/chart'
 import { Card } from '../../components/Card'
+import { VisitorAnalyticsResponseData } from '../../services/analytics'
 
-type VisitorAnalyticsResponseData = {
-    visitorCount: {
-        visits: number
-        date: string
-    }[]
-    pagePopularity:{
-        visits: number
-        page: string
-    }[]
-}
 
 export function AnalyticsPage({data}:{data:VisitorAnalyticsResponseData}) {
     const {visitorCount, pagePopularity} = data
