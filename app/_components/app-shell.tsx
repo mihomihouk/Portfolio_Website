@@ -6,6 +6,7 @@ import { Navbar } from '../../components/Navbar'
 import { theme } from '../../libs/theme'
 import { usePathname } from 'next/navigation'
 import { AnalyticsService } from '../../services/analytics'
+import { Footer } from '../../components/Footer'
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
@@ -26,6 +27,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           {children}
         </AnimatePresence>
       </Container>
+      <Footer/>
     </ChakraProvider>
   )
 }
