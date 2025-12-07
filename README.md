@@ -4,6 +4,10 @@
 
 https://mihoinagaki.com/
 
+## Related Repository
+
+- [Backend](https://github.com/mihomihouk/portfolio-backend)
+
 ## Overview
 
 This is my portfolio website developed using Next.js, TypeScript, Contentful, and Chakra UI. To showcase my previous projects and biography, I added dynamic animations using Framer Motion and smooth scrolling with React-scroll. The site also features a public-facing analytics dashboard — typically hidden in admin areas, but left accessible here to demonstrate full-stack capabilities.
