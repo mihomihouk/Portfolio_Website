@@ -1,6 +1,6 @@
 'use client'
 
-import { Heading, SimpleGrid } from '@chakra-ui/react'
+import { Heading, SimpleGrid, Text } from '@chakra-ui/react'
 import { PageTitle } from '../../components/PageTitle'
 import { PageWrapper } from './page-wrapper'
 import * as echarts from 'echarts'
@@ -22,6 +22,9 @@ export function AnalyticsPage({
   return (
     <PageWrapper>
       <PageTitle pageTitle="Analytics" />
+      <Text color="gray.500" fontSize="sm" mb={6}>
+        Showing data from the past 30 days
+      </Text>
       {/* Charts */}
       <SimpleGrid columns={{ base: 1, lg: 2 }} gap={8}>
         <ChartCard title="Recent Visitors">
