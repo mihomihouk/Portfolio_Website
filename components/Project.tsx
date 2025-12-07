@@ -1,6 +1,7 @@
 import Link from 'next/link'
-import { Heading, Box, Image, Badge } from '@chakra-ui/react'
+import { Heading, Box, Image } from '@chakra-ui/react'
 import { ChevronRightIcon } from '@chakra-ui/icons'
+import { Badge } from './Badge'
 
 export const Title = ({ children }) => (
   <Box mt={2}>
@@ -23,7 +24,5 @@ export const ProjectImage = ({ src, alt }) => (
 )
 
 export const Meta = ({ text }) => (
-  <Badge colorPalette="orange" mr={2} fontWeight="bold">
-    {text.toUpperCase()}
-  </Badge>
+  <Badge color="orange" mr={2} fontWeight="bold" text={text.toUpperCase()}/>
 )

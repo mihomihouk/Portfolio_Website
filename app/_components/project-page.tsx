@@ -1,10 +1,11 @@
 'use client'
-import { Box, Badge, Link, List, Text } from '@chakra-ui/react'
+import { Box, Link, List, Text } from '@chakra-ui/react'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { Title, ProjectImage, Meta } from '../../components/Project'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { Section } from '../../components/Section'
 import { PageWrapper } from './page-wrapper'
+import { Badge } from '../../components/Badge'
 
 export function ProjectPage({ project }) {
   const {
@@ -22,9 +23,7 @@ export function ProjectPage({ project }) {
     <PageWrapper>
       <Title>
         {title}
-        <Badge ml={2} fontWeight="bold">
-          {date.toUpperCase()}
-        </Badge>
+        <Badge color='gray' ml={2} fontWeight="bold" text={date.toUpperCase()}/>
       </Title>
       <Box bg="gray.200" borderRadius="24px" mt={2}>
         <Box py={6} px={6}>

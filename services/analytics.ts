@@ -6,15 +6,15 @@ type PageViewTrackRequestData = {
   userAgent?: string
 }
 
-type VisitorAnalyticsResponseData = {
+export type VisitorAnalyticsResponseData = {
   visitorCount: {
       visits: number
       date: string
-  }
+  }[]
   pagePopularity:{
       visits: number
       page: string
-  }
+  }[]
 }
 
 
