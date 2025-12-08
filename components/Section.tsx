@@ -1,7 +1,14 @@
 import { motion } from 'framer-motion'
 import { Box } from '@chakra-ui/react'
+import React from 'react'
 
 const MotionBox = motion(Box)
+
+type Section = {
+  children: React.ReactNode
+  delay?: number
+  id?: string
+}
 
 export function Section({ children, delay = 0, id = '' }) {
   return (

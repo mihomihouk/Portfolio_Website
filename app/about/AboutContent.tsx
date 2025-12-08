@@ -1,22 +1,12 @@
 'use client'
 import { Box, SimpleGrid, Stack, Text, List, ListItem } from '@chakra-ui/react'
-import { client } from '../../libs/client'
 import { Section } from '../../components/Section'
 import { PageWrapper } from '../_layout/PageWrapper'
 import { PageTitle } from '../../components/PageTitle'
 import Image from 'next/image'
 import { SectionHeading } from '../../components/SectionHeading'
 
-export const getStaticProps = async () => {
-  const firstView = await client.getAsset('4pOuhvWFjuBUkseHNzUFZO')
-  return {
-    props: {
-      imageURL: `https:${firstView.fields.file.url}?r=24&bg=rgb:DD6B20`
-    }
-  }
-}
-
-function BulletList({ items }) {
+function BulletList({ items }: { items: string[] }) {
   return (
     <List.Root
       gap={3}
@@ -35,7 +25,7 @@ function BulletList({ items }) {
   )
 }
 
-export function AboutContent({ imageURL }) {
+export function AboutContent({ imageURL }: { imageURL: string }) {
   return (
     <PageWrapper>
       <Box width="100%" pt={3}>

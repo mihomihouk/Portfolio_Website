@@ -1,6 +1,6 @@
 import { Box, Separator, Heading } from '@chakra-ui/react'
 
-export function PageTitle({ pageTitle }) {
+export function PageTitle({ pageTitle }: { pageTitle: string }) {
   return (
     <Box alignItems="center" mb={6} mt={4}>
       <Heading
