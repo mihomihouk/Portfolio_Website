@@ -1,5 +1,5 @@
 import { describe, test, vi, beforeEach, expect } from 'vitest'
-import { screen, waitFor } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import { AppShell } from './AppShell'
 import React from 'react'
 import { renderWithProviders } from '../../../tests/utils/test-utils'

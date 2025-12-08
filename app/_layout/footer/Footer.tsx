@@ -1,7 +1,8 @@
 import { Box } from '@chakra-ui/react'
 import dayjs from 'dayjs'
 import Link from 'next/link'
-import { SecondaryText } from '../../components/SecondaryText'
+import { SecondaryText } from '../../../components/SecondaryText'
+import { getPagePath } from '../../../utils/path'
 
 export function Footer() {
   const copyRightText = `© ${dayjs().year()} Miho Inagaki`
@@ -18,7 +19,7 @@ export function Footer() {
     >
       <SecondaryText text={copyRightText} mb={0} />
       <SecondaryText text="·" mx={1} />
-      <Link href="/privacy">Privacy Policy</Link>
+      <Link href={getPagePath('Privacy')}>Privacy Policy</Link>
     </Box>
   )
 }

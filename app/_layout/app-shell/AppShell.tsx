@@ -6,7 +6,7 @@ import { Navbar } from '../Navbar'
 import { theme } from '../../../libs/theme'
 import { usePathname } from 'next/navigation'
 import { AnalyticsService } from '../../../services/analytics'
-import { Footer } from '../Footer'
+import { Footer } from '../footer/Footer'
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
