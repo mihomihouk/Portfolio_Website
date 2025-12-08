@@ -11,11 +11,11 @@ import {
 } from '@chakra-ui/react'
 import { FaDev } from 'react-icons/fa'
 import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5'
-import { ProjectGridItem } from '../../components/GridItem'
-import { Section } from '../../components/Section'
-import { PageWrapper } from './page-wrapper'
+import { ProjectGridItem } from '../components/GridItem'
+import { Section } from '../components/Section'
+import { PageWrapper } from './_layout/page-wrapper'
 import Link from 'next/link'
-import { SectionHeading } from '../../components/SectionHeading'
+import { SectionHeading } from '../components/SectionHeading'
 
 function SocialLink({ href, icon }) {
   return (
@@ -32,7 +32,7 @@ function SocialLink({ href, icon }) {
   )
 }
 
-export function HomePage({
+export function HomeContent({
   projects,
   imageURL
 }: {

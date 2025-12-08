@@ -1,13 +1,13 @@
 'use client'
 import { Box, Link, List, Text } from '@chakra-ui/react'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
-import { Title, ProjectImage, Meta } from '../../components/Project'
+import { Title, ProjectImage, Meta } from '../../../components/Project'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import { Section } from '../../components/Section'
-import { PageWrapper } from './page-wrapper'
-import { Badge } from '../../components/Badge'
+import { Section } from '../../../components/Section'
+import { PageWrapper } from '../../_layout/page-wrapper'
+import { Badge } from '../../../components/Badge'
 
-export function ProjectPage({ project }) {
+export function ProjectContent({ project }) {
   const {
     title,
     date,

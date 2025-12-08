@@ -3,9 +3,9 @@ import { Box, SimpleGrid } from '@chakra-ui/react'
 import { PostGridItem } from '../../components/GridItem'
 import { PageTitle } from '../../components/PageTitle'
 import { Section } from '../../components/Section'
-import { PageWrapper } from './page-wrapper'
+import { PageWrapper } from '../_layout/page-wrapper'
 
-export function PostsPage({ posts }) {
+export function PostsContent({ posts }) {
   return (
     <PageWrapper>
       <Box bg="gray.200" borderRadius="24px" mt={2}>

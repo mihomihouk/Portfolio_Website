@@ -3,11 +3,11 @@ import { Box, WrapItem, Stack, Icon, Wrap, Text } from '@chakra-ui/react'
 import { FaLaptopCode } from 'react-icons/fa'
 import { PageTitle } from '../../components/PageTitle'
 import { Section } from '../../components/Section'
-import { PageWrapper } from './page-wrapper'
 import { MdHistory } from 'react-icons/md'
 import { GiMeal } from 'react-icons/gi'
 import { Link as Scroll } from 'react-scroll'
 import { SectionHeading } from '../../components/SectionHeading'
+import { PageWrapper } from '../_layout/page-wrapper'
 
 //ResumeFormat
 const ResumeFormat = props => {
@@ -83,7 +83,7 @@ const resumeMenuList = [
   { label: 'Interests', logoSrc: <Icon as={GiMeal} />, to: 'interests' }
 ]
 
-export function ResumePage({
+export function ResumeContent({
   agileLogoURL,
   chakraUILogoURL,
   contentfulLogoURL

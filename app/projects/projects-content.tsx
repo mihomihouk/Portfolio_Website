@@ -4,9 +4,9 @@ import { Box, SimpleGrid } from '@chakra-ui/react'
 import { ProjectGridItem } from '../../components/GridItem'
 import { PageTitle } from '../../components/PageTitle'
 import { Section } from '../../components/Section'
-import { PageWrapper } from './page-wrapper'
+import { PageWrapper } from '../_layout/page-wrapper'
 
-export function ProjectsPage({ projects }) {
+export function ProjectsContent({ projects }) {
   return (
     <PageWrapper>
       <PageTitle pageTitle="Projects" />

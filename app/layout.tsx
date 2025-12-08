@@ -1,6 +1,6 @@
 import React from 'react'
 import type { Metadata } from 'next'
-import { AppShell } from './_components/app-shell'
+import { AppShell } from './_layout/app-shell'
 
 export const metadata: Metadata = {
   title: 'Miho Inagaki',
