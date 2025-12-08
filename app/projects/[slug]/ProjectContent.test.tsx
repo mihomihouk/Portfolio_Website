@@ -57,12 +57,18 @@ describe('ProjectContent', () => {
     expect(img).toBeInTheDocument()
   })
 
-  test('renders website and article links', () => {
+  test('renders website and article links with correct attributes', () => {
     renderComponent()
-    const websiteLink = screen.getByTestId('website-link')
-    expect(websiteLink).toHaveAttribute('href', mockProject.fields.url)
 
-    const articleLink = screen.getByTestId('article-link')
-    expect(articleLink).toHaveAttribute('href', mockProject.fields.articleUrl)
+    const links = [
+      { testId: 'website-link', expectedHref: mockProject.fields.url },
+      { testId: 'article-link', expectedHref: mockProject.fields.articleUrl }
+    ]
+
+    links.forEach(({ testId, expectedHref }) => {
+      const link = screen.getByTestId(testId)
+      expect(link).toHaveAttribute('href', expectedHref)
+      expect(link).toHaveAttribute('target', '_blank')
+    })
   })
 })

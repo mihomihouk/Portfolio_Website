@@ -86,7 +86,11 @@ export function ProjectContent({ project }: ProjectContentProps) {
               {articleUrl && (
                 <List.Item alignItems="center">
                   <Meta text="Article" />
-                  <Link href={articleUrl} data-testid="article-link">
+                  <Link
+                    href={articleUrl}
+                    target="_blank"
+                    data-testid="article-link"
+                  >
                     <ExternalLinkIcon mx="2px" />
                   </Link>
                 </List.Item>
