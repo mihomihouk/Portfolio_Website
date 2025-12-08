@@ -39,15 +39,13 @@ export function ProjectContent({ project }) {
             alt="project.image"
           />
           <Section>
-            <PageTitle pageTitle={title}/>
+            <PageTitle pageTitle={title} />
 
             <Text>{abstract}</Text>
 
             <Box mt={4}>
               <Meta text="Stack" />
-              <Text display="inline-block">
-                {stack}
-              </Text>
+              <Text display="inline-block">{stack}</Text>
             </Box>
           </Section>
           <Section delay={0.2}>
@@ -66,7 +64,7 @@ export function ProjectContent({ project }) {
           </Section>
 
           <Section delay={0.4}>
-            <SectionHeading title='Links'/>
+            <SectionHeading title="Links" />
             <List.Root unstyled={true}>
               {url && (
                 <List.Item alignItems="center">
@@ -74,7 +72,7 @@ export function ProjectContent({ project }) {
                   {url === 'Coming soon' ? (
                     <Text>Coming soon</Text>
                   ) : (
-                    <Link href={url} target='_blank'>
+                    <Link href={url} target="_blank">
                       <ExternalLinkIcon mx="2px" />
                     </Link>
                   )}

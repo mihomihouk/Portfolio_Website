@@ -15,9 +15,9 @@ export function Footer() {
       fontSize="sm"
       color="gray.500"
     >
-      <SecondaryText text={copyRightText} mb={0}/>
-      <SecondaryText text='·' mx={1}/>
-      <Link href="/privacy" >Privacy Policy</Link>
+      <SecondaryText text={copyRightText} mb={0} />
+      <SecondaryText text="·" mx={1} />
+      <Link href="/privacy">Privacy Policy</Link>
     </Box>
   )
 }

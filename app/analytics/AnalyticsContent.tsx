@@ -23,7 +23,7 @@ export function AnalyticsContent({
   return (
     <PageWrapper>
       <PageTitle pageTitle="Analytics" />
-      <SecondaryText mb={6} text="Showing data from the past 30 days"/>
+      <SecondaryText mb={6} text="Showing data from the past 30 days" />
       {/* Charts */}
       <SimpleGrid columns={{ base: 1, lg: 2 }} gap={8}>
         <ChartCard title="Recent Visitors">

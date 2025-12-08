@@ -13,7 +13,7 @@ export default function PrivacyPage() {
 
       <VStack align="start">
         <Section>
-          <SecondaryText text='Last updated: December 2025'  mb={14}/>
+          <SecondaryText text="Last updated: December 2025" mb={14} />
           <Text>
             This website collects a small amount of technical information to
             help me understand how the site is used and to improve its

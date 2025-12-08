@@ -33,10 +33,11 @@ export function ProjectsList({ projects }: ProjectPreviewProps) {
                     height={details.image.height}
                     className="grid-item-thumbnail"
                   />
-                  <SectionHeading 
+                  <SectionHeading
                     title={project.fields.title}
                     textAlign="center"
-                    my={2}/>
+                    my={2}
+                  />
                   <Text>{project.fields.abstract}</Text>
                 </LinkBox>
               </NextLink>

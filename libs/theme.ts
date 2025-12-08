@@ -42,7 +42,7 @@ export const theme = createSystem(defaultConfig, {
         }
       }
     },
-   
+
     textStyles: {
       h1: {
         value: {
