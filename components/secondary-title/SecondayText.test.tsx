@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react'
 import { describe, test, expect } from 'vitest'
 import { SecondaryText, SecondaryTextProps } from './SecondaryText'
-import { renderWithProviders } from '../tests/utils/test-utils';
+import { renderWithProviders } from '../../tests/utils/test-utils';
 
 describe('SecondaryText', () => {
   function renderComponent(props: SecondaryTextProps) {

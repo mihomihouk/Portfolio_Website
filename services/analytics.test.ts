@@ -47,9 +47,15 @@ describe('AnalyticsService', () => {
       })
     
       test('should throw error if fetch fails for visitor analytics', async () => {
+        const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+        // Suppress logs
         fetchMock.mockRejectedValueOnce(new Error('Network error'))
-    
-        await expect(AnalyticsService.getVisitorAnalytics()).rejects.toThrow('Failed to get visitor analytics')
+      
+        await expect(AnalyticsService.getVisitorAnalytics()).rejects.toThrow(
+          'Failed to get visitor analytics'
+        )
+      
+        consoleErrorSpy.mockRestore()
       })
   })
 })

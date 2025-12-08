@@ -1,17 +1,17 @@
 'use client'
 
 import { Heading, SimpleGrid } from '@chakra-ui/react'
-import { PageTitle } from '../../components/PageTitle'
+import { PageTitle } from '../../components/page-title/PageTitle'
 import { PageWrapper } from '../_layout/page-wrapper/PageWrapper'
 import * as echarts from 'echarts'
-import { formatDate } from '../../utils/date'
-import { pathToDisplayName } from '../../utils/path'
-import { EChart } from '../../components/Echart'
+import { formatDate } from '../../utils/date/date'
+import { pathToDisplayName } from '../../utils/path/path'
+import { EChart } from '../../components/e-cart/Echart'
 import { chartColors, chartTheme } from '../../config/chart'
-import { createGradient } from '../../utils/chart'
-import { Card } from '../../components/Card'
+import { createGradient } from '../../utils/chart/chart'
+import { Card } from '../../components/card/Card'
 import { VisitorAnalyticsResponseData } from '../../services/analytics'
-import { SecondaryText } from '../../components/SecondaryText'
+import { SecondaryText } from '../../components/secondary-title/SecondaryText'
 
 export function AnalyticsContent({
   data

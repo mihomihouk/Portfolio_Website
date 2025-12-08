@@ -2,7 +2,7 @@ import { describe, test, expect } from 'vitest'
 import { fireEvent, screen, waitFor, within } from '@testing-library/react'
 import { Navbar } from './Navbar'
 import { renderWithProviders } from '../../../tests/utils/test-utils'
-import { getPagePath, navRoutes } from '../../../utils/path'
+import { getPagePath, navRoutes } from '../../../utils/path/path'
 
 function renderComponent() {
   renderWithProviders(<Navbar />)

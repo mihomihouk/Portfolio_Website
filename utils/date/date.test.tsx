@@ -1,6 +1,6 @@
 import { describe, beforeAll, test, expect } from 'vitest'
-import { formatDate } from './date'
 import dayjs from 'dayjs'
+import { formatDate } from './date'
 
 describe('formatDate', () => {
   const testDate = '2025-12-08T12:00:00Z'

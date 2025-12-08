@@ -1,10 +1,10 @@
 import NextLink from 'next/link'
 import Image from 'next/image'
 import { Box, Text, LinkBox } from '@chakra-ui/react'
-import { Section } from '../../components/Section'
+import { Section } from '../../components/section/Section'
 import { Asset } from 'contentful'
 import { Projects } from '../../types/contentful'
-import { SectionHeading } from '../../components/SectionHeading'
+import { SectionHeading } from '../../components/section-heading/SectionHeading'
 
 type ProjectPreviewProps = {
   projects: Projects

@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react'
 import { PageTitle } from './PageTitle'
 import { describe, test, expect } from 'vitest'
-import { renderWithProviders } from '../tests/utils/test-utils'
+import { renderWithProviders } from '../../tests/utils/test-utils'
 
 describe('PageTitle', () => {
   function renderComponent(title = 'Test Page') {

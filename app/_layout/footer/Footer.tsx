@@ -1,8 +1,8 @@
 import { Box } from '@chakra-ui/react'
 import dayjs from 'dayjs'
 import Link from 'next/link'
-import { SecondaryText } from '../../../components/SecondaryText'
-import { getPagePath } from '../../../utils/path'
+import { SecondaryText } from '../../../components/secondary-title/SecondaryText'
+import { getPagePath } from '../../../utils/path/path'
 
 export function Footer() {
   const copyRightText = `© ${dayjs().year()} Miho Inagaki`

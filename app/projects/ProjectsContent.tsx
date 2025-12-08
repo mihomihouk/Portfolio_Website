@@ -1,7 +1,7 @@
 'use client'
 
 import { Box, SimpleGrid } from '@chakra-ui/react'
-import { PageTitle } from '../../components/PageTitle'
+import { PageTitle } from '../../components/page-title/PageTitle'
 import { PageWrapper } from '../_layout/page-wrapper/PageWrapper'
 import { Projects } from '../../types/contentful'
 import { ProjectsList } from '../../features/project/ProjectsList'

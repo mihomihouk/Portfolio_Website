@@ -1,6 +1,6 @@
 import {  screen } from '@testing-library/react'
 import { describe, test, expect } from 'vitest'
-import { renderWithProviders } from '../tests/utils/test-utils';
+import { renderWithProviders } from '../../tests/utils/test-utils';
 import { SectionHeading, SectionHeadingProps } from './SectionHeading';
 
 describe('SectionHeading', () => {
