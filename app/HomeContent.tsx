@@ -12,7 +12,7 @@ import {
 import { FaDev } from 'react-icons/fa'
 import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5'
 import { Section } from '../components/Section'
-import { PageWrapper } from './_layout/PageWrapper'
+import { PageWrapper } from './_layout/page-wrapper/PageWrapper'
 import Link from 'next/link'
 import { SectionHeading } from '../components/SectionHeading'
 import { IconType } from 'react-icons'

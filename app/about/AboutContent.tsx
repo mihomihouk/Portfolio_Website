@@ -1,7 +1,7 @@
 'use client'
 import { Box, SimpleGrid, Stack, Text, List, ListItem } from '@chakra-ui/react'
 import { Section } from '../../components/Section'
-import { PageWrapper } from '../_layout/PageWrapper'
+import { PageWrapper } from '../_layout/page-wrapper/PageWrapper'
 import { PageTitle } from '../../components/PageTitle'
 import Image from 'next/image'
 import { SectionHeading } from '../../components/SectionHeading'

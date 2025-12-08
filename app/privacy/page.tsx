@@ -3,7 +3,7 @@ import { Text, List, VStack } from '@chakra-ui/react'
 import { PageTitle } from '../../components/PageTitle'
 import { Section } from '../../components/Section'
 import { SectionHeading } from '../../components/SectionHeading'
-import { PageWrapper } from '../_layout/PageWrapper'
+import { PageWrapper } from '../_layout/page-wrapper/PageWrapper'
 import { SecondaryText } from '../../components/SecondaryText'
 
 export default function PrivacyPage() {

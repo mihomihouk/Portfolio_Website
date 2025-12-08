@@ -24,12 +24,14 @@ describe('Navbar', () => {
 
   test('renders all nav route links except Home', () => {
     renderComponent()
-    waitFor(()=>{
-        menuItems.forEach(item => {
-            const menuItem = within(screen.getByTestId('desktop-menu')).getByText(item.name)
-            expect(menuItem).toBeInTheDocument()
-            expect(menuItem).toHaveAttribute('href', getPagePath(item.name))
-        })
+    waitFor(() => {
+      menuItems.forEach(item => {
+        const menuItem = within(screen.getByTestId('desktop-menu')).getByText(
+          item.name
+        )
+        expect(menuItem).toBeInTheDocument()
+        expect(menuItem).toHaveAttribute('href', getPagePath(item.name))
+      })
     })
   })
 
@@ -37,12 +39,14 @@ describe('Navbar', () => {
     renderComponent()
     const hamburgerButton = screen.getByRole('button', { name: 'mobile menu' })
     fireEvent.click(hamburgerButton)
-    waitFor(()=>{
-        menuItems.forEach(item => {
-            const menuItem = within(screen.getByTestId('mobile-menu')).getByText(item.name)
-            expect(menuItem).toBeInTheDocument()
-            expect(menuItem).toHaveAttribute('href', getPagePath(item.name))
-        })
+    waitFor(() => {
+      menuItems.forEach(item => {
+        const menuItem = within(screen.getByTestId('mobile-menu')).getByText(
+          item.name
+        )
+        expect(menuItem).toBeInTheDocument()
+        expect(menuItem).toHaveAttribute('href', getPagePath(item.name))
+      })
     })
   })
 })

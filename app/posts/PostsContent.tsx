@@ -2,7 +2,7 @@
 import { Box, SimpleGrid, LinkBox, LinkOverlay, Text } from '@chakra-ui/react'
 import { PageTitle } from '../../components/PageTitle'
 import { Section } from '../../components/Section'
-import { PageWrapper } from '../_layout/PageWrapper'
+import { PageWrapper } from '../_layout/page-wrapper/PageWrapper'
 import Image from 'next/image'
 import { BlogPosts } from '../../types/contentful'
 import { Asset } from 'contentful'

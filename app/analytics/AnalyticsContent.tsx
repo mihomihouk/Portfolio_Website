@@ -2,7 +2,7 @@
 
 import { Heading, SimpleGrid, Text } from '@chakra-ui/react'
 import { PageTitle } from '../../components/PageTitle'
-import { PageWrapper } from '../_layout/PageWrapper'
+import { PageWrapper } from '../_layout/page-wrapper/PageWrapper'
 import * as echarts from 'echarts'
 import { formatDate } from '../../utils/date'
 import { pathToDisplayName } from '../../utils/path'

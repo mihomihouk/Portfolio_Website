@@ -39,7 +39,7 @@ export function Navbar() {
         justifyContent="space-between"
       >
         <Flex align="center" mx={5}>
-          <Link href="/" aria-label='home-link'>
+          <Link href="/" aria-label="home-link">
             <IconButton variant="ghost" size="lg">
               <AiFillHome />
             </IconButton>
@@ -53,7 +53,7 @@ export function Navbar() {
           alignItems="center"
           flexGrow={1}
           mt={{ base: 4, md: 0 }}
-          id='desktop-menu'
+          id="desktop-menu"
         >
           {menuItems.map((routeItem, index) => (
             <LinkItem key={index} href={routeItem.path}>
@@ -66,7 +66,7 @@ export function Navbar() {
             <Menu.Root id="mobile-menu">
               {/* @ts-expect-error - asChild not typed but works in runtime */}
               <Menu.Trigger asChild>
-                <IconButton variant="ghost" size="lg" aria-label='mobile menu'>
+                <IconButton variant="ghost" size="lg" aria-label="mobile menu">
                   <HamburgerIcon />
                 </IconButton>
               </Menu.Trigger>

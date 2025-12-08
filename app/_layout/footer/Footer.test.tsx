@@ -9,7 +9,7 @@ describe('Footer', () => {
   const currentYear = dayjs().year()
   const copyRightText = `© ${currentYear} Miho Inagaki`
 
-  function renderComponent(){
+  function renderComponent() {
     renderWithProviders(<Footer />)
   }
 

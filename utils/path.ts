@@ -1,4 +1,11 @@
-type PageName = 'Home' | 'About' |'Projects'| 'Blog'|'Resume' |'Analytics'|'Privacy'
+type PageName =
+  | 'Home'
+  | 'About'
+  | 'Projects'
+  | 'Blog'
+  | 'Resume'
+  | 'Analytics'
+  | 'Privacy'
 export type Route = {
   path: string
   name: PageName
@@ -17,8 +24,8 @@ export const routes: Route[] = [
 
 export const navRoutes = routes.filter(r => r.showInNav)
 
-export function getPagePath(name: PageName): string{
-  const route =  routes.find(route => route.name === name)
+export function getPagePath(name: PageName): string {
+  const route = routes.find(route => route.name === name)
   return route ? route.path : ''
 }
 export function pathToDisplayName(path: string): PageName | null {
