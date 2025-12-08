@@ -221,6 +221,7 @@ export function ResumeContent({
         width="15%"
         height="100%"
         justifyContent="center"
+        data-testid='resume-side-scroll'
       >
         {resumeMenuList.map((item, index) => (
           <Scroll
