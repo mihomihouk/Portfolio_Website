@@ -1,6 +1,6 @@
 import { Text, TextProps } from '@chakra-ui/react'
 
-type SecondaryTextProps = {
+export type SecondaryTextProps = {
   text: string
   mb?: TextProps['mb']
   mx?: TextProps['mx']

@@ -4,13 +4,13 @@ import React from 'react'
 
 const MotionBox = motion(Box)
 
-type Section = {
+export type SectionProps = {
   children: React.ReactNode
   delay?: number
   id?: string
 }
 
-export function Section({ children, delay = 0, id = '' }) {
+export function Section({ children, delay = 0, id = '' }:SectionProps) {
   return (
     <MotionBox
       initial={{ y: 10, opacity: 0 }}
@@ -19,6 +19,7 @@ export function Section({ children, delay = 0, id = '' }) {
       mb={12}
       px={2}
       id={id}
+      data-testid={id} 
     >
       {children}
     </MotionBox>
