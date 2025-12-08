@@ -1,7 +1,7 @@
 'use client'
-import { Box, Link, List, Text } from '@chakra-ui/react'
-import { ExternalLinkIcon } from '@chakra-ui/icons'
-import { Title, ProjectImage, Meta } from '../../../components/Project'
+import { Box, Heading, List, Text, Image } from '@chakra-ui/react'
+import Link from 'next/link'
+import { ChevronRightIcon, ExternalLinkIcon } from '@chakra-ui/icons'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { Section } from '../../../components/Section'
 import { PageWrapper } from '../../_layout/PageWrapper'
@@ -91,5 +91,33 @@ export function ProjectContent({ project }) {
         </Box>
       </Box>
     </PageWrapper>
+  )
+}
+
+function Title({ children }) {
+  return (
+    <Box mt={2}>
+      <Link href="/projects" passHref>
+        Projects
+      </Link>
+      <span>
+        &nbsp;
+        <ChevronRightIcon />
+        &nbsp;
+      </span>
+      <Heading display="inline-block" as="h3" fontSize={20} mb={4}>
+        {children}
+      </Heading>
+    </Box>
+  )
+}
+
+function ProjectImage({ src, alt }) {
+  return <Image borderRadius="24px" w="full" src={src} alt={alt} mb={4} />
+}
+
+function Meta({ text }) {
+  return (
+    <Badge color="orange" mr={2} fontWeight="bold" text={text.toUpperCase()} />
   )
 }

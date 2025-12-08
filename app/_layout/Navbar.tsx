@@ -5,7 +5,7 @@ import { HamburgerIcon } from '@chakra-ui/icons'
 import { AiFillHome } from 'react-icons/ai'
 import { navRoutes } from '../../utils/path'
 
-const LinkItem = ({ href, children }) => {
+function LinkItem({ href, children }) {
   return <Link href={href}>{children}</Link>
 }
 
@@ -20,7 +20,7 @@ function MenuItem({ href, title }) {
     </Menu.Item>
   )
 }
-export function Navbar(){
+export function Navbar() {
   const menuItems = navRoutes.filter(route => route.name !== 'Home')
   return (
     <Box

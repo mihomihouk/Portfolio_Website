@@ -16,7 +16,7 @@ export const getStaticProps = async () => {
   }
 }
 
-const BulletList = ({ items }) => {
+function BulletList({ items }) {
   return (
     <List.Root
       gap={3}

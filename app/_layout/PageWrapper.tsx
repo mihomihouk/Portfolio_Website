@@ -21,20 +21,14 @@ export function PageWrapper({ children }: { children: React.ReactNode }) {
     >
       <>
         {children}
-        <GridItemStyle />
-      </>
-    </motion.article>
-  )
-}
-
-function GridItemStyle() {
-  return (
-    <Global
-      styles={`
+        <Global
+          styles={`
   .grid-item-thumbnail {
     border-radius:12px
   }
   `}
-    />
+        />
+      </>
+    </motion.article>
   )
 }

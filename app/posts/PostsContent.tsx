@@ -30,7 +30,7 @@ export function PostsContent({ posts }) {
   )
 }
 
-function PostGridItem ({ children, href, title, thumbnail }) {
+function PostGridItem({ children, href, title, thumbnail }) {
   return (
     <Box w="100%" alignItems="center">
       <LinkBox cursor="pointer">
