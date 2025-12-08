@@ -1,4 +1,4 @@
-type PageName =
+export type PageName =
   | 'Home'
   | 'About'
   | 'Projects'
@@ -6,6 +6,7 @@ type PageName =
   | 'Resume'
   | 'Analytics'
   | 'Privacy'
+
 export type Route = {
   path: string
   name: PageName
