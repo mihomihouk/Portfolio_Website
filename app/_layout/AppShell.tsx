@@ -2,11 +2,11 @@
 import { ChakraProvider, Container } from '@chakra-ui/react'
 import { AnimatePresence } from 'framer-motion'
 import React, { useEffect } from 'react'
-import { Navbar } from '../../components/Navbar'
+import { Navbar } from './Navbar'
 import { theme } from '../../libs/theme'
 import { usePathname } from 'next/navigation'
 import { AnalyticsService } from '../../services/analytics'
-import { Footer } from '../../components/Footer'
+import { Footer } from './Footer'
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()

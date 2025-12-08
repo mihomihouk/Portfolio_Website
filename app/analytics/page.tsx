@@ -1,8 +1,7 @@
-import React from 'react'
-import { AnalyticsPage } from '../_components/analytics-page'
+import { AnalyticsContent } from './AnalyticsContent'
 import { AnalyticsService } from '../../services/analytics'
 
 export default async function Analytics() {
   const data = await AnalyticsService.getVisitorAnalytics()
-  return <AnalyticsPage data={data} />
+  return <AnalyticsContent data={data} />
 }

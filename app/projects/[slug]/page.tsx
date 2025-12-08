@@ -1,5 +1,5 @@
 import { client } from '../../../libs/client'
-import { ProjectPage } from '../../_components/project-page'
+import { ProjectContent } from './ProjectContent'
 
 export async function generateStaticParams() {
   const projects = await client.getEntries({
@@ -19,5 +19,5 @@ export default async function Project({
     'fields.slug': (await params).slug
   })
 
-  return <ProjectPage project={project.items[0]} />
+  return <ProjectContent project={project.items[0]} />
 }

@@ -3,7 +3,7 @@ import { Text, List, VStack } from '@chakra-ui/react'
 import { PageTitle } from '../../components/PageTitle'
 import { Section } from '../../components/Section'
 import { SectionHeading } from '../../components/SectionHeading'
-import { PageWrapper } from '../_components/page-wrapper'
+import { PageWrapper } from '../_layout/PageWrapper'
 
 export default function PrivacyPage() {
   return (
@@ -68,7 +68,7 @@ export default function PrivacyPage() {
           <SectionHeading title="Sharing of Data" />
           <Text>
             I do not sell, share, or use this information for advertising or
-            cross-site tracking. Technical data (such as IP address, user agent,
+            cross-site tracking.Technical data (such as IP address, user agent,
             referrer, and click logs) is stored securely and may be processed by
             my hosting provider solely to operate and maintain the website. Only
             aggregated, non-identifiable statistics—for example, overall visitor

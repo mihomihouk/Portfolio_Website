@@ -11,11 +11,11 @@ import {
 } from '@chakra-ui/react'
 import { FaDev } from 'react-icons/fa'
 import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5'
-import { ProjectGridItem } from '../../components/GridItem'
-import { Section } from '../../components/Section'
-import { PageWrapper } from './page-wrapper'
+import { Section } from '../components/Section'
+import { PageWrapper } from './_layout/PageWrapper'
 import Link from 'next/link'
-import { SectionHeading } from '../../components/SectionHeading'
+import { SectionHeading } from '../components/SectionHeading'
+import { ProjectPreview } from '../features/project/ProjectPreview'
 
 function SocialLink({ href, icon }) {
   return (
@@ -32,7 +32,7 @@ function SocialLink({ href, icon }) {
   )
 }
 
-export function HomePage({
+export function HomeContent({
   projects,
   imageURL
 }: {
@@ -102,13 +102,13 @@ export function HomePage({
             <SimpleGrid columns={1} gap={6} pt={6}>
               {projects.map(project => (
                 <Section key={project.sys.id}>
-                  <ProjectGridItem
+                  <ProjectPreview
                     slug={project.fields.slug}
                     title={project.fields.title}
                     thumbnail={project.fields.thumbnail.fields.file}
                   >
                     {project.fields.abstract}
-                  </ProjectGridItem>
+                  </ProjectPreview>
                 </Section>
               ))}
             </SimpleGrid>

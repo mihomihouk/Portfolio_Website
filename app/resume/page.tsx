@@ -1,5 +1,5 @@
 import { client } from '../../libs/client'
-import { ResumePage } from '../_components/resume-page'
+import { ResumeContent } from './ResumeContent'
 
 export default async function Resume() {
   const agileLogo = await client.getAsset('1y0uxAPI1Wfdwabrhizd1A')
@@ -9,7 +9,7 @@ export default async function Resume() {
   const chakraUILogoURL = `https:${chakraUILogo.fields.file.url}`
   const contentfulLogoURL = `https:${contentfulLogo.fields.file.url}`
   return (
-    <ResumePage
+    <ResumeContent
       agileLogoURL={agileLogoURL}
       chakraUILogoURL={chakraUILogoURL}
       contentfulLogoURL={contentfulLogoURL}

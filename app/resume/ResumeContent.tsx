@@ -3,14 +3,33 @@ import { Box, WrapItem, Stack, Icon, Wrap, Text } from '@chakra-ui/react'
 import { FaLaptopCode } from 'react-icons/fa'
 import { PageTitle } from '../../components/PageTitle'
 import { Section } from '../../components/Section'
-import { PageWrapper } from './page-wrapper'
 import { MdHistory } from 'react-icons/md'
 import { GiMeal } from 'react-icons/gi'
 import { Link as Scroll } from 'react-scroll'
 import { SectionHeading } from '../../components/SectionHeading'
+import { PageWrapper } from '../_layout/PageWrapper'
 
-//ResumeFormat
-const ResumeFormat = props => {
+type ResumeFormatProps = {
+  id?: number
+  name?: string
+  heading?: string
+  subHeading?: string
+  fromDate?: string
+  toDate?: string
+  description?: string
+  image?: string
+}
+
+function ResumeFormat({
+  id,
+  name,
+  heading,
+  subHeading,
+  fromDate,
+  toDate,
+  description,
+  image
+}: ResumeFormatProps) {
   return (
     <Box display="flex" flexDirection="column" pb={1}>
       <Box
@@ -19,7 +38,7 @@ const ResumeFormat = props => {
         alignItems="center"
         py={2}
       >
-        {props.heading && (
+        {heading && (
           <Box display="flex">
             <Text
               py="2px"
@@ -27,12 +46,12 @@ const ResumeFormat = props => {
               fontWeight="bold"
               textAlign="left"
             >
-              {props.heading}
+              {heading}
             </Text>
           </Box>
         )}
 
-        {props.fromDate && props.toDate && (
+        {fromDate && toDate && (
           <Box
             bg="#ff5823"
             px="12px"
@@ -42,28 +61,28 @@ const ResumeFormat = props => {
             alignItems="center"
             fontSize={{ base: 'sm', lg: 'lg' }}
           >
-            {props.fromDate + '-' + props.toDate}
+            {fromDate + '-' + toDate}
           </Box>
         )}
       </Box>
-      {props.subHeading && (
+      {subHeading && (
         <Box pl={{ base: '0', lg: '25px' }}>
-          <Text fontSize={{ base: 'sm', lg: 'lg' }}>{props.subHeading}</Text>
+          <Text fontSize={{ base: 'sm', lg: 'lg' }}>{subHeading}</Text>
         </Box>
       )}
-      {props.description && (
+      {description && (
         <Box>
-          <Text textAlign="left">{props.description}</Text>
+          <Text textAlign="left">{description}</Text>
         </Box>
       )}
-      {props.image && (
-        <WrapItem key={props.id}>
+      {image && (
+        <WrapItem key={id}>
           <Stack align="center">
             <Box>
-              <img src={props.image} width="100px" height="100px" />
+              <img src={image} width="100px" height="100px" />
             </Box>
             <Box>
-              <Text width="100%">{props.name}</Text>
+              <Text width="100%">{name}</Text>
             </Box>
           </Stack>
         </WrapItem>
@@ -83,7 +102,7 @@ const resumeMenuList = [
   { label: 'Interests', logoSrc: <Icon as={GiMeal} />, to: 'interests' }
 ]
 
-export function ResumePage({
+export function ResumeContent({
   agileLogoURL,
   chakraUILogoURL,
   contentfulLogoURL

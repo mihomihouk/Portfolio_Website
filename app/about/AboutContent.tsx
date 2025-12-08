@@ -2,7 +2,7 @@
 import { Box, SimpleGrid, Stack, Text, List, ListItem } from '@chakra-ui/react'
 import { client } from '../../libs/client'
 import { Section } from '../../components/Section'
-import { PageWrapper } from '../_components/page-wrapper'
+import { PageWrapper } from '../_layout/PageWrapper'
 import { PageTitle } from '../../components/PageTitle'
 import Image from 'next/image'
 import { SectionHeading } from '../../components/SectionHeading'
@@ -16,7 +16,7 @@ export const getStaticProps = async () => {
   }
 }
 
-const BulletList = ({ items }) => {
+function BulletList({ items }) {
   return (
     <List.Root
       gap={3}
@@ -35,7 +35,7 @@ const BulletList = ({ items }) => {
   )
 }
 
-export function AboutPage({ imageURL }) {
+export function AboutContent({ imageURL }) {
   return (
     <PageWrapper>
       <Box width="100%" pt={3}>

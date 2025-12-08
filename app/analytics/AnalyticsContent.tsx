@@ -2,7 +2,7 @@
 
 import { Heading, SimpleGrid, Text } from '@chakra-ui/react'
 import { PageTitle } from '../../components/PageTitle'
-import { PageWrapper } from './page-wrapper'
+import { PageWrapper } from '../_layout/PageWrapper'
 import * as echarts from 'echarts'
 import { formatDate } from '../../utils/date'
 import { pathToDisplayName } from '../../utils/path'
@@ -12,7 +12,7 @@ import { createGradient } from '../../utils/chart'
 import { Card } from '../../components/Card'
 import { VisitorAnalyticsResponseData } from '../../services/analytics'
 
-export function AnalyticsPage({
+export function AnalyticsContent({
   data
 }: {
   data: VisitorAnalyticsResponseData
