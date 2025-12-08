@@ -5,15 +5,6 @@ import React from 'react'
 import { renderWithProviders } from '../../../tests/utils/test-utils'
 import { AnalyticsService } from '../../../services/analytics'
 
-// Mock the child components if needed
-vi.mock('./Navbar', () => ({
-  Navbar: () => <div data-testid="navbar" />
-}))
-
-vi.mock('./Footer', () => ({
-  Footer: () => <div data-testid="footer" />
-}))
-
 vi.mock('../../../services/analytics', () => {
   return {
     AnalyticsService: {
