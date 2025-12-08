@@ -1,77 +1,116 @@
-import { Asset, Entry } from "contentful";
-import { BlogPostSkeleton } from "../../types/contentful";
+import { Asset, Entry } from 'contentful'
+import { BlogPostSkeleton, ProjectsSkeleton } from '../../types/contentful'
+import { BLOCKS, Document } from '@contentful/rich-text-types'
 
-const mockDate =
-  "2025-12-08T12:00:00Z";
+// Shared mock date
+const mockDate = '2025-12-08T12:00:00Z'
 
-export function createMockAsset(): Asset<undefined, string> {
+// Asset factory
+export function createMockAsset(
+  overrides?: Partial<Asset<undefined, string>>
+): Asset<undefined, string> {
   return {
     sys: {
-      id: "mock-asset",
-      type: "Asset",
+      id: 'asset-id',
+      type: 'Asset',
       createdAt: mockDate,
       updatedAt: mockDate,
       revision: 1,
       publishedVersion: 1,
-      locale: "en-US",
-      space: {
-        sys: { id: "space-id", type: "Link", linkType: "Space" }
-      },
+      locale: 'en-US',
+      space: { sys: { id: 'space-id', type: 'Link', linkType: 'Space' } },
       environment: {
-        sys: { id: "env-id", type: "Link", linkType: "Environment" }
+        sys: { id: 'env-id', type: 'Link', linkType: 'Environment' }
       }
     },
     fields: {
       file: {
-        url: "//images.ctfassets.net/default.jpg",
+        url: '//images.ctfassets.net/thumb.jpg',
         details: { size: 12345, image: { width: 300, height: 200 } },
-        fileName: "default.jpg",
-        contentType: "image/jpeg"
+        fileName: 'thumb.jpg',
+        contentType: 'image/jpeg'
       }
     },
-    metadata: { tags: [] }
-  };
+    metadata: { tags: [] },
+    ...overrides
+  }
 }
 
+// BlogPost factory
 export function createMockPost(
-    id: string,
-    overrides?: Partial<Entry<BlogPostSkeleton>>
-  ): Entry<BlogPostSkeleton> {
-    const defaultFields = {
-        title: `Mock Post ${id}`,
-        abstract: "Mock abstract",
-        url: `/posts/${id}`,
-        thumbnail: createMockAsset()
-      };
-    
-      const mergedFields = {
-        ...defaultFields,
-        ...(overrides?.fields ?? {})
-      };
-    return {
-      sys: {
-        id,
-        type: "Entry",
-        createdAt: mockDate,
-        updatedAt: mockDate,
-        revision: 1,
-        publishedVersion: 1,
-        contentType: {
-          sys: {
-            type: "Link",
-            linkType: "ContentType",
-            id: "post"  // ← literal "post" fixes your error
-          }
-        },
-        space: {
-          sys: { id: "space-id", type: "Link", linkType: "Space" }
-        },
-        environment: {
-          sys: { id: "env-id", type: "Link", linkType: "Environment" }
-        }
+  id: string,
+  overrides?: Partial<Entry<BlogPostSkeleton, undefined, string>>
+): Entry<BlogPostSkeleton, undefined, string> {
+  return {
+    sys: {
+      id,
+      type: 'Entry',
+      createdAt: mockDate,
+      updatedAt: mockDate,
+      revision: 1,
+      publishedVersion: 1,
+      contentType: {
+        sys: { type: 'Link', linkType: 'ContentType', id: 'post' }
       },
-      fields: mergedFields,
-      metadata: { tags: [] },
-      ...overrides
-    };
+      space: { sys: { id: 'space-id', type: 'Link', linkType: 'Space' } },
+      environment: {
+        sys: { id: 'env-id', type: 'Link', linkType: 'Environment' }
+      },
+      locale: 'en-US'
+    },
+    fields: {
+      title: `Mock Post ${id}`,
+      abstract: 'Mock abstract',
+      url: `/posts/${id}`,
+      thumbnail: createMockAsset(),
+      ...overrides?.fields
+    },
+    metadata: { tags: [] },
+    ...overrides
   }
+}
+
+export const mockDescription: Document = {
+  nodeType: BLOCKS.DOCUMENT,
+  content: [],
+  data: {}
+}
+
+// Project entry factory
+export function createMockProject(
+  id: string,
+  overrides?: Partial<Entry<ProjectsSkeleton, undefined, string>>
+): Entry<ProjectsSkeleton, undefined, string> {
+  return {
+    sys: {
+      id,
+      type: 'Entry',
+      createdAt: mockDate,
+      updatedAt: mockDate,
+      revision: 1,
+      publishedVersion: 1,
+      contentType: {
+        sys: { type: 'Link', linkType: 'ContentType', id: 'projects' }
+      },
+      space: { sys: { id: 'space-id', type: 'Link', linkType: 'Space' } },
+      environment: {
+        sys: { id: 'env-id', type: 'Link', linkType: 'Environment' }
+      },
+      locale: 'en-US'
+    },
+    fields: {
+      title: `Mock Project ${id}`,
+      abstract: 'This is a mock project abstract.',
+      description: mockDescription,
+      date: mockDate,
+      slug: `mock-project-${id}`,
+      stack: 'React, TypeScript',
+      url: `/projects/${id}`,
+      articleUrl: 'https://test.com',
+      thumbnail: createMockAsset(),
+      ...overrides?.fields
+    },
+    metadata: { tags: [] },
+    ...overrides
+  }
+}

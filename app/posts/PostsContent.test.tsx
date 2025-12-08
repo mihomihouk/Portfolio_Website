@@ -3,134 +3,148 @@ import { renderWithProviders } from '../../tests/utils/test-utils'
 import { screen } from '@testing-library/react'
 import { PostsContent } from './PostsContent'
 import { BlogPosts } from '../../types/contentful'
-import { Asset } from 'contentful'
+import {
+  createMockPost,
+  createMockAsset
+} from '../../tests/factories/contentful'
 
 // Mock data
-const mockDate =
-  "2025-12-08T12:00:00Z"
+// const mockDate =
+//   "2025-12-08T12:00:00Z"
 
-// TODO: Create factory
-const mockAsset: Asset<undefined, string>  = {
-  sys: {
-    id: "test",
-    type: "Asset",
-    createdAt: mockDate,
-    updatedAt: mockDate,
-    revision: 1,
-    publishedVersion: 1,
-    locale: "en-US",
-    space: {
-      sys: {
-        id: "space-id",
-        type: "Link",
-        linkType: "Space"
-      }
-    },
-    environment: {
-      sys: {
-        id: "env-id",
-        type: "Link",
-        linkType: "Environment"
-      }
-    }
-  },
-  fields: {
-    file: {
-      url: "//images.ctfassets.net/thumb2.jpg",
-      details: {
-        size: 67890,
-        image: { width: 300, height: 200 }
-      },
-      fileName: "thumb2.jpg",
-      contentType: "image/jpeg"
-    }
-  },
-  metadata: { tags: [] }
-}
+// // TODO: Create factory
+// const mockAsset: Asset<undefined, string>  = {
+//   sys: {
+//     id: "test",
+//     type: "Asset",
+//     createdAt: mockDate,
+//     updatedAt: mockDate,
+//     revision: 1,
+//     publishedVersion: 1,
+//     locale: "en-US",
+//     space: {
+//       sys: {
+//         id: "space-id",
+//         type: "Link",
+//         linkType: "Space"
+//       }
+//     },
+//     environment: {
+//       sys: {
+//         id: "env-id",
+//         type: "Link",
+//         linkType: "Environment"
+//       }
+//     }
+//   },
+//   fields: {
+//     file: {
+//       url: "//images.ctfassets.net/thumb2.jpg",
+//       details: {
+//         size: 67890,
+//         image: { width: 300, height: 200 }
+//       },
+//       fileName: "thumb2.jpg",
+//       contentType: "image/jpeg"
+//     }
+//   },
+//   metadata: { tags: [] }
+// }
 
-const mockPosts: BlogPosts = [
-  {
-    sys: {
-        id: '1',
-        type: 'Entry',
-        createdAt: mockDate,
-        updatedAt: mockDate,
-        revision: 1,
-        publishedVersion: 1,
-        contentType: {
-          sys: {
-            type: 'Link',
-            linkType: 'ContentType',
-            id: 'post'
-          }
-        },
-        space: {
-          sys: {
-            id: 'space-id',
-            type: 'Link',
-            linkType: 'Space'
-          }
-        },
-        environment: {
-          sys: {
-            id: 'env-id',
-            type: 'Link',
-            linkType: 'Environment'
-          }
-        }
-      },
-      fields: {
-        title: 'First Post',
-        abstract: 'This is the first post.',
-        url: '/posts/first',
-        thumbnail: mockAsset  
-      },
-      metadata: {
-        tags: [] 
-      }
-  },
-  {
-    sys: {
-        id: '2',
-        type: 'Entry',
-        createdAt: mockDate,
-        updatedAt: mockDate,
-        revision: 1,
-        publishedVersion: 1,
-        contentType: {
-          sys: {
-            type: 'Link',
-            linkType: 'ContentType',
-            id: 'post'
-          }
-        },
-        space: {
-          sys: {
-            id: 'space-id',
-            type: 'Link',
-            linkType: 'Space'
-          }
-        },
-        environment: {
-          sys: {
-            id: 'env-id',
-            type: 'Link',
-            linkType: 'Environment'
-          }
-        }
-      },
-      fields: {
-        title: 'Second Post',
-        abstract: 'This is the second post.',
-        url: '/posts/second',
-        thumbnail: mockAsset  
-      },
-      metadata: {
-        tags: [] 
-      }
+// const mockPosts: BlogPosts = [
+//   {
+//     sys: {
+//         id: '1',
+//         type: 'Entry',
+//         createdAt: mockDate,
+//         updatedAt: mockDate,
+//         revision: 1,
+//         publishedVersion: 1,
+//         contentType: {
+//           sys: {
+//             type: 'Link',
+//             linkType: 'ContentType',
+//             id: 'post'
+//           }
+//         },
+//         space: {
+//           sys: {
+//             id: 'space-id',
+//             type: 'Link',
+//             linkType: 'Space'
+//           }
+//         },
+//         environment: {
+//           sys: {
+//             id: 'env-id',
+//             type: 'Link',
+//             linkType: 'Environment'
+//           }
+//         }
+//       },
+//       fields: {
+//         title: 'First Post',
+//         abstract: 'This is the first post.',
+//         url: '/posts/first',
+//         thumbnail: mockAsset
+//       },
+//       metadata: {
+//         tags: []
+//       }
+//   },
+//   {
+//     sys: {
+//         id: '2',
+//         type: 'Entry',
+//         createdAt: mockDate,
+//         updatedAt: mockDate,
+//         revision: 1,
+//         publishedVersion: 1,
+//         contentType: {
+//           sys: {
+//             type: 'Link',
+//             linkType: 'ContentType',
+//             id: 'post'
+//           }
+//         },
+//         space: {
+//           sys: {
+//             id: 'space-id',
+//             type: 'Link',
+//             linkType: 'Space'
+//           }
+//         },
+//         environment: {
+//           sys: {
+//             id: 'env-id',
+//             type: 'Link',
+//             linkType: 'Environment'
+//           }
+//         }
+//       },
+//       fields: {
+//         title: 'Second Post',
+//         abstract: 'This is the second post.',
+//         url: '/posts/second',
+//         thumbnail: mockAsset
+//       },
+//       metadata: {
+//         tags: []
+//       }
+//     }
+// ]
+
+export const mockPosts: BlogPosts = [
+  createMockPost('1'),
+  createMockPost('2', {
+    fields: {
+      title: 'Second Post',
+      abstract: 'Second mock abstract',
+      url: `/posts/2`,
+      thumbnail: createMockAsset()
     }
+  })
 ]
-
 
 describe('PostsContent', () => {
   function renderComponent(posts = mockPosts) {
@@ -167,7 +181,9 @@ describe('PostsContent', () => {
   test('renders links pointing to post URLs', () => {
     renderComponent()
     mockPosts.forEach(post => {
-      const link = screen.getByText(post.fields.title).closest('a') as HTMLAnchorElement
+      const link = screen
+        .getByText(post.fields.title)
+        .closest('a') as HTMLAnchorElement
       expect(link).toHaveAttribute('href', post.fields.url)
     })
   })

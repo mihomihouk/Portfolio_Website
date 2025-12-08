@@ -8,8 +8,13 @@ import { PageWrapper } from '../../_layout/page-wrapper/PageWrapper'
 import { Badge } from '../../../components/Badge'
 import { PageTitle } from '../../../components/PageTitle'
 import { SectionHeading } from '../../../components/SectionHeading'
+import { Asset, EntryCollection } from 'contentful'
+import { ProjectsSkeleton } from '../../../types/contentful'
 
-export function ProjectContent({ project }) {
+type ProjectContentProps = {
+  project: EntryCollection<ProjectsSkeleton, undefined, string>['items'][0]
+}
+export function ProjectContent({ project }: ProjectContentProps) {
   const {
     title,
     date,
@@ -23,7 +28,7 @@ export function ProjectContent({ project }) {
 
   return (
     <PageWrapper>
-      <Title>
+      <Breadcrumb>
         {title}
         <Badge
           color="gray"
@@ -31,11 +36,11 @@ export function ProjectContent({ project }) {
           fontWeight="bold"
           text={date.toUpperCase()}
         />
-      </Title>
+      </Breadcrumb>
       <Box bg="gray.200" borderRadius="24px" mt={2}>
         <Box py={6} px={6}>
           <ProjectImage
-            src={`http:${thumbnail?.fields?.file?.url}`}
+            src={`http:${(thumbnail as Asset).fields.file!.url}`}
             alt="project.image"
           />
           <Section>
@@ -72,7 +77,7 @@ export function ProjectContent({ project }) {
                   {url === 'Coming soon' ? (
                     <Text>Coming soon</Text>
                   ) : (
-                    <Link href={url} target="_blank">
+                    <Link href={url} target="_blank" data-testid="website-link">
                       <ExternalLinkIcon mx="2px" />
                     </Link>
                   )}
@@ -81,7 +86,7 @@ export function ProjectContent({ project }) {
               {articleUrl && (
                 <List.Item alignItems="center">
                   <Meta text="Article" />
-                  <Link href={articleUrl}>
+                  <Link href={articleUrl} data-testid="article-link">
                     <ExternalLinkIcon mx="2px" />
                   </Link>
                 </List.Item>
@@ -94,9 +99,9 @@ export function ProjectContent({ project }) {
   )
 }
 
-function Title({ children }) {
+function Breadcrumb({ children }) {
   return (
-    <Box mt={2}>
+    <Box mt={2} data-testid="project-breadcrumb">
       <Link href="/projects" passHref>
         Projects
       </Link>
