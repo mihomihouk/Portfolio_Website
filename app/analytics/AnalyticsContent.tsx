@@ -11,6 +11,7 @@ import { chartColors, chartTheme } from '../../config/chart'
 import { createGradient } from '../../utils/chart'
 import { Card } from '../../components/Card'
 import { VisitorAnalyticsResponseData } from '../../services/analytics'
+import { SecondaryText } from '../../components/SecondaryText'
 
 export function AnalyticsContent({
   data
@@ -22,9 +23,7 @@ export function AnalyticsContent({
   return (
     <PageWrapper>
       <PageTitle pageTitle="Analytics" />
-      <Text color="gray.500" fontSize="sm" mb={6}>
-        Showing data from the past 30 days
-      </Text>
+      <SecondaryText mb={6} text="Showing data from the past 30 days"/>
       {/* Charts */}
       <SimpleGrid columns={{ base: 1, lg: 2 }} gap={8}>
         <ChartCard title="Recent Visitors">
@@ -47,7 +46,7 @@ function ChartCard({
 }) {
   return (
     <Card>
-      <Heading size="md" mb={4}>
+      <Heading as="h3" mb={4}>
         {title}
       </Heading>
       {children}

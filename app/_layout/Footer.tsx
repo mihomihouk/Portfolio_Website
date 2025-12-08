@@ -1,6 +1,7 @@
-import { Box, Text } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import dayjs from 'dayjs'
 import Link from 'next/link'
+import { SecondaryText } from '../../components/SecondaryText'
 
 export function Footer() {
   const copyRightText = `© ${dayjs().year()} Miho Inagaki`
@@ -11,12 +12,12 @@ export function Footer() {
       justifyContent="center"
       alignItems="center"
       py={6}
-      color="gray.500"
       fontSize="sm"
+      color="gray.500"
     >
-      <Text>{copyRightText}</Text>
-      <Text mx={1}>·</Text>
-      <Link href="/privacy">Privacy Policy</Link>
+      <SecondaryText text={copyRightText} mb={0}/>
+      <SecondaryText text='·' mx={1}/>
+      <Link href="/privacy" >Privacy Policy</Link>
     </Box>
   )
 }

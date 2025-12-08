@@ -6,6 +6,8 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { Section } from '../../../components/Section'
 import { PageWrapper } from '../../_layout/PageWrapper'
 import { Badge } from '../../../components/Badge'
+import { PageTitle } from '../../../components/PageTitle'
+import { SectionHeading } from '../../../components/SectionHeading'
 
 export function ProjectContent({ project }) {
   const {
@@ -37,19 +39,19 @@ export function ProjectContent({ project }) {
             alt="project.image"
           />
           <Section>
-            <Text textStyle="h2">{title}</Text>
+            <PageTitle pageTitle={title}/>
 
             <Text>{abstract}</Text>
 
             <Box mt={4}>
               <Meta text="Stack" />
-              <Text display="inline-block" textStyle="h6">
+              <Text display="inline-block">
                 {stack}
               </Text>
             </Box>
           </Section>
           <Section delay={0.2}>
-            <Text textStyle="h3">What I worked on</Text>
+            <SectionHeading title="What I worked on" />
             <List.Root
               css={{
                 pl: 5,
@@ -64,7 +66,7 @@ export function ProjectContent({ project }) {
           </Section>
 
           <Section delay={0.4}>
-            <Text textStyle="h3">Links</Text>
+            <SectionHeading title='Links'/>
             <List.Root unstyled={true}>
               {url && (
                 <List.Item alignItems="center">
@@ -72,7 +74,7 @@ export function ProjectContent({ project }) {
                   {url === 'Coming soon' ? (
                     <Text>Coming soon</Text>
                   ) : (
-                    <Link href={url}>
+                    <Link href={url} target='_blank'>
                       <ExternalLinkIcon mx="2px" />
                     </Link>
                   )}

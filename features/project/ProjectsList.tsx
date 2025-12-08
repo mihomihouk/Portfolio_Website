@@ -1,9 +1,10 @@
 import NextLink from 'next/link'
 import Image from 'next/image'
-import { Box, Text, LinkBox, Heading } from '@chakra-ui/react'
+import { Box, Text, LinkBox } from '@chakra-ui/react'
 import { Section } from '../../components/Section'
 import { Asset } from 'contentful'
 import { Projects } from '../../types/contentful'
+import { SectionHeading } from '../../components/SectionHeading'
 
 type ProjectPreviewProps = {
   projects: Projects
@@ -32,14 +33,10 @@ export function ProjectsList({ projects }: ProjectPreviewProps) {
                     height={details.image.height}
                     className="grid-item-thumbnail"
                   />
-                  <Heading
+                  <SectionHeading 
+                    title={project.fields.title}
                     textAlign="center"
-                    textStyle="h3"
-                    my={2}
-                    fontWeight="bold"
-                  >
-                    {project.fields.title}
-                  </Heading>
+                    my={2}/>
                   <Text>{project.fields.abstract}</Text>
                 </LinkBox>
               </NextLink>

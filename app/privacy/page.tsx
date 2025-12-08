@@ -4,6 +4,7 @@ import { PageTitle } from '../../components/PageTitle'
 import { Section } from '../../components/Section'
 import { SectionHeading } from '../../components/SectionHeading'
 import { PageWrapper } from '../_layout/PageWrapper'
+import { SecondaryText } from '../../components/SecondaryText'
 
 export default function PrivacyPage() {
   return (
@@ -12,9 +13,7 @@ export default function PrivacyPage() {
 
       <VStack align="start">
         <Section>
-          <Text color="gray.500" fontSize="sm" mb={14}>
-            Last updated: December 2025
-          </Text>
+          <SecondaryText text='Last updated: December 2025'  mb={14}/>
           <Text>
             This website collects a small amount of technical information to
             help me understand how the site is used and to improve its
