@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Box, Stack, Flex, Menu, IconButton, Portal } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import { AiFillHome } from 'react-icons/ai'
-import { navRoutes } from '../../utils/path'
+import { navRoutes } from '../../../utils/path'
 
 function LinkItem({ href, children }) {
   return <Link href={href}>{children}</Link>
@@ -39,7 +39,7 @@ export function Navbar() {
         justifyContent="space-between"
       >
         <Flex align="center" mx={5}>
-          <Link href="/">
+          <Link href="/" aria-label='home-link'>
             <IconButton variant="ghost" size="lg">
               <AiFillHome />
             </IconButton>
@@ -53,6 +53,7 @@ export function Navbar() {
           alignItems="center"
           flexGrow={1}
           mt={{ base: 4, md: 0 }}
+          id='desktop-menu'
         >
           {menuItems.map((routeItem, index) => (
             <LinkItem key={index} href={routeItem.path}>
@@ -62,10 +63,10 @@ export function Navbar() {
         </Stack>
         <Box flex={1} textAlign="right">
           <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
-            <Menu.Root id="navbar-menu">
+            <Menu.Root id="mobile-menu">
               {/* @ts-expect-error - asChild not typed but works in runtime */}
               <Menu.Trigger asChild>
-                <IconButton variant="ghost" size="lg">
+                <IconButton variant="ghost" size="lg" aria-label='mobile menu'>
                   <HamburgerIcon />
                 </IconButton>
               </Menu.Trigger>
