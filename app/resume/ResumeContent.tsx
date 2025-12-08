@@ -1,13 +1,13 @@
 'use client'
 import { Box, WrapItem, Stack, Icon, Wrap, Text } from '@chakra-ui/react'
 import { FaLaptopCode } from 'react-icons/fa'
-import { PageTitle } from '../../components/PageTitle'
-import { Section } from '../../components/Section'
+import { PageTitle } from '../../components/page-title/PageTitle'
+import { Section } from '../../components/section/Section'
 import { MdHistory } from 'react-icons/md'
 import { GiMeal } from 'react-icons/gi'
 import { Link as Scroll } from 'react-scroll'
-import { SectionHeading } from '../../components/SectionHeading'
-import { PageWrapper } from '../_layout/PageWrapper'
+import { SectionHeading } from '../../components/section-heading/SectionHeading'
+import { PageWrapper } from '../_layout/page-wrapper/PageWrapper'
 
 type ResumeFormatProps = {
   id?: number
@@ -221,6 +221,7 @@ export function ResumeContent({
         width="15%"
         height="100%"
         justifyContent="center"
+        data-testid="resume-side-scroll"
       >
         {resumeMenuList.map((item, index) => (
           <Scroll

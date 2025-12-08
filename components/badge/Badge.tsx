@@ -3,7 +3,7 @@ import {
   BadgeProps as ChakraBadgeProps
 } from '@chakra-ui/react'
 
-type BadgeProps = {
+export type BadgeProps = {
   color: ChakraBadgeProps['colorPalette']
   text: string
   ml?: number

@@ -1,6 +1,6 @@
 import { Heading, HeadingProps } from '@chakra-ui/react'
 
-type SectionHeadingProps = {
+export type SectionHeadingProps = {
   title: string
   my?: HeadingProps['my']
   textAlign?: HeadingProps['textAlign']

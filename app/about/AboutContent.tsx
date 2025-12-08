@@ -1,10 +1,10 @@
 'use client'
 import { Box, SimpleGrid, Stack, Text, List, ListItem } from '@chakra-ui/react'
-import { Section } from '../../components/Section'
-import { PageWrapper } from '../_layout/PageWrapper'
-import { PageTitle } from '../../components/PageTitle'
+import { Section } from '../../components/section/Section'
+import { PageWrapper } from '../_layout/page-wrapper/PageWrapper'
+import { PageTitle } from '../../components/page-title/PageTitle'
 import Image from 'next/image'
-import { SectionHeading } from '../../components/SectionHeading'
+import { SectionHeading } from '../../components/section-heading/SectionHeading'
 
 function BulletList({ items }: { items: string[] }) {
   return (

@@ -1,4 +1,4 @@
-import { HexColor } from '../types/color'
+import { HexColor } from '../../types/color'
 
 export function createGradient(
   hexColor: HexColor,

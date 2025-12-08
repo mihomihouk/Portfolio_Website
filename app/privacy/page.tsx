@@ -1,10 +1,10 @@
 'use client'
 import { Text, List, VStack } from '@chakra-ui/react'
-import { PageTitle } from '../../components/PageTitle'
-import { Section } from '../../components/Section'
-import { SectionHeading } from '../../components/SectionHeading'
-import { PageWrapper } from '../_layout/PageWrapper'
-import { SecondaryText } from '../../components/SecondaryText'
+import { PageTitle } from '../../components/page-title/PageTitle'
+import { Section } from '../../components/section/Section'
+import { SectionHeading } from '../../components/section-heading/SectionHeading'
+import { PageWrapper } from '../_layout/page-wrapper/PageWrapper'
+import { SecondaryText } from '../../components/secondary-title/SecondaryText'
 
 export default function PrivacyPage() {
   return (

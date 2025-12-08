@@ -1,6 +1,6 @@
 import type { EntryCollection, EntryFieldTypes } from 'contentful'
 
-type ProjectFields = {
+export type ProjectFields = {
   abstract: EntryFieldTypes.Text
   date: EntryFieldTypes.Date
   description: EntryFieldTypes.RichText
@@ -9,6 +9,7 @@ type ProjectFields = {
   thumbnail: EntryFieldTypes.AssetLink
   title: EntryFieldTypes.Text
   url: EntryFieldTypes.Text
+  articleUrl: EntryFieldTypes.Text
 }
 
 export type ProjectsSkeleton = {
