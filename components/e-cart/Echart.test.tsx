@@ -1,5 +1,5 @@
 import { screen } from '@testing-library/react'
-import { describe, expect, test, vi} from 'vitest'
+import { describe, expect, test, vi } from 'vitest'
 import { renderWithProviders } from '../../tests/utils/test-utils'
 
 import * as echarts from 'echarts'

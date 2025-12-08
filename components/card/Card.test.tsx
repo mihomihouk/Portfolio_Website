@@ -13,5 +13,4 @@ describe('Card', () => {
     renderComponent(<div>Card Content</div>)
     expect(screen.getByText('Card Content')).toBeInTheDocument()
   })
-
 })

@@ -20,11 +20,13 @@ describe('formatDate', () => {
 
   test.each([
     ['en', 'en'],
-    ['ja', 'ja'],
+    ['ja', 'ja']
   ])(
     'formats date correctly for locale %s',
     (navigatorLang, expectedLocale) => {
-      Object.defineProperty(global.navigator, 'language', { value: navigatorLang })
+      Object.defineProperty(global.navigator, 'language', {
+        value: navigatorLang
+      })
       const result = formatDate(testDate, 'LL')
       expect(result).toBe(dayjs(testDate).locale(expectedLocale).format('LL'))
     }

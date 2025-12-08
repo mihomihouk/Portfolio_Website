@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest'
-import { renderWithProviders } from '../tests/utils/test-utils' 
+import { renderWithProviders } from '../tests/utils/test-utils'
 import { screen } from '@testing-library/react'
 import NotFound from './not-found'
 
@@ -10,7 +10,9 @@ describe('NotFound', () => {
 
   test('renders heading and text', () => {
     renderComponent()
-    expect(screen.getByRole('heading', { name: /not found/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /not found/i })
+    ).toBeInTheDocument()
     expect(
       screen.getByText(/the page you're looking for was not found/i)
     ).toBeInTheDocument()

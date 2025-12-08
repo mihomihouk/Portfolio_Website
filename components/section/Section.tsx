@@ -10,7 +10,7 @@ export type SectionProps = {
   id?: string
 }
 
-export function Section({ children, delay = 0, id = '' }:SectionProps) {
+export function Section({ children, delay = 0, id = '' }: SectionProps) {
   return (
     <MotionBox
       initial={{ y: 10, opacity: 0 }}
@@ -19,7 +19,7 @@ export function Section({ children, delay = 0, id = '' }:SectionProps) {
       mb={12}
       px={2}
       id={id}
-      data-testid={id} 
+      data-testid={id}
     >
       {children}
     </MotionBox>

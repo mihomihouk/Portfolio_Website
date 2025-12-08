@@ -1,14 +1,14 @@
-import {  screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import { describe, test, expect } from 'vitest'
 import { Section, SectionProps } from './Section'
-import { renderWithProviders } from '../../tests/utils/test-utils';
+import { renderWithProviders } from '../../tests/utils/test-utils'
 
 describe('Section', () => {
   function renderComponent(props: SectionProps) {
-    renderWithProviders(<Section  {...props} />)
+    renderWithProviders(<Section {...props} />)
   }
 
-    // Some tests are omitted as framer-motion animation values cannot be asserted 
+  // Some tests are omitted as framer-motion animation values cannot be asserted
 
   test('renders children', () => {
     renderComponent({ children: <div>Test Content</div> })
@@ -20,5 +20,4 @@ describe('Section', () => {
     const section = screen.getByTestId('section-1')
     expect(section).toHaveAttribute('id', 'section-1')
   })
-
 })

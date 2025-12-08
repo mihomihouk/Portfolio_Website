@@ -1,7 +1,11 @@
 import { screen } from '@testing-library/react'
 import { ProjectsList } from './ProjectsList'
 import { describe, test, expect } from 'vitest'
-import { createMockProject, createMockAsset, mockDescription } from '../../tests/factories/contentful'
+import {
+  createMockProject,
+  createMockAsset,
+  mockDescription
+} from '../../tests/factories/contentful'
 import { renderWithProviders } from '../../tests/utils/test-utils'
 
 describe('ProjectsList', () => {
@@ -40,14 +44,14 @@ describe('ProjectsList', () => {
 
   test('renders project titles and abstracts', () => {
     renderComponent()
-  
+
     const expectedTexts = [
       'Project One',
       'Abstract One',
       'Project Two',
       'Abstract Two'
     ]
-  
+
     expectedTexts.forEach(text => {
       expect(screen.getByText(text)).toBeInTheDocument()
     })
@@ -55,9 +59,9 @@ describe('ProjectsList', () => {
 
   test('renders images with correct alt text', () => {
     renderComponent()
-  
+
     const altTexts = ['Project One', 'Project Two']
-  
+
     altTexts.forEach(alt => {
       expect(screen.getByAltText(alt)).toBeInTheDocument()
     })
@@ -65,10 +69,10 @@ describe('ProjectsList', () => {
 
   test('links to the correct project page', () => {
     renderComponent()
-  
+
     const expectedHrefs = ['/projects/project-one', '/projects/project-two']
     const links = screen.getAllByRole('link')
-  
+
     links.forEach((link, index) => {
       expect(link).toHaveAttribute('href', expectedHrefs[index])
     })

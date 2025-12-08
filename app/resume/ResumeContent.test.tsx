@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest'
-import { screen, within, waitFor} from '@testing-library/react'
+import { screen, within, waitFor } from '@testing-library/react'
 import { ResumeContent } from './ResumeContent'
 import { renderWithProviders } from '../../tests/utils/test-utils'
 
@@ -11,7 +11,7 @@ describe('ResumeContent', () => {
   }
   const sections = ['Work History', 'Programming Skill', 'Interests']
 
-  function renderComponent(){
+  function renderComponent() {
     renderWithProviders(<ResumeContent {...props} />)
   }
 
@@ -22,17 +22,22 @@ describe('ResumeContent', () => {
 
   test('renders necessary section', () => {
     renderComponent()
-    sections.forEach((section)=>{
-        expect(screen.getByRole('heading', {name:section})).toBeInTheDocument()
+    sections.forEach(section => {
+      expect(screen.getByRole('heading', { name: section })).toBeInTheDocument()
     })
   })
 
   test('renders left scroll menu', () => {
     renderComponent()
-    waitFor(()=>{
-        sections.forEach((section)=>{
-            expect(within(screen.getByTestId('resume-side-scroll')).getByRole('heading', {name:section})).toBeInTheDocument()
-        })
+    waitFor(() => {
+      sections.forEach(section => {
+        expect(
+          within(screen.getByTestId('resume-side-scroll')).getByRole(
+            'heading',
+            { name: section }
+          )
+        ).toBeInTheDocument()
+      })
     })
   })
 })

@@ -3,12 +3,15 @@ import { screen } from '@testing-library/react'
 import { renderWithProviders } from '../../tests/utils/test-utils'
 import { Badge, BadgeProps } from './Badge'
 
-type BadgeTestProps = { color: BadgeProps['color']; text: BadgeProps['text']} & Partial<BadgeProps>
+type BadgeTestProps = {
+  color: BadgeProps['color']
+  text: BadgeProps['text']
+} & Partial<BadgeProps>
 
 describe('Badge', () => {
-    function renderComponent({ color, text, ...props }:BadgeTestProps) {
-        renderWithProviders(<Badge color={color} text={text} {...props} />)
-      }
+  function renderComponent({ color, text, ...props }: BadgeTestProps) {
+    renderWithProviders(<Badge color={color} text={text} {...props} />)
+  }
 
   test('renders with given text', () => {
     renderComponent({ color: 'orange', text: 'Test Badge' })
@@ -16,7 +19,12 @@ describe('Badge', () => {
   })
 
   test('applies color and fontWeight props', () => {
-    renderComponent({ color: 'gray', text: 'Styled Badge', fontWeight: 'bold', ml: 2 })
+    renderComponent({
+      color: 'gray',
+      text: 'Styled Badge',
+      fontWeight: 'bold',
+      ml: 2
+    })
     const badge = screen.getByText('Styled Badge')
 
     const styles = getComputedStyle(badge)

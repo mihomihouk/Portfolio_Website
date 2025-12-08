@@ -13,5 +13,4 @@ describe('PageTitle', () => {
     const heading = screen.getByRole('heading', { name: /My Test Page/i })
     expect(heading).toBeInTheDocument()
   })
-
 })

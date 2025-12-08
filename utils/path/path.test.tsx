@@ -1,5 +1,11 @@
 import { describe, test, expect } from 'vitest'
-import { routes, navRoutes, getPagePath, pathToDisplayName, PageName } from './path'
+import {
+  routes,
+  navRoutes,
+  getPagePath,
+  pathToDisplayName,
+  PageName
+} from './path'
 
 describe('routes', () => {
   test('all routes have valid names and paths', () => {
@@ -18,16 +24,19 @@ describe('routes', () => {
 
   describe('getPagePath', () => {
     test.each([
-        ['Home', '/'],
-        ['About', '/about'],
-        ['Projects', '/projects'],
-        ['Blog', '/posts'],
-        ['Resume', '/resume'],
-        ['Analytics', '/analytics'],
-        ['Privacy', '/privacy']
-      ] as [PageName, string][])('returns correct path for %s', (name, expectedPath) => {
-      expect(getPagePath(name as any)).toBe(expectedPath)
-    })
+      ['Home', '/'],
+      ['About', '/about'],
+      ['Projects', '/projects'],
+      ['Blog', '/posts'],
+      ['Resume', '/resume'],
+      ['Analytics', '/analytics'],
+      ['Privacy', '/privacy']
+    ] as [PageName, string][])(
+      'returns correct path for %s',
+      (name, expectedPath) => {
+        expect(getPagePath(name as any)).toBe(expectedPath)
+      }
+    )
 
     test('returns empty string if page name not found', () => {
       // @ts-expect-error testing invalid input
@@ -44,9 +53,12 @@ describe('routes', () => {
       ['/resume', 'Resume'],
       ['/analytics', 'Analytics'],
       ['/privacy', 'Privacy']
-    ]as [string, PageName][])('returns correct name for path %s', (path, expectedName) => {
-      expect(pathToDisplayName(path)).toBe(expectedName)
-    })
+    ] as [string, PageName][])(
+      'returns correct name for path %s',
+      (path, expectedName) => {
+        expect(pathToDisplayName(path)).toBe(expectedName)
+      }
+    )
 
     test('returns null for unknown path', () => {
       expect(pathToDisplayName('/unknown')).toBeNull()

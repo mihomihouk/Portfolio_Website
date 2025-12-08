@@ -2,37 +2,41 @@ import { describe, test, expect } from 'vitest'
 import { screen } from '@testing-library/react'
 import { HomeContent } from './HomeContent'
 import { renderWithProviders } from '../tests/utils/test-utils'
-import { createMockAsset, createMockProject, mockDescription } from '../tests/factories/contentful'
+import {
+  createMockAsset,
+  createMockProject,
+  mockDescription
+} from '../tests/factories/contentful'
 
 const mockImageURL = 'https://example.com/profile.png'
 
 const mockProjects = [
-    createMockProject('1', {
-        fields: {
-          title: 'Mock Project 1',
-          date: '2025-12-08T12:00:00Z' as `${number}-${number}-${number}T${number}:${number}:${number}Z`,
-          thumbnail: createMockAsset(),
-          abstract: 'This is a mock project abstract.',
-          stack: 'React, TypeScript',
-          description: mockDescription,
-          url: 'https://example.com',
-          articleUrl: 'https://example.com/article',
-          slug: 'an'
-        }
-      }),
-      createMockProject('2', {
-        fields: {
-          title: 'Mock Project 2',
-          date: '2025-12-08T12:00:00Z' as `${number}-${number}-${number}T${number}:${number}:${number}Z`,
-          thumbnail: createMockAsset(),
-          abstract: 'This is a mock project abstract.',
-          stack: 'React, TypeScript',
-          description: mockDescription,
-          url: 'https://example.com',
-          articleUrl: 'https://example.com/article',
-          slug: 'an'
-        }
-      })
+  createMockProject('1', {
+    fields: {
+      title: 'Mock Project 1',
+      date: '2025-12-08T12:00:00Z' as `${number}-${number}-${number}T${number}:${number}:${number}Z`,
+      thumbnail: createMockAsset(),
+      abstract: 'This is a mock project abstract.',
+      stack: 'React, TypeScript',
+      description: mockDescription,
+      url: 'https://example.com',
+      articleUrl: 'https://example.com/article',
+      slug: 'an'
+    }
+  }),
+  createMockProject('2', {
+    fields: {
+      title: 'Mock Project 2',
+      date: '2025-12-08T12:00:00Z' as `${number}-${number}-${number}T${number}:${number}:${number}Z`,
+      thumbnail: createMockAsset(),
+      abstract: 'This is a mock project abstract.',
+      stack: 'React, TypeScript',
+      description: mockDescription,
+      url: 'https://example.com',
+      articleUrl: 'https://example.com/article',
+      slug: 'an'
+    }
+  })
 ]
 
 describe('HomeContent', () => {
@@ -54,13 +58,16 @@ describe('HomeContent', () => {
 
   test('renders social links', () => {
     renderComponent()
-  
+
     const socialLinks = [
       { label: 'My github page', href: 'https://github.com/mihomihouk' },
-      { label: 'My linkedIn page', href: 'https://www.linkedin.com/in/miho-inagaki/' },
+      {
+        label: 'My linkedIn page',
+        href: 'https://www.linkedin.com/in/miho-inagaki/'
+      },
       { label: 'My dev community page', href: 'https://dev.to/mihomihouk' }
     ]
-  
+
     socialLinks.forEach(({ label, href }) => {
       const linkButton = screen.getByLabelText(label)
       expect(linkButton.closest('a')).toHaveAttribute('href', href)

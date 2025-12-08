@@ -15,47 +15,55 @@ describe('AnalyticsService', () => {
     global.fetch = originalFetch
   })
 
-  describe('logPageView', ()=>{
+  describe('logPageView', () => {
     test('should call fetch with correct arguments', async () => {
-        fetchMock.mockResolvedValueOnce({ ok: true })
-    
-        const data = { path: '/home', referrer: 'https://google.com', userAgent: 'Mozilla/5.0' }
-        await AnalyticsService.logPageView(data)
-    
-        expect(fetchMock).toHaveBeenCalledWith(config.logPageView, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ ...data, event: 'page_view' })
-        })
+      fetchMock.mockResolvedValueOnce({ ok: true })
+
+      const data = {
+        path: '/home',
+        referrer: 'https://google.com',
+        userAgent: 'Mozilla/5.0'
+      }
+      await AnalyticsService.logPageView(data)
+
+      expect(fetchMock).toHaveBeenCalledWith(config.logPageView, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...data, event: 'page_view' })
       })
+    })
   })
 
-  describe('getVisitorAnalytics', ()=>{
+  describe('getVisitorAnalytics', () => {
     test('should fetch visitor analytics and return data', async () => {
-        const mockData: VisitorAnalyticsResponseData = {
-          visitorCount: [{ visits: 10, date: '2025-12-08' }],
-          pagePopularity: [{ visits: 5, page: '/home' }]
-        }
-    
-        fetchMock.mockResolvedValueOnce({
-          json: async () => mockData
-        })
-    
-        const result = await AnalyticsService.getVisitorAnalytics()
-        expect(result).toEqual(mockData)
-        expect(fetchMock).toHaveBeenCalledWith(`${config.getVisitorAnalytics}?daysAgo=30`)
+      const mockData: VisitorAnalyticsResponseData = {
+        visitorCount: [{ visits: 10, date: '2025-12-08' }],
+        pagePopularity: [{ visits: 5, page: '/home' }]
+      }
+
+      fetchMock.mockResolvedValueOnce({
+        json: async () => mockData
       })
-    
-      test('should throw error if fetch fails for visitor analytics', async () => {
-        const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
-        // Suppress logs
-        fetchMock.mockRejectedValueOnce(new Error('Network error'))
-      
-        await expect(AnalyticsService.getVisitorAnalytics()).rejects.toThrow(
-          'Failed to get visitor analytics'
-        )
-      
-        consoleErrorSpy.mockRestore()
-      })
+
+      const result = await AnalyticsService.getVisitorAnalytics()
+      expect(result).toEqual(mockData)
+      expect(fetchMock).toHaveBeenCalledWith(
+        `${config.getVisitorAnalytics}?daysAgo=30`
+      )
+    })
+
+    test('should throw error if fetch fails for visitor analytics', async () => {
+      const consoleErrorSpy = vi
+        .spyOn(console, 'error')
+        .mockImplementation(() => {})
+      // Suppress logs
+      fetchMock.mockRejectedValueOnce(new Error('Network error'))
+
+      await expect(AnalyticsService.getVisitorAnalytics()).rejects.toThrow(
+        'Failed to get visitor analytics'
+      )
+
+      consoleErrorSpy.mockRestore()
+    })
   })
 })
