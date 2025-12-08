@@ -1,6 +1,6 @@
 'use client'
 
-import { Heading, SimpleGrid, Text } from '@chakra-ui/react'
+import { Heading, SimpleGrid } from '@chakra-ui/react'
 import { PageTitle } from '../../components/PageTitle'
 import { PageWrapper } from '../_layout/page-wrapper/PageWrapper'
 import * as echarts from 'echarts'
