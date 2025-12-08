@@ -1,4 +1,4 @@
-import { describe, test, expect, vi } from 'vitest'
+import { describe, test, expect } from 'vitest'
 import { fireEvent, screen, waitFor, within } from '@testing-library/react'
 import { Navbar } from './Navbar'
 import { renderWithProviders } from '../../../tests/utils/test-utils'
