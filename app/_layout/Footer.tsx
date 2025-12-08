@@ -14,6 +14,7 @@ export function Footer() {
       py={6}
       fontSize="sm"
       color="gray.500"
+      data-testid="footer"
     >
       <SecondaryText text={copyRightText} mb={0} />
       <SecondaryText text="·" mx={1} />

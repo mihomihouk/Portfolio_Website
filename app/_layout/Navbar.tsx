@@ -29,6 +29,7 @@ export function Navbar() {
       w="100%"
       style={{ backdropFilter: 'blur(10px)' }}
       zIndex={10}
+      data-testid="navbar"
     >
       <Box
         display="flex"
