@@ -102,11 +102,17 @@ const resumeMenuList = [
   { label: 'Interests', logoSrc: <Icon as={GiMeal} />, to: 'interests' }
 ]
 
+type ResumeContentProps = {
+  agileLogoURL: string
+  chakraUILogoURL: string
+  contentfulLogoURL: string
+}
+
 export function ResumeContent({
   agileLogoURL,
   chakraUILogoURL,
   contentfulLogoURL
-}) {
+}: ResumeContentProps) {
   //skill list
   const programmingSkillsDetails = [
     {

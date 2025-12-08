@@ -4,25 +4,34 @@ import { PageTitle } from '../../components/PageTitle'
 import { Section } from '../../components/Section'
 import { PageWrapper } from '../_layout/PageWrapper'
 import Image from 'next/image'
+import { BlogPosts } from '../../types/contentful'
+import { Asset } from 'contentful'
 
-export function PostsContent({ posts }) {
+type PostsContentProps = {
+  posts: BlogPosts
+}
+
+export function PostsContent({ posts }: PostsContentProps) {
   return (
     <PageWrapper>
       <Box bg="gray.200" borderRadius="24px" mt={2}>
         <Box py={6} px={6}>
           <PageTitle pageTitle="Posts" />
           <SimpleGrid columns={1} gap={6}>
-            {posts.map(post => (
-              <Section key={post.sys.id}>
-                <PostGridItem
-                  title={post.fields.title}
-                  thumbnail={post.fields.thumbnail.fields.file}
-                  href={post.fields.url}
-                >
-                  {post.fields.abstract}
-                </PostGridItem>
-              </Section>
-            ))}
+            {posts.map(post => {
+              const thumbnail = post.fields.thumbnail as Asset //Contentful does not provide ts support for linked fields so cast a type
+              return (
+                <Section key={post.sys.id}>
+                  <PostGridItem
+                    title={post.fields.title}
+                    thumbnail={thumbnail.fields.file}
+                    href={post.fields.url}
+                  >
+                    {post.fields.abstract}
+                  </PostGridItem>
+                </Section>
+              )
+            })}
           </SimpleGrid>
         </Box>
       </Box>
@@ -35,7 +44,7 @@ function PostGridItem({ children, href, title, thumbnail }) {
     <Box w="100%" alignItems="center">
       <LinkBox cursor="pointer">
         <Image
-          src={`http:${thumbnail.url}`}
+          src={`https:${thumbnail.url}`}
           alt={title}
           layout=""
           width={thumbnail.details.image.width}

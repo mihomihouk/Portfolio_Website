@@ -16,15 +16,23 @@ import { PageWrapper } from './_layout/PageWrapper'
 import Link from 'next/link'
 import { SectionHeading } from '../components/SectionHeading'
 import { ProjectPreview } from '../features/project/ProjectPreview'
+import { IconType } from 'react-icons'
+import { Projects } from '../types/contentful'
+import { Asset } from 'contentful'
 
-function SocialLink({ href, icon }) {
+type SocialLinkProps = {
+  href: string
+  icon: IconType
+  ariaLabel: string
+}
+function SocialLink({ href, icon, ariaLabel }: SocialLinkProps) {
   return (
     <Link href={href} target="_blank">
       <IconButton
         variant="ghost"
         colorScheme="orange.500"
         size="lg"
-        aria-label={icon}
+        aria-label={ariaLabel}
       >
         <Icon as={icon} />
       </IconButton>
@@ -36,7 +44,7 @@ export function HomeContent({
   projects,
   imageURL
 }: {
-  projects: any
+  projects: Projects
   imageURL: string
 }) {
   return (
@@ -81,16 +89,22 @@ export function HomeContent({
             <SocialLink
               href="https://github.com/mihomihouk"
               icon={IoLogoGithub}
+              ariaLabel="My github page"
             />
           </List.Item>
           <List.Item>
             <SocialLink
               href="https://www.linkedin.com/in/miho-inagaki/"
               icon={IoLogoLinkedin}
+              ariaLabel="My linkedIn page"
             />
           </List.Item>
           <List.Item>
-            <SocialLink href="https://dev.to/mihomihouk" icon={FaDev} />
+            <SocialLink
+              href="https://dev.to/mihomihouk"
+              icon={FaDev}
+              ariaLabel="My dev community page"
+            />
           </List.Item>
         </List.Root>
       </Box>
@@ -100,17 +114,21 @@ export function HomeContent({
           <Section>
             <SectionHeading title="Project" />
             <SimpleGrid columns={1} gap={6} pt={6}>
-              {projects.map(project => (
-                <Section key={project.sys.id}>
-                  <ProjectPreview
-                    slug={project.fields.slug}
-                    title={project.fields.title}
-                    thumbnail={project.fields.thumbnail.fields.file}
-                  >
-                    {project.fields.abstract}
-                  </ProjectPreview>
-                </Section>
-              ))}
+              {projects.map(project => {
+                // Contentful does not provide support for the types of linked fields so cast it here
+                const thumbnail = project.fields.thumbnail as Asset
+                return (
+                  <Section key={project.sys.id}>
+                    <ProjectPreview
+                      slug={project.fields.slug}
+                      title={project.fields.title}
+                      thumbnail={thumbnail.fields.file}
+                    >
+                      {project.fields.abstract}
+                    </ProjectPreview>
+                  </Section>
+                )
+              })}
             </SimpleGrid>
           </Section>
         </Box>

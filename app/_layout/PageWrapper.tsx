@@ -23,10 +23,10 @@ export function PageWrapper({ children }: { children: React.ReactNode }) {
         {children}
         <Global
           styles={`
-  .grid-item-thumbnail {
-    border-radius:12px
-  }
-  `}
+            .grid-item-thumbnail {
+              border-radius:12px
+            }
+          `}
         />
       </>
     </motion.article>
