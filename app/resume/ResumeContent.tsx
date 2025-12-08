@@ -7,7 +7,7 @@ import { MdHistory } from 'react-icons/md'
 import { GiMeal } from 'react-icons/gi'
 import { Link as Scroll } from 'react-scroll'
 import { SectionHeading } from '../../components/SectionHeading'
-import { PageWrapper } from '../_layout/page-wrapper'
+import { PageWrapper } from '../_layout/PageWrapper'
 
 //ResumeFormat
 const ResumeFormat = props => {

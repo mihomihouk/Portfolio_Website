@@ -1,5 +1,5 @@
 import { client } from '../../libs/client'
-import { ProjectsContent } from './projects-content'
+import { ProjectsContent } from './ProjectsContent'
 
 export default async function Projects() {
   const projects = await client.getEntries({

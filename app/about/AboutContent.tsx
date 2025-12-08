@@ -2,7 +2,7 @@
 import { Box, SimpleGrid, Stack, Text, List, ListItem } from '@chakra-ui/react'
 import { client } from '../../libs/client'
 import { Section } from '../../components/Section'
-import { PageWrapper } from '../_layout/page-wrapper'
+import { PageWrapper } from '../_layout/PageWrapper'
 import { PageTitle } from '../../components/PageTitle'
 import Image from 'next/image'
 import { SectionHeading } from '../../components/SectionHeading'

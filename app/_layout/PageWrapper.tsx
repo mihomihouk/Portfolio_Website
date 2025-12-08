@@ -1,8 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { GridItemStyle } from '../../components/GridItem'
 import React from 'react'
+import { Global } from '@emotion/react'
 
 const variants = {
   hidden: { opacity: 0, x: 0, y: 20 },
@@ -24,5 +24,17 @@ export function PageWrapper({ children }: { children: React.ReactNode }) {
         <GridItemStyle />
       </>
     </motion.article>
+  )
+}
+
+function GridItemStyle() {
+  return (
+    <Global
+      styles={`
+  .grid-item-thumbnail {
+    border-radius:12px
+  }
+  `}
+    />
   )
 }

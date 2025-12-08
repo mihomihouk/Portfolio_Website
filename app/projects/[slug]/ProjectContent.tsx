@@ -4,7 +4,7 @@ import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { Title, ProjectImage, Meta } from '../../../components/Project'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { Section } from '../../../components/Section'
-import { PageWrapper } from '../../_layout/page-wrapper'
+import { PageWrapper } from '../../_layout/PageWrapper'
 import { Badge } from '../../../components/Badge'
 
 export function ProjectContent({ project }) {

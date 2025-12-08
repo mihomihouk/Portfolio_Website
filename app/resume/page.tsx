@@ -1,5 +1,5 @@
 import { client } from '../../libs/client'
-import { ResumeContent } from './resume-content'
+import { ResumeContent } from './ResumeContent'
 
 export default async function Resume() {
   const agileLogo = await client.getAsset('1y0uxAPI1Wfdwabrhizd1A')

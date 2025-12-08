@@ -1,5 +1,5 @@
 import { client } from '../../../libs/client'
-import { ProjectContent } from './project-content'
+import { ProjectContent } from './ProjectContent'
 
 export async function generateStaticParams() {
   const projects = await client.getEntries({

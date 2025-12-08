@@ -1,7 +1,8 @@
-import { HomeContent } from './home-content'
+import { HomeContent } from './HomeContent'
 import { client } from '../libs/client'
 
 export default async function Page() {
+  // TODO: type
   const projects = await client.getEntries({
     content_type: 'projects'
   })

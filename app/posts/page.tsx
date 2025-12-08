@@ -1,5 +1,5 @@
 import { client } from '../../libs/client'
-import { PostsContent } from './posts-content'
+import { PostsContent } from './PostsContent'
 
 export default async function Posts() {
   const res = await client.getEntries({

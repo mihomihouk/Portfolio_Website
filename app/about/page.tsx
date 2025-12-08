@@ -1,5 +1,5 @@
 import { client } from '../../libs/client'
-import { AboutContent } from './about-content'
+import { AboutContent } from './AboutContent'
 
 export default async function About() {
   const firstView = await client.getAsset('4pOuhvWFjuBUkseHNzUFZO')

@@ -1,10 +1,10 @@
 'use client'
 
 import { Box, SimpleGrid } from '@chakra-ui/react'
-import { ProjectGridItem } from '../../components/GridItem'
+import { ProjectPreview } from '../../features/project/ProjectPreview'
 import { PageTitle } from '../../components/PageTitle'
 import { Section } from '../../components/Section'
-import { PageWrapper } from '../_layout/page-wrapper'
+import { PageWrapper } from '../_layout/PageWrapper'
 
 export function ProjectsContent({ projects }) {
   return (
@@ -15,13 +15,13 @@ export function ProjectsContent({ projects }) {
           <SimpleGrid columns={1} gap={6}>
             {projects.map(project => (
               <Section key={project.sys.id}>
-                <ProjectGridItem
+                <ProjectPreview
                   slug={project.fields.slug}
                   title={project.fields.title}
                   thumbnail={project.fields.thumbnail.fields.file}
                 >
                   {project.fields.abstract}
-                </ProjectGridItem>
+                </ProjectPreview>
               </Section>
             ))}
           </SimpleGrid>
