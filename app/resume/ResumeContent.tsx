@@ -42,7 +42,7 @@ function ResumeFormat({
           <Box display="flex">
             <Text
               py="2px"
-              fontSize={['xl', 'xl', '3xl']}
+              fontSize={['lg', 'lg', '2xl']}
               fontWeight="bold"
               textAlign="left"
             >

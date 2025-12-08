@@ -15,30 +15,9 @@ import { Section } from '../components/Section'
 import { PageWrapper } from './_layout/PageWrapper'
 import Link from 'next/link'
 import { SectionHeading } from '../components/SectionHeading'
-import { ProjectPreview } from '../features/project/ProjectPreview'
 import { IconType } from 'react-icons'
 import { Projects } from '../types/contentful'
-import { Asset } from 'contentful'
-
-type SocialLinkProps = {
-  href: string
-  icon: IconType
-  ariaLabel: string
-}
-function SocialLink({ href, icon, ariaLabel }: SocialLinkProps) {
-  return (
-    <Link href={href} target="_blank">
-      <IconButton
-        variant="ghost"
-        colorScheme="orange.500"
-        size="lg"
-        aria-label={ariaLabel}
-      >
-        <Icon as={icon} />
-      </IconButton>
-    </Link>
-  )
-}
+import { ProjectsList } from '../features/project/ProjectsList'
 
 export function HomeContent({
   projects,
@@ -67,17 +46,13 @@ export function HomeContent({
               width={{ lg: '50%' }}
               mt={{ base: '4', lg: 0 }}
             >
-              <Text fontSize={['xl', '3xl', '5xl']} fontWeight="bold">
-                Hi, I'm Miho.
-              </Text>
-              <Text fontSize={['xl', '3xl', '5xl']} fontWeight="bold">
-                A full-stack engineer based in the UK.
-              </Text>
-              <Text fontSize={['md', 'xl', '3xl']} fontWeight="bold">
-                With 3 years of experience with a unique blend of full-stack
+              <HeroText large>Hi, I'm Miho.</HeroText>
+              <HeroText large>A software engineer based in the UK.</HeroText>
+              <HeroText>
+                With 3+ years of experience with a unique blend of full-stack
                 engineering and UI/UX design expertise, I craft intuitive,
                 high-impact digital products.
-              </Text>
+              </HeroText>
             </Box>
           </Box>
         </Box>
@@ -114,25 +89,46 @@ export function HomeContent({
           <Section>
             <SectionHeading title="Project" />
             <SimpleGrid columns={1} gap={6} pt={6}>
-              {projects.map(project => {
-                // Contentful does not provide support for the types of linked fields so cast it here
-                const thumbnail = project.fields.thumbnail as Asset
-                return (
-                  <Section key={project.sys.id}>
-                    <ProjectPreview
-                      slug={project.fields.slug}
-                      title={project.fields.title}
-                      thumbnail={thumbnail.fields.file}
-                    >
-                      {project.fields.abstract}
-                    </ProjectPreview>
-                  </Section>
-                )
-              })}
+              <ProjectsList projects={projects} />
             </SimpleGrid>
           </Section>
         </Box>
       </Box>
     </PageWrapper>
+  )
+}
+
+type SocialLinkProps = {
+  href: string
+  icon: IconType
+  ariaLabel: string
+}
+function SocialLink({ href, icon, ariaLabel }: SocialLinkProps) {
+  return (
+    <Link href={href} target="_blank">
+      <IconButton
+        variant="ghost"
+        colorScheme="orange.500"
+        size="lg"
+        aria-label={ariaLabel}
+      >
+        <Icon as={icon} />
+      </IconButton>
+    </Link>
+  )
+}
+
+type HeroTextProps = {
+  children: React.ReactNode
+  large?: boolean
+}
+function HeroText({ children, large = false }: HeroTextProps) {
+  return (
+    <Text
+      fontSize={large ? ['xl', '3xl', '5xl'] : ['md', 'xl', '3xl']}
+      fontWeight="bold"
+    >
+      {children}
+    </Text>
   )
 }

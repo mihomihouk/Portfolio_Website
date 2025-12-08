@@ -42,15 +42,8 @@ export const theme = createSystem(defaultConfig, {
         }
       }
     },
-    textStyles: {
-      // Base text style (default for all text)
-      body: {
-        value: {
-          fontSize: 'lg'
-        }
-      },
 
-      // Heading-like text styles
+    textStyles: {
       h1: {
         value: {
           fontSize: '5xl',
@@ -67,45 +60,6 @@ export const theme = createSystem(defaultConfig, {
         value: {
           fontSize: '3xl',
           fontWeight: 'bold'
-        }
-      },
-      h4: {
-        value: {
-          fontSize: '2xl',
-          fontWeight: 'bold'
-        }
-      },
-      h5: {
-        value: {
-          fontSize: 'xl',
-          fontWeight: 'bold'
-        }
-      },
-      h6: {
-        value: {
-          fontSize: 'md'
-        }
-      },
-      'sub-title': {
-        value: {
-          fontSize: '20px',
-          marginBottom: '2'
-        }
-      },
-      'section-title': {
-        value: {
-          fontSize: '4xl',
-          fontWeight: 'bold',
-          textDecorationColor: '#525252',
-          marginTop: '3',
-          marginBottom: '4'
-        }
-      },
-      'page-title': {
-        value: {
-          fontSize: '40px',
-          marginTop: '4',
-          marginBottom: '4'
         }
       }
     },
