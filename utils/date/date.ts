@@ -1,10 +1,12 @@
 import dayjs from 'dayjs'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
+import utc from 'dayjs/plugin/utc'
 import 'dayjs/locale/en-gb'
 import 'dayjs/locale/en'
 import 'dayjs/locale/ja'
 
 dayjs.extend(localizedFormat)
+dayjs.extend(utc)
 
 export function formatDate(dateStr: string, format: string): string {
   const supportedLocales = ['en-gb', 'en', 'ja']
@@ -13,5 +15,5 @@ export function formatDate(dateStr: string, format: string): string {
       ? navigator.language.toLowerCase()
       : 'en-gb'
   const locale = supportedLocales.includes(userLocale) ? userLocale : 'en-gb'
-  return dayjs(dateStr).locale(locale).format(format)
+  return dayjs.utc(dateStr).locale(locale).format(format)
 }
